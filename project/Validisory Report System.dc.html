@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F4FA;color:#12113A;font-family:Montserrat,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0B0A81;text-decoration:underline;text-underline-offset:2px}
+a:hover{color:#0F8B8D}
+*{box-sizing:border-box}
+</style>
+</helmet>
+
+<div style="max-width:1240px;margin:0 auto;padding:48px 40px 120px;display:flex;flex-direction:column;gap:72px">
+
+  <header style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;border-bottom:2px solid #0B0A81;padding-bottom:28px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:30px;width:auto;display:block">
+      <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:54px;line-height:1.02;letter-spacing:-0.02em;text-wrap:balance">Decision Intelligence Report System</h1>
+      <p style="margin:0;max-width:720px;font-size:16px;line-height:1.6;color:#4A4968;text-wrap:pretty">Stage 1. This is the reusable design language for every Validisory validation report. A report is generated from structured data, rendered on A4 master pages, and read in this order: decision, reasons, evidence, analysis, sources. The sample report applies the system to Micro-Tutorials AI (Report 17c91932).</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:#4A4968;text-align:right">
+      <span style="font-family:'Space Grotesk';font-weight:600;color:#12113A">v1.0 · Oct 2026</span>
+      <a href="Validisory%20Sample%20Report.dc.html">Open sample report →</a>
+    </div>
+  </header>
+
+  <nav style="display:flex;flex-wrap:wrap;gap:8px">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="14">
+      <a href="#{{ n.id }}" style="display:flex;gap:8px;align-items:baseline;padding:8px 12px;background:#FFFFFF;border:1px solid #E3E1EE;border-radius:2px;text-decoration:none;color:#12113A;font-size:12px;font-weight:500"><span style="font-family:'Space Grotesk';font-weight:700;color:#0B0A81">{{ n.k }}</span>{{ n.label }}</a>
+    </sc-for>
+  </nav>
+
+  <!-- A -->
+  <section id="A" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">A</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Visual direction</h2></div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <p style="margin:0;max-width:760px;font-size:15px;line-height:1.65;color:#2B2A4A;text-wrap:pretty">The report should read like an investment committee memo set in the Validisory identity. Deep brand blue on white carries authority, and lavender marks what the system knows or recommends. The three secondary brand colours (teal, gold, copper) each name an analytical family. Each one also carries meaning: teal for support, gold for conditions, copper for exposure. No other colours are introduced. Every visual state also has a glyph, a position or a label, so the report still works in greyscale print.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+          <div style="background:#FFFFFF;padding:20px;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#0B0A81">{{ p.n }}</span>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:16px">{{ p.t }}</span>
+            <span style="font-size:13px;line-height:1.55;color:#4A4968">{{ p.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- B -->
+  <section id="B" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">B</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Information architecture</h2></div>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">PROGRESSIVE DISCLOSURE</span>
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px">
+          <sc-for list="{{ disclosure }}" as="d" hint-placeholder-count="5">
+            <div style="background:{{ d.bg }};color:{{ d.fg }};padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;letter-spacing:0.06em">{{ d.t }}</span>
+              <span style="font-size:11.5px;line-height:1.45">{{ d.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">DECISION LOGIC: HOW A VERDICT IS FORMED</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:stretch">
+          <sc-for list="{{ logic }}" as="l" hint-placeholder-count="6">
+            <div style="flex:1 1 140px;border:1px solid #C9C6DC;background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:4px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;color:#0B0A81">{{ l.t }}</span>
+              <span style="font-size:11.5px;line-height:1.45;color:#4A4968">{{ l.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:12.5px;color:#4A4968;max-width:760px;line-height:1.55">Five quantities are never collapsed into one visual: <b>performance</b> (score bars, brand blue), <b>importance</b> (diamonds ◆), <b>evidence strength</b> (pips ■), <b>risk/exposure</b> (copper segmented scale), <b>uncertainty</b> (dashed outlines and hatching). A strong score with weak evidence must look different from a strong score with strong evidence.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">REPORT SECTIONS · FAMILY · DENSITY</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE">
+          <sc-for list="{{ sections }}" as="s" hint-placeholder-count="12">
+            <div style="display:grid;grid-template-columns:44px 6px minmax(0,1.4fr) minmax(0,1fr) 110px minmax(0,1.6fr);gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid #EFEDF5;font-size:12.5px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:15px;color:#0B0A81">{{ s.n }}</span>
+              <span style="width:4px;height:22px;background:{{ s.c }}"></span>
+              <span style="font-family:'Space Grotesk';font-weight:600;font-size:14px">{{ s.t }}</span>
+              <span style="color:#4A4968">{{ s.f }}</span>
+              <span style="font-family:'Space Grotesk';font-weight:600;font-size:10.5px;letter-spacing:0.1em;color:#4A4968">{{ s.d }}</span>
+              <span style="color:#6E6D88;font-size:11.5px">{{ s.m }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:12px;color:#6E6D88">Audit note: the source report has 134 pages of nested bullets in 11 engine modules (BMC, Market, Competitive, Financials, Technical, Regulatory, GTM, Risks, Roadmap, Funding, Pitch). The Financials module is empty ("N/A") in this report. Its economics are spread across the BMC, Market and Roadmap modules, so section 05 gathers them in one place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- G -->
+  <section id="G" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">G</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Semantic colour</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">Brand hexes from the Validisory Brand Guideline. Ink, soft and text variants are derived for contrast.</p></div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px">
+        <sc-for list="{{ swatches }}" as="c" hint-placeholder-count="12">
+          <div style="background:#FFFFFF;border:1px solid #E3E1EE;display:flex;flex-direction:column">
+            <div style="height:64px;background:{{ c.hex }};border-bottom:1px solid #E3E1EE"></div>
+            <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ c.name }}</span>
+              <span style="font-size:11px;color:#4A4968;font-variant-numeric:tabular-nums">{{ c.hex }} · {{ c.src }}</span>
+              <span style="font-size:11px;color:#6E6D88;line-height:1.4">{{ c.use }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">SECTION FAMILIES: PAGE-EDGE TAB, RULE AND LABEL ONLY</span>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+          <sc-for list="{{ families }}" as="f" hint-placeholder-count="4">
+            <div style="background:#FFFFFF;border:1px solid #E3E1EE;position:relative;padding:16px 16px 16px 22px;display:flex;flex-direction:column;gap:6px;overflow:hidden">
+              <span style="position:absolute;left:0;top:0;bottom:0;width:6px;background:{{ f.c }}"></span>
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.14em;color:{{ f.ink }}">{{ f.label }}</span>
+              <span style="height:2px;background:{{ f.c }};width:40px"></span>
+              <span style="font-size:12px;color:#4A4968;line-height:1.45">{{ f.s }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:12px;color:#6E6D88;max-width:760px;line-height:1.5">Rules: family colour is limited to about 4% of a page (tab, 2px rule, label, chart accents). Pages never get a full-bleed colour flood except the cover and section openers, which use brand blue. Copper does not mean "bad" and teal does not mean "good" by themselves. A label always says what is meant.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- H -->
+  <section id="H" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">H</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Typography</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">Space Grotesk (primary, brand) for display, headings, labels and numbers. Montserrat (secondary, brand) for reading text. Sizes in px at A4 96 dpi; pt in brackets.</p></div>
+    <div style="background:#FFFFFF;border:1px solid #E3E1EE">
+      <sc-for list="{{ type }}" as="t" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:130px minmax(0,1fr) 200px;gap:20px;align-items:baseline;padding:16px 20px;border-bottom:1px solid #EFEDF5">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.12em;color:#6E6D88">{{ t.role }}</span>
+          <span style="font-family:{{ t.ff }};font-weight:{{ t.fw }};font-size:{{ t.fs }};line-height:{{ t.lh }};letter-spacing:{{ t.ls }};text-transform:{{ t.tt }};color:#12113A;font-variant-numeric:tabular-nums">{{ t.sample }}</span>
+          <span style="font-size:11px;color:#4A4968;line-height:1.45">{{ t.spec }}</span>
+        </div>
+      </sc-for>
+      <div style="padding:16px 20px;font-size:12px;color:#4A4968;line-height:1.55">Measure: body text max 68 characters (about 420px at 14px). Long analysis uses a 2-column 7/5 split with the margin column for metrics and source notes. Numbers always use tabular figures, and units are set at 0.6× the metric size.</div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section id="GR" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">GRID</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Grid &amp; spacing</h2></div>
+    <div style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;align-items:start">
+      <div style="aspect-ratio:210/297;background:#FFFFFF;border:1px solid #C9C6DC;position:relative;padding:5.5% 6% 4%;display:flex;flex-direction:column;gap:6px">
+        <div style="height:14px;border-bottom:1px solid #C9C6DC;font-size:7px;color:#6E6D88;font-family:'Space Grotesk';letter-spacing:0.1em">HEADER · 28px</div>
+        <div style="flex:1;display:grid;grid-template-columns:repeat(12,1fr);gap:4px">
+          <sc-for list="{{ cols }}" as="c" hint-placeholder-count="12"><div style="background:#F1E8FF"></div></sc-for>
+        </div>
+        <div style="height:12px;border-top:1px solid #C9C6DC;font-size:7px;color:#6E6D88;font-family:'Space Grotesk';letter-spacing:0.1em">FOOTER · 24px</div>
+        <span style="position:absolute;right:0;top:22%;width:5px;height:12%;background:#0F8B8D"></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;font-size:13px;line-height:1.55;color:#2B2A4A">
+        <p style="margin:0"><b>Page:</b> A4, 210 × 297 mm, rendered as 794 × 1123 px. Margins 48 px left/right, 36 px top, 28 px bottom. All content is kept inside 794 × 1040 px so a page also prints on US Letter without clipping.</p>
+        <p style="margin:0"><b>Columns:</b> 12 columns, 16 px gutters, 698 px live width. Common spans are 12, 8+4, 7+5, 6+6, 4+4+4 and 3×4.</p>
+        <p style="margin:0"><b>Page-edge tab:</b> 5 × 120 px in the family colour on the right edge. Its vertical position is set by section number, so the edge of a printed stack works as a thumb index.</p>
+        <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+          <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="8">
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+              <div style="width:{{ s.px }};height:{{ s.px }};background:#0B0A81"></div>
+              <span style="font-family:'Space Grotesk';font-size:11px;font-weight:600">{{ s.v }}</span>
+              <span style="font-size:10px;color:#6E6D88">{{ s.n }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:12px;color:#6E6D88">Spacing scale is on a 4 px base. Components use 8/12/16 internally. Blocks within a page are separated by 24/32. A new section on a page gets 48.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- I -->
+  <section id="I" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">I</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Badge &amp; state system</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">Every state = label + glyph/position + colour. Remove colour and the state still reads.</p></div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">DECISIONBADGE · position on a 5-step track</span>
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="5">
+            <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px;display:flex;flex-direction:column;gap:10px">
+              <span style="align-self:flex-start;background:{{ d.bg }};color:{{ d.fg }};font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.1em;padding:6px 10px">{{ d.label }}</span>
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px">
+                <sc-for list="{{ d.track }}" as="k"><span style="height:6px;background:{{ k.bg }}"></span></sc-for>
+              </div>
+              <span style="font-size:11.5px;line-height:1.45;color:#4A4968">{{ d.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">EVIDENCEBADGE · pips</span>
+          <sc-for list="{{ evidence }}" as="e" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center">
+              <span style="display:flex;gap:6px;align-items:center;border:1px solid #C9C6DC;padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.1em;color:#0B0A81;min-width:136px">
+                <span style="display:flex;gap:2px"><sc-for list="{{ e.pips }}" as="p"><span style="width:8px;height:8px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ e.label }}</span>
+              <span style="font-size:11.5px;color:#4A4968;line-height:1.4">{{ e.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">RISKBADGE / EXPOSURE · segmented</span>
+          <sc-for list="{{ risks }}" as="r" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center">
+              <span style="display:flex;gap:6px;align-items:center;background:{{ r.bg }};padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.08em;color:{{ r.fg }};min-width:170px">
+                <span style="display:flex;gap:2px"><sc-for list="{{ r.segs }}" as="s"><span style="width:10px;height:6px;background:{{ s.bg }};background-image:{{ s.img }}"></span></sc-for></span>{{ r.label }}</span>
+              <span style="font-size:11.5px;color:#4A4968;line-height:1.4">{{ r.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">IMPORTANCE · diamonds</span>
+          <sc-for list="{{ importance }}" as="m" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.1em;color:#12113A"><span style="letter-spacing:1px;margin-right:6px">{{ m.g }}</span>{{ m.label }}</span>
+              <span style="font-size:11.5px;color:#4A4968;line-height:1.4">{{ m.desc }}</span>
+            </div>
+          </sc-for>
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88;margin-top:8px">TREND</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ trends }}" as="t" hint-placeholder-count="4">
+              <span style="border:1px solid #C9C6DC;padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.08em;color:#12113A">{{ t.g }} {{ t.label }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">SOURCE TYPE · provenance tag</span>
+          <sc-for list="{{ provenance }}" as="p" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center">
+              <span style="justify-self:start;display:flex;gap:6px;align-items:center;background:{{ p.bg }};border:1px {{ p.bs }} {{ p.bd }};color:{{ p.fg }};padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em"><span>{{ p.code }}</span><span style="font-weight:500">{{ p.label }}</span></span>
+              <span style="font-size:11.5px;color:#4A4968;line-height:1.4">{{ p.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">DECISION IMPACT · module verdict</span>
+          <sc-for list="{{ impacts }}" as="i" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center">
+              <span style="justify-self:start;display:flex;gap:6px;align-items:center;border-left:4px solid {{ i.c }};background:#F5F4FA;padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.1em;color:#12113A">{{ i.g }} {{ i.label }}</span>
+              <span style="font-size:11.5px;color:#4A4968;line-height:1.4">{{ i.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.14em;color:#6E6D88">DATA QUALITY FLAGS</span>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:11.5px;color:#4A4968;line-height:1.4">
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center"><span style="justify-self:start;border:1px dashed #8A4F1C;color:#8A4F1C;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">⚠ SOURCE CONFLICT</span><span>Two places in the source give different values. Both are shown with page references.</span></div>
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center"><span style="justify-self:start;background-image:repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px);border:1px solid #C9C6DC;color:#4A4968;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">— NOT PROVIDED</span><span>The engine did not return this field. The slot keeps its geometry and is shown hatched. Values are never interpolated.</span></div>
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center"><span style="justify-self:start;border:1px solid #C9C6DC;color:#4A4968;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">◇ TEMPLATE-DERIVED</span><span>A state the template derived from source text, such as evidence strength. The basis quote is always shown next to it.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D -->
+  <section id="D" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">D</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Component library</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">Shown with real values from the sample report.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;VentureScore /&gt;</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:64px;line-height:0.9;letter-spacing:-0.03em;color:#0B0A81">51.5</span><span style="font-family:'Space Grotesk';font-size:18px;color:#6E6D88">/100</span></div>
+          <div style="position:relative;height:22px">
+            <div style="position:absolute;inset:8px 0;display:grid;grid-template-columns:40fr 15fr 15fr 30fr;gap:2px"><span style="background:#ECEAF5"></span><span style="background:#DFC6FF"></span><span style="background:#F7F0DA"></span><span style="background:#E2F1F1"></span></div>
+            <div style="position:absolute;left:51.5%;top:0;bottom:0;width:3px;background:#0B0A81;transform:translateX(-1px)"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:40fr 15fr 15fr 30fr;gap:2px;font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.06em;color:#6E6D88"><span>NO-GO / STOP</span><span>REVAL.</span><span>COND.</span><span style="text-align:right">GO</span></div>
+          <p style="margin:0;font-size:11px;color:#6E6D88;line-height:1.45">Linear 0–100 track with the decision bands behind it. Band thresholds come from the engine config. Here they are <b>not provided by source</b> and are shown for layout only. No gauge.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;DimensionScoreCard /&gt;</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Space Grotesk';font-weight:700;font-size:15px">Financial Viability</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:26px;color:#0B0A81">4<span style="font-size:13px;color:#6E6D88">/10</span></span></div>
+          <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:2px"><span style="height:6px;background:#0B0A81"></span><span style="height:6px;background:#0B0A81"></span><span style="height:6px;background:#0B0A81"></span><span style="height:6px;background:#0B0A81"></span><span style="height:6px;background:#ECEAF5"></span><span style="height:6px;background:#ECEAF5"></span><span style="height:6px;background:#ECEAF5"></span><span style="height:6px;background:#ECEAF5"></span><span style="height:6px;background:#ECEAF5"></span><span style="height:6px;background:#ECEAF5"></span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="border-left:4px solid #B87333;background:#F5F4FA;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">▼ CONSTRAINS</span><span style="display:flex;gap:5px;align-items:center;border:1px solid #C9C6DC;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em;color:#0B0A81"><span style="display:flex;gap:2px"><span style="width:7px;height:7px;background:#0B0A81;border:1px solid #0B0A81"></span><span style="width:7px;height:7px;border:1px solid #0B0A81"></span><span style="width:7px;height:7px;border:1px solid #0B0A81"></span></span>WEAK</span></div>
+          <span style="font-size:12px;line-height:1.5;color:#2B2A4A">LTV $2.40–$5 at 2–5% conversion requires 3–6 month retention; AdSense-dependent.</span>
+          <span style="font-size:10.5px;color:#6E6D88">See analysis → p.11</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;MaterialCondition /&gt;: signature component</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;display:grid;grid-template-columns:64px minmax(0,1.6fr) repeat(3,minmax(0,1fr));align-items:stretch">
+          <div style="background:#0B0A81;color:#FFFFFF;font-family:'Space Grotesk';font-weight:700;font-size:26px;display:flex;align-items:center;justify-content:center">02</div>
+          <div style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:0.02em">SMB owners will pay €9/month for premium</span><span style="font-size:12px;color:#4A4968;line-height:1.5">2–5% free-to-premium conversion is a target; interviews to confirm willingness to pay are listed as an immediate action, not yet done.</span></div>
+          <div style="padding:14px 12px;border-left:1px solid #EFEDF5;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#6E6D88">EVIDENCE</span><span style="display:flex;gap:5px;align-items:center;font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#0B0A81"><span style="display:flex;gap:2px"><span style="width:8px;height:8px;border:1px dashed #0B0A81"></span><span style="width:8px;height:8px;border:1px dashed #0B0A81"></span><span style="width:8px;height:8px;border:1px dashed #0B0A81"></span></span>UNVALIDATED</span></div>
+          <div style="padding:14px 12px;border-left:1px solid #EFEDF5;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#6E6D88">IMPORTANCE</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:11px">◆◆◆ MATERIAL</span></div>
+          <div style="padding:14px 12px;border-left:1px solid #EFEDF5;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#6E6D88">EXPOSURE IF WRONG</span><span style="align-self:flex-start;display:flex;gap:5px;align-items:center;background:#F6EADF;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;color:#8A4F1C"><span style="display:flex;gap:2px"><span style="width:9px;height:6px;background:#B87333"></span><span style="width:9px;height:6px;background:#B87333"></span><span style="width:9px;height:6px;background:#B87333"></span><span style="width:9px;height:6px;background:#E8D3C0"></span></span>HIGH</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;KeyMetric /&gt; with assumption indicator</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+          <div style="background:#FFFFFF;padding:16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:32px;line-height:1;letter-spacing:-0.02em">€285<span style="font-size:18px">M</span></span><span style="font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.14em;color:#4A4968">SERVICEABLE MARKET</span><span style="align-self:flex-start;background:#DFC6FF;color:#0B0A81;padding:2px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.1em">EST · MODEL ESTIMATE</span></div>
+          <div style="background:#FFFFFF;padding:16px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:32px;line-height:1;letter-spacing:-0.02em">3–6<span style="font-size:18px"> mo</span></span><span style="font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.14em;color:#4A4968">PREMIUM RETENTION</span><span style="align-self:flex-start;border:1px dashed #0B0A81;color:#0B0A81;padding:2px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.1em">ASM · UNVALIDATED</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;DecisionTrigger /&gt;</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch">
+          <div style="padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;line-height:1.45">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#8A4F1C;letter-spacing:0.08em">IF</span><span>organic traffic &lt; <b>5,000 visitors/month</b></span></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#8A4F1C;letter-spacing:0.08em">AFTER</span><span><b>6 months</b> and <b>100+</b> published tutorials</span></div>
+          </div>
+          <div style="background:#12113A;color:#FFFFFF;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:140px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#DFC6FF">THEN →</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;letter-spacing:0.06em">STOP / PIVOT</span><span style="font-size:10.5px;color:#C9C6DC">SEO strategy failed</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;InsightCallout /&gt;</span>
+        <div style="background:#F1E8FF;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#0B0A81">KEY FINDING</span>
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:17px;line-height:1.35;color:#12113A">Market size is not the constraint. Conversion and retention are, and neither has been observed yet.</span>
+          <span style="font-size:10.5px;color:#4A4968">Basis: Market Analysis [3][7]; BMC Revenue Streams</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;SourceCard /&gt;</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px 16px;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;color:#0B0A81">[2]</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">W3Techs</span><span style="background:#12113A;color:#FFFFFF;padding:2px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.1em">EXT</span><span style="font-size:11px;color:#4A4968">April 2025</span></div>
+            <span style="font-size:12px;line-height:1.45">WordPress powers 43.4% of all websites.</span>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:10.5px;color:#4A4968"><span style="color:#6E6D88">Used for</span><span>TAM filter, Growth drivers</span><span style="color:#6E6D88">URL</span><span style="background-image:repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px);padding:0 4px;justify-self:start">— not provided</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;PageHeader /&gt; &lt;PageFooter /&gt;</span>
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px 16px;display:flex;flex-direction:column;gap:40px;position:relative;overflow:hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px;align-items:center"><span style="color:#0F8B8D;font-weight:700">03</span><span style="font-weight:600">MARKET &amp; CUSTOMER</span><span>/ MARKET OPPORTUNITY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+          <div style="display:flex;justify-content:space-between;font-size:9.5px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">10 / 134</span></div>
+          <span style="position:absolute;right:0;top:30px;width:5px;height:50px;background:#0F8B8D"></span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:0.1em;color:#0B0A81">&lt;AnalysisModule /&gt; anatomy: fixed order, every module</span>
+        <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px">
+          <sc-for list="{{ moduleAnatomy }}" as="m" hint-placeholder-count="7">
+            <div style="background:#FFFFFF;border-top:3px solid #0B0A81;padding:12px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;color:#6E6D88">{{ m.n }}</span>
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.04em">{{ m.t }}</span>
+              <span style="font-size:11px;color:#4A4968;line-height:1.4">{{ m.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section id="C" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">C</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Master page templates</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">12 masters. Every master except the cover carries PageHeader, PageFooter and the edge tab.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px">
+      <sc-for list="{{ masters }}" as="m" hint-placeholder-count="12">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="aspect-ratio:210/297;background:{{ m.bg }};border:1px solid #C9C6DC;position:relative;overflow:hidden">
+            <sc-for list="{{ m.blocks }}" as="b"><span style="position:absolute;left:{{ b.x }};top:{{ b.y }};width:{{ b.w }};height:{{ b.h }};background:{{ b.c }}"></span></sc-for>
+          </div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ m.name }}</span>
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:9.5px;letter-spacing:0.12em;color:#6E6D88">{{ m.density }} · {{ m.used }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- E -->
+  <section id="E" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">E</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Chart library</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">Each chart has a fixed frame and a data rule. Sketches are schematic and carry no data.</p></div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:16px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px">
+        <sc-for list="{{ chartFrame }}" as="f" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#0B0A81">{{ f.n }} {{ f.t }}</span><span style="font-size:11px;color:#4A4968;line-height:1.4">{{ f.d }}</span></div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px">
+        <sc-for list="{{ charts }}" as="c" hint-placeholder-count="15">
+          <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px;display:flex;flex-direction:column;gap:10px">
+            <div style="height:70px;position:relative;background:#F5F4FA">
+              <sc-for list="{{ c.g }}" as="b"><span style="position:absolute;left:{{ b.x }};bottom:{{ b.y }};width:{{ b.w }};height:{{ b.h }};background:{{ b.c }};border-radius:{{ b.r }}"></span></sc-for>
+            </div>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ c.name }}</span>
+            <span style="font-size:11px;color:#4A4968;line-height:1.45"><b style="color:#12113A">Use when</b> {{ c.when }}</span>
+            <span style="font-size:11px;color:#6E6D88;line-height:1.45"><b>Rule</b> {{ c.rule }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:0;font-size:12px;color:#4A4968;max-width:820px;line-height:1.55">Ranges are first-class. Source data is mostly ranges (e.g. €18k–27k), so a bar is drawn as a solid core at the low value plus a lighter extension to the high value, with both ends labelled. A midpoint may be used to position marks, but it is never printed as a fact.</p>
+    </div>
+  </section>
+
+  <!-- F -->
+  <section id="F" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">F</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Table library</h2></div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#FFFFFF;border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 110px 110px 150px 120px;gap:12px;padding:10px 14px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.12em"><span>ASSUMPTION</span><span style="text-align:right">VALUE</span><span>TYPE</span><span>EVIDENCE</span><span style="text-align:right">SOURCE</span></div>
+        <sc-for list="{{ assumptionRows }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 110px 110px 150px 120px;gap:12px;padding:10px 14px;border-bottom:1px solid #EFEDF5;font-size:12px;align-items:center;background:{{ r.hl }}">
+            <span>{{ r.a }}</span><span style="text-align:right;font-family:'Space Grotesk';font-weight:700;font-variant-numeric:tabular-nums">{{ r.v }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.08em">{{ r.t }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.08em;color:#0B0A81">{{ r.e }}</span><span style="text-align:right;font-size:11px;color:#4A4968">{{ r.s }}</span>
+          </div>
+        </sc-for>
+        <div style="padding:8px 14px;font-size:10.5px;color:#6E6D88">Example: ASSUMPTION TABLE. Header in ink (prints as a solid band and repeats on continuation pages). Hairline rows, numbers right-aligned, units in the header or suffix, one highlight per table at most.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+        <sc-for list="{{ tables }}" as="t" hint-placeholder-count="7">
+          <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ t.name }}</span>
+            <span style="font-family:'Space Grotesk';font-size:10px;letter-spacing:0.08em;color:#0B0A81;line-height:1.5">{{ t.cols }}</span>
+            <span style="font-size:11px;color:#4A4968;line-height:1.45">{{ t.rule }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- K -->
+  <section id="K" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">K</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Generation rules</h2><p style="margin:0;font-size:12px;color:#6E6D88;line-height:1.5">How the engine's JSON becomes pages.</p></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start">
+      <pre style="margin:0;background:#12113A;color:#ECEAF5;padding:20px;font-size:11.5px;line-height:1.6;overflow:auto;font-family:ui-monospace,Menlo,monospace">{{ schema }}</pre>
+      <ol style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:10px;font-size:12.5px;line-height:1.55;color:#2B2A4A">
+        <sc-for list="{{ genRules }}" as="g" hint-placeholder-count="8"><li>{{ g }}</li></sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <!-- L -->
+  <section id="L" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">L</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Variable-content behaviour</h2></div>
+    <div style="background:#FFFFFF;border:1px solid #E3E1EE;overflow-x:auto">
+      <div style="display:grid;grid-template-columns:150px repeat(5,minmax(140px,1fr));gap:12px;padding:10px 14px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.1em;min-width:900px"><span>COMPONENT</span><span>LONGER</span><span>SHORTER / FEWER</span><span>MORE ITEMS</span><span>MISSING DATA</span><span>N/A SECTION</span></div>
+      <sc-for list="{{ variable }}" as="v" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:150px repeat(5,minmax(140px,1fr));gap:12px;padding:10px 14px;border-bottom:1px solid #EFEDF5;font-size:11.5px;line-height:1.45;color:#2B2A4A;min-width:900px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#12113A">{{ v.c }}</span><span>{{ v.l }}</span><span>{{ v.s }}</span><span>{{ v.m }}</span><span>{{ v.x }}</span><span>{{ v.n }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- M -->
+  <section id="M" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">M</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Print &amp; PDF pagination</h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+      <sc-for list="{{ printRules }}" as="p" hint-placeholder-count="10">
+        <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:14px 16px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;color:#0B0A81">{{ p.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ p.t }}</span><span style="font-size:12px;color:#4A4968;line-height:1.5">{{ p.d }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- N -->
+  <section id="N" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em;color:#0B0A81">N</span><h2 style="margin:0;font-family:'Space Grotesk';font-size:24px;line-height:1.15">Implementation recommendations</h2></div>
+    <div style="display:flex;flex-direction:column;gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+      <sc-for list="{{ impl }}" as="i" hint-placeholder-count="8">
+        <div style="background:#FFFFFF;padding:14px 18px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px">{{ i.t }}</span>
+          <span style="font-size:12.5px;color:#2B2A4A;line-height:1.55">{{ i.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const B='#0B0A81', INK='#12113A', L='#DFC6FF', T='#0F8B8D', G='#C9A227', C='#B87333';
+    const pips=(n,dash)=>[0,1,2].map(i=>({bg:(!dash&&i<n)?B:'transparent',bs:dash?'dashed':'solid'}));
+    const hatch='repeating-linear-gradient(135deg,#C9C6DC 0 2px,#FFFFFF 2px 4px)';
+    const segs=(n,nd)=>[0,1,2,3].map(i=>({bg:nd?'#FFFFFF':(i<n?(n===4?'#7A2E14':C):'#E8D3C0'),img:nd?hatch:'none'}));
+    const order=['STOP','NO-GO','REVALIDATE','CONDITIONAL-GO','GO'];
+    const dec=[
+      {label:'GO',bg:'#0B6466',fg:'#FFFFFF',desc:'Proceed to build. Material conditions are evidenced and exposure is acceptable.'},
+      {label:'CONDITIONAL-GO',bg:G,fg:INK,desc:'Proceed only through defined gates, with kill-switches attached.'},
+      {label:'REVALIDATE',bg:L,fg:B,desc:'Material conditions are unevidenced. Collect the evidence before committing resources.'},
+      {label:'NO-GO',bg:'#8A4F1C',fg:'#FFFFFF',desc:'Do not proceed in the current form. Pivot options may exist.'},
+      {label:'STOP',bg:INK,fg:'#FFFFFF',desc:'A material condition has failed or a kill-switch has fired.'}
+    ].map(d=>({...d,track:order.map(o=>({bg:o===d.label?d.bg:'#ECEAF5'}))}));
+    const blk=(x,y,w,h,c)=>({x:x+'%',y:y+'%',w:w+'%',h:h+'%',c});
+    const hdr=[blk(8,4,84,1.2,'#C9C6DC'),blk(8,95,84,0.8,'#C9C6DC')];
+    const tab=(y,c)=>blk(97,y,3,10,c);
+    const ch=(arr)=>arr.map(([x,y,w,h,c,r])=>({x:x+'%',y:y+'%',w:w+'%',h:h+'%',c:c||B,r:r||'0'}));
+    return {
+      nav:[['A','Direction'],['B','Architecture'],['G','Colour'],['H','Type'],['GRID','Grid'],['I','Badges'],['D','Components'],['C','Page masters'],['E','Charts'],['F','Tables'],['K','Generation'],['L','Variable content'],['M','Pagination'],['N','Implementation']].map(([k,label])=>({k,label,id:k==='GRID'?'GR':k})),
+      principles:[
+        {n:'01',t:'Verdict first',d:'Page 3 answers "what should I do?" in under a minute. Each later page adds reasons, then evidence, then sources.'},
+        {n:'02',t:'Unequal on purpose',d:'Decision-critical items get size and colour. Reference material gets density. Not everything is a card.'},
+        {n:'03',t:'Auditable by default',d:'Every figure has a provenance tag and a source reference. Conflicts and gaps are shown, not smoothed over.'},
+        {n:'04',t:'Restrained brand',d:'Brand blue and lavender carry the identity. Teal, gold and copper mark families and states, and only as accents.'}
+      ],
+      disclosure:[
+        {t:'DECISION',d:'Verdict, score, evidence quality. 30–60 s.',bg:B,fg:'#FFFFFF'},
+        {t:'REASONS',d:'Drivers, constraints, material conditions.',bg:'#2B2A9A',fg:'#FFFFFF'},
+        {t:'EVIDENCE',d:'Metrics, assumptions, evidence states. 5–10 min.',bg:L,fg:B},
+        {t:'ANALYSIS',d:'Modules with charts and interpretation.',bg:'#ECEAF5',fg:INK},
+        {t:'SOURCES',d:'Numbered source cards, methods, appendix.',bg:'#FFFFFF',fg:INK}
+      ],
+      logic:[
+        {t:'Condition',d:'Something that must be true for the venture to work.'},
+        {t:'Strength',d:'How well the evidence supports it (Strong → Unvalidated).'},
+        {t:'Weight',d:'How much the decision depends on it (Material → Contributing).'},
+        {t:'Exposure',d:'Damage if the condition turns out false (Low → Critical).'},
+        {t:'Venture state',d:'Score and dimension profile.'},
+        {t:'Recommendation',d:'Go · Conditional-Go · Revalidate · No-Go · Stop.'}
+      ],
+      sections:[
+        {n:'01',t:'Decision',f:'Decision Intelligence',c:B,d:'EXECUTIVE',m:'Verdict, score, drivers, constraints, open questions'},
+        {n:'02',t:'Venture Case',f:'Decision Intelligence',c:B,d:'EXECUTIVE',m:'At a glance, material conditions, summary, strengths/risks, actions'},
+        {n:'03',t:'Market & Customer',f:'Market & Customer',c:T,d:'ANALYTICAL',m:'TAM/SAM/SOM, growth trends, ICP, pain points'},
+        {n:'04',t:'Business Model',f:'Economics & Execution',c:G,d:'ANALYTICAL',m:'Canvas, signals, key metrics'},
+        {n:'05',t:'Financial Feasibility',f:'Economics & Execution',c:G,d:'ANALYTICAL',m:'Revenue build, unit economics, cost tiers, assumptions'},
+        {n:'06',t:'Competition',f:'Market & Customer',c:T,d:'ANALYTICAL',m:'Positioning, competitor table, five forces, moats'},
+        {n:'07',t:'Technical Feasibility',f:'Economics & Execution',c:G,d:'ANALYTICAL',m:'Stack, MVP effort, dependencies, scaling triggers'},
+        {n:'08',t:'Regulatory Exposure',f:'Risk & Regulatory',c:C,d:'REFERENCE',m:'Regulation register, compliance cost'},
+        {n:'09',t:'Risk',f:'Risk & Regulatory',c:C,d:'ANALYTICAL',m:'Matrix, register, kill-switches, dependencies'},
+        {n:'10',t:'Scenario Analysis',f:'Decision Intelligence',c:B,d:'ANALYTICAL',m:'Base case, what-ifs, contingency triggers'},
+        {n:'11',t:'Execution Roadmap',f:'Economics & Execution',c:G,d:'ANALYTICAL',m:'Stages, decision gates, OKRs, resources, funding'},
+        {n:'12',t:'Sources & Methodology',f:'Reference',c:'#6E6D88',d:'REFERENCE',m:'Source cards, method, appendix tables'}
+      ],
+      swatches:[
+        {name:'Validisory Blue',hex:'#0B0A81',src:'Primary',use:'Brand, headings, score, evidence pips, Decision family'},
+        {name:'Lavender',hex:'#DFC6FF',src:'Primary',use:'Recommendation highlights, REVALIDATE, model estimates'},
+        {name:'White',hex:'#FFFFFF',src:'Primary',use:'Page ground'},
+        {name:'Ink',hex:'#12113A',src:'Derived',use:'Body text, table headers, STOP'},
+        {name:'Ink 2 / 3',hex:'#4A4968',src:'Derived',use:'Secondary text; #6E6D88 captions (4.9:1)'},
+        {name:'Surface',hex:'#F5F4FA',src:'Derived',use:'Panels, chart grounds; rule #E3E1EE'},
+        {name:'Teal',hex:'#0F8B8D',src:'Secondary',use:'Market & Customer family; SUPPORTS; GO (#0B6466 ink)'},
+        {name:'Gold',hex:'#C9A227',src:'Secondary',use:'Economics & Execution; CONDITIONAL-GO; text ink #7A6214'},
+        {name:'Copper',hex:'#B87333',src:'Secondary',use:'Risk & Regulatory; exposure scale; text ink #8A4F1C'},
+        {name:'Oxide',hex:'#7A2E14',src:'Derived',use:'CRITICAL exposure only'},
+        {name:'Lavender soft',hex:'#F1E8FF',src:'Derived',use:'Insight callouts, key finding'},
+        {name:'Copper soft',hex:'#F6EADF',src:'Derived',use:'Risk badge ground, kill-switch panel'}
+      ],
+      families:[
+        {label:'DECISION INTELLIGENCE',c:B,ink:B,s:'Sections 01, 02, 10. Verdict, conditions, scenarios.'},
+        {label:'MARKET & CUSTOMER',c:T,ink:'#0B6466',s:'Sections 03, 06. Sizing, ICP, competition.'},
+        {label:'ECONOMICS & EXECUTION',c:G,ink:'#7A6214',s:'Sections 04, 05, 07, 11. Model, money, build, roadmap.'},
+        {label:'RISK & REGULATORY',c:C,ink:'#8A4F1C',s:'Sections 08, 09. Exposure, risks, triggers.'}
+      ],
+      type:[
+        {role:'DISPLAY',ff:'Space Grotesk',fw:700,fs:'56px',lh:'1',ls:'-0.02em',tt:'none',sample:'Conditional-Go',spec:'SG Bold 56/56 (42pt) · cover, verdict'},
+        {role:'H1',ff:'Space Grotesk',fw:700,fs:'32px',lh:'1.1',ls:'-0.015em',tt:'none',sample:'Market Opportunity',spec:'SG Bold 32/36 (24pt) · page title'},
+        {role:'H2',ff:'Space Grotesk',fw:700,fs:'20px',lh:'1.25',ls:'-0.005em',tt:'none',sample:'Serviceable addressable market',spec:'SG Bold 20/25 (15pt) · block title'},
+        {role:'H3',ff:'Space Grotesk',fw:600,fs:'14px',lh:'1.3',ls:'0',tt:'none',sample:'Estimation method',spec:'SG SemiBold 14/18 (10.5pt)'},
+        {role:'SECTION LABEL',ff:'Space Grotesk',fw:600,fs:'10px',lh:'1.2',ls:'0.14em',tt:'uppercase',sample:'03 · Market & Customer',spec:'SG SemiBold 10 caps +14% (7.5pt)'},
+        {role:'BODY',ff:'Montserrat',fw:400,fs:'13.5px',lh:'1.6',ls:'0',tt:'none',sample:'The serviceable market of 2.2 million US self-managed small businesses represents €285M in annual troubleshooting spend.',spec:'Montserrat 13.5/21.5 (10pt) · max 68ch'},
+        {role:'METRIC',ff:'Space Grotesk',fw:700,fs:'40px',lh:'1',ls:'-0.02em',tt:'none',sample:'€1.8B',spec:'SG Bold 40 tabular · unit at 0.6×'},
+        {role:'CAPTION',ff:'Montserrat',fw:500,fs:'11px',lh:'1.45',ls:'0',tt:'none',sample:'Range bars show low value (solid) and high value (tint).',spec:'Montserrat Medium 11/16 (8.25pt)'},
+        {role:'SOURCE',ff:'Montserrat',fw:500,fs:'10px',lh:'1.4',ls:'0',tt:'none',sample:'Basis: Market Analysis · SAM estimation method [7][8]',spec:'Montserrat Medium 10 · Ink 3'},
+        {role:'FOOTNOTE',ff:'Montserrat',fw:400,fs:'9.5px',lh:'1.4',ls:'0',tt:'none',sample:'¹ Midpoint used for positioning only.',spec:'Montserrat 9.5 (7pt) · minimum size'}
+      ],
+      cols:Array.from({length:12},(_,i)=>i),
+      spacing:[4,8,12,16,24,32,48,64].map((v,i)=>({v,px:v+'px',n:['xs','s','m','base','l','xl','section','page'][i]})),
+      decisions:dec,
+      evidence:[
+        {label:'STRONG',pips:pips(3),desc:'Observed in market or paying behaviour, or independent external data that is directly applicable.'},
+        {label:'PARTIAL',pips:pips(2),desc:'Proxy or indirect data. Directionally consistent but not specific to this venture.'},
+        {label:'WEAK',pips:pips(1),desc:'Founder estimate or analogy only, or conflicting values.'},
+        {label:'UNVALIDATED',pips:pips(0,true),desc:'No evidence yet. It is a target or an assumption.'}
+      ],
+      risks:[
+        {label:'LOW',segs:segs(1),bg:'#F6EADF',fg:'#8A4F1C',desc:'Monitor only.'},
+        {label:'MODERATE',segs:segs(2),bg:'#F6EADF',fg:'#8A4F1C',desc:'Mitigation planned.'},
+        {label:'HIGH',segs:segs(3),bg:'#F6EADF',fg:'#8A4F1C',desc:'Mitigation required before the next gate.'},
+        {label:'CRITICAL',segs:segs(4),bg:'#7A2E14',fg:'#FFFFFF',desc:'Can end the venture. Linked to a kill-switch.'},
+        {label:'NOT YET DETERMINED',segs:segs(0,true),bg:'#FFFFFF',fg:'#4A4968',desc:'Applicability or severity unknown. No legal certainty is implied.'}
+      ],
+      importance:[
+        {g:'◆◆◆',label:'MATERIAL',desc:'The decision changes if this is false.'},
+        {g:'◆◆◇',label:'SIGNIFICANT',desc:'Moves the score; does not flip the verdict alone.'},
+        {g:'◆◇◇',label:'CONTRIBUTING',desc:'Context; refines execution.'}
+      ],
+      trends:[{g:'▲',label:'IMPROVING'},{g:'▬',label:'STABLE'},{g:'▼',label:'DETERIORATING'},{g:'?',label:'UNKNOWN'}],
+      provenance:[
+        {code:'EXT',label:'External',bg:INK,fg:'#FFFFFF',bd:INK,bs:'solid',desc:'A named third-party publisher (Statista, W3Techs, SBA…).'},
+        {code:'USR',label:'User-provided',bg:'#FFFFFF',fg:INK,bd:INK,bs:'solid',desc:'From the founder\'s submission, research or model.'},
+        {code:'EST',label:'Model estimate',bg:L,fg:B,bd:L,bs:'solid',desc:'Generated by the Validisory engine.'},
+        {code:'ASM',label:'Assumption',bg:'#FFFFFF',fg:B,bd:B,bs:'dashed',desc:'A target or premise that has not been observed.'},
+        {code:'CAL',label:'Derived calc.',bg:'#ECEAF5',fg:INK,bd:'#C9C6DC',bs:'solid',desc:'Arithmetic on other values; the inputs are linked.'}
+      ],
+      impacts:[
+        {label:'SUPPORTS',g:'▲',c:T,desc:'Strengthens the case for proceeding.'},
+        {label:'CONSTRAINS',g:'◆',c:G,desc:'Viable only within limits or conditions.'},
+        {label:'THREATENS',g:'▼',c:C,desc:'Could flip the verdict if it materialises.'},
+        {label:'NEUTRAL',g:'○',c:'#C9C6DC',desc:'Does not materially change the decision.'}
+      ],
+      moduleAnatomy:[
+        {n:'0',t:'HEADER',d:'Module number, name, one-line purpose.'},
+        {n:'1',t:'KEY FINDING',d:'1–3 sentences in an InsightCallout.'},
+        {n:'2',t:'KEY METRICS',d:'2–6 KeyMetric tiles with provenance.'},
+        {n:'3',t:'ANALYSIS',d:'One chart or table chosen by data shape.'},
+        {n:'4',t:'WHAT THIS MEANS',d:'Decision significance, 2–4 bullets.'},
+        {n:'5',t:'EVIDENCE / ASSUMPTIONS',d:'Assumption table and evidence badges.'},
+        {n:'6',t:'DECISION IMPACT',d:'Supports / Constrains / Threatens / Neutral.'}
+      ],
+      masters:[
+        {name:'Cover',density:'EXECUTIVE',used:'p.1',bg:B,blocks:[blk(8,8,30,1.5,'#FFFFFF'),blk(8,55,70,5,'#FFFFFF'),blk(8,62,50,2,L),blk(8,86,84,0.4,'#4A49A8'),blk(8,89,40,1.2,'#9C9BD0')]},
+        {name:'Section opener',density:'EXECUTIVE',used:'per section',bg:'#FFFFFF',blocks:[blk(0,0,100,45,B),blk(8,30,30,8,'#FFFFFF'),blk(8,55,60,2,'#C9C6DC'),blk(8,60,50,2,'#C9C6DC'),tab(20,B)]},
+        {name:'Executive dashboard',density:'EXECUTIVE',used:'p.3–4',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,40,4,INK),blk(8,16,40,20,L),blk(52,16,40,20,'#ECEAF5'),blk(8,40,26,22,'#F5F4FA'),blk(37,40,26,22,'#F5F4FA'),blk(66,40,26,22,'#F5F4FA'),tab(8,B)]},
+        {name:'Analysis page',density:'ANALYTICAL',used:'modules',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,14,84,8,'#F1E8FF'),blk(8,25,20,8,'#F5F4FA'),blk(30,25,20,8,'#F5F4FA'),blk(52,25,20,8,'#F5F4FA'),blk(8,37,84,30,'#ECEAF5'),blk(8,70,40,20,'#F5F4FA'),blk(52,70,40,20,'#F5F4FA'),tab(30,T)]},
+        {name:'Data visualisation',density:'ANALYTICAL',used:'market, finance',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,15,84,45,'#ECEAF5'),blk(8,64,26,10,'#F5F4FA'),blk(37,64,26,10,'#F5F4FA'),blk(66,64,26,10,'#F5F4FA'),blk(8,78,84,12,'#F5F4FA'),tab(30,T)]},
+        {name:'Comparison page',density:'ANALYTICAL',used:'competition, S/R',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,15,41,75,'#F5F4FA'),blk(51,15,41,75,'#F6EADF'),tab(50,T)]},
+        {name:'Financial page',density:'ANALYTICAL',used:'p.11',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,14,20,8,'#F7F0DA'),blk(30,14,20,8,'#F7F0DA'),blk(52,14,20,8,'#F7F0DA'),blk(74,14,18,8,'#F7F0DA'),blk(8,26,54,30,'#ECEAF5'),blk(65,26,27,30,'#F5F4FA'),blk(8,60,84,30,'#F5F4FA'),tab(40,G)]},
+        {name:'Risk page',density:'ANALYTICAL',used:'p.15',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,15,45,35,'#F6EADF'),blk(56,15,36,35,'#F5F4FA'),blk(8,54,84,36,'#F5F4FA'),tab(80,C)]},
+        {name:'Roadmap page',density:'ANALYTICAL',used:'p.8, p.17',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,16,16,60,'#F7F0DA'),blk(25,16,16,60,'#F7F0DA'),blk(42,16,16,60,'#F7F0DA'),blk(59,16,16,60,'#F7F0DA'),blk(76,16,16,60,'#F7F0DA'),blk(8,80,84,10,'#F5F4FA'),tab(90,G)]},
+        {name:'Long-form editorial',density:'ANALYTICAL',used:'p.6',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,16,52,1.2,'#C9C6DC'),blk(8,19,52,1.2,'#C9C6DC'),blk(8,22,48,1.2,'#C9C6DC'),blk(8,28,52,1.2,'#C9C6DC'),blk(8,31,50,1.2,'#C9C6DC'),blk(66,16,26,10,'#F1E8FF'),blk(66,30,26,10,'#F1E8FF'),tab(12,B)]},
+        {name:'Sources page',density:'REFERENCE',used:'p.18',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,15,41,10,'#F5F4FA'),blk(51,15,41,10,'#F5F4FA'),blk(8,27,41,10,'#F5F4FA'),blk(51,27,41,10,'#F5F4FA'),blk(8,39,41,10,'#F5F4FA'),blk(51,39,41,10,'#F5F4FA'),blk(8,53,84,37,'#ECEAF5'),tab(94,'#6E6D88')]},
+        {name:'Appendix / reference',density:'REFERENCE',used:'p.20',bg:'#FFFFFF',blocks:[...hdr,blk(8,8,50,3,INK),blk(8,14,84,2,INK),...Array.from({length:18},(_,i)=>blk(8,17+i*4,84,0.3,'#C9C6DC')),tab(94,'#6E6D88')]}
+      ],
+      chartFrame:[
+        {n:'1',t:'Title',d:'States what is measured, not the conclusion.'},
+        {n:'2',t:'Interpretation',d:'One sentence: what to notice.'},
+        {n:'3',t:'Axes',d:'Labelled, with units in the label.'},
+        {n:'4',t:'Units',d:'€, %, mo, visitors. Never implied.'},
+        {n:'5',t:'Legend',d:'Only for 2+ series. Direct labels preferred.'},
+        {n:'6',t:'Basis',d:'Source refs [n] + provenance tag.'},
+        {n:'7',t:'Assumption flag',d:'Dashed outline on any assumed series.'}
+      ],
+      charts:[
+        {name:'Score / progress bars',when:'Dimension scores 0–10.',rule:'Segmented 10-step track; score number always printed.',g:ch([[5,60,80,12],[5,35,55,12],[5,10,40,12]])},
+        {name:'Bar chart',when:'One measure across categories.',rule:'Sort by value unless order is meaningful. Value labels on bars.',g:ch([[10,0,12,80],[28,0,12,55],[46,0,12,40],[64,0,12,30],[82,0,12,18]])},
+        {name:'Range bar',when:'Low–high estimates (most source data).',rule:'Solid to low value, tint to high. Both ends labelled.',g:ch([[5,62,40,14],[45,62,15,14,L],[5,36,55,14],[60,36,25,14,L],[5,10,25,14],[30,10,10,14,L]])},
+        {name:'Stacked bar',when:'Composition over time (revenue mix).',rule:'Max 4 segments; total labelled on top.',g:ch([[15,0,16,20],[15,20,16,10,T],[42,0,16,35],[42,35,16,25,T],[69,0,16,45],[69,45,16,30,T],[69,75,16,10,G]])},
+        {name:'Line / area',when:'Continuous trend; projections.',rule:'Projection segments dashed. Shade the range band.',g:ch([[5,10,90,2,'#C9C6DC'],[5,10,30,30,'#ECEAF5'],[35,10,30,50,'#ECEAF5'],[65,10,30,70,'#ECEAF5']])},
+        {name:'Waterfall',when:'Bridge from base to scenario result.',rule:'Floating deltas; positive teal, negative copper, totals ink.',g:ch([[8,0,14,60,INK],[26,45,14,15,C],[44,30,14,15,C],[62,30,14,20,T],[80,0,14,50,INK]])},
+        {name:'Funnel',when:'Visitor → trial → paid conversion.',rule:'Stage width ∝ value; % between stages printed.',g:ch([[5,70,90,16],[15,46,70,16,'#2B2A9A'],[30,22,40,16,'#5B5AB8'],[40,0,20,16,L]])},
+        {name:'Scatter / quadrant',when:'Positioning on two named axes.',rule:'Axis endpoints labelled; recommended position outlined.',g:ch([[49.5,0,1,100,'#C9C6DC'],[0,49,100,2,'#C9C6DC'],[12,70,6,9,B,'50%'],[20,62,6,9,B,'50%'],[70,72,6,9,B,'50%'],[80,20,6,9,B,'50%'],[15,82,8,12,T,'50%']])},
+        {name:'Risk matrix',when:'Probability × impact.',rule:'3×3 or 5×5; numbered markers keyed to register.',g:ch([[5,0,29,32,'#F6EADF'],[35,0,29,32,'#F6EADF'],[65,0,29,32,'#EBCBB0'],[5,34,29,32,'#F6EADF'],[35,34,29,32,'#EBCBB0'],[65,34,29,32,C],[5,68,29,32,'#EBCBB0'],[35,68,29,32,C],[65,68,29,32,'#7A2E14']])},
+        {name:'Heatmap',when:'Capability or applicability grid.',rule:'4 shades max + text in every cell.',g:ch([[5,68,18,28],[25,68,18,28,'#5B5AB8'],[45,68,18,28,L],[65,68,18,28,'#ECEAF5'],[5,36,18,28,L],[25,36,18,28],[45,36,18,28,'#ECEAF5'],[65,36,18,28,'#5B5AB8'],[5,4,18,28,'#ECEAF5'],[25,4,18,28,L],[45,4,18,28],[65,4,18,28,L]])},
+        {name:'Timeline / roadmap',when:'Stages, milestones, gates.',rule:'Gates drawn as diamonds with pass criteria.',g:ch([[5,45,90,3,'#C9C6DC'],[5,40,18,14,G],[27,40,18,14,G],[49,40,18,14,G],[71,40,18,14,G],[24,38,2,18,INK],[46,38,2,18,INK]])},
+        {name:'Market sizing',when:'TAM → SAM → SOM.',rule:'Area-proportional squares (≥1px floor) + exact values; no fake circles.',g:ch([[5,0,60,100,'#E2F1F1'],[5,0,20,34,T],[5,0,3,5,INK]])},
+        {name:'Scenario comparison',when:'Base vs what-if per input.',rule:'Before/after pairs; venture-state delta column.',g:ch([[5,62,50,14,'#C9C6DC'],[5,62,40,14],[5,36,50,14,'#C9C6DC'],[5,36,62,14,C],[5,10,50,14,'#C9C6DC'],[5,10,30,14,C]])},
+        {name:'Revenue / cost projection',when:'Revenue vs cost tiers by stage.',rule:'Bars for revenue, step line for cost; break-even marked only if computed.',g:ch([[10,0,14,15],[34,0,14,35],[58,0,14,60],[82,0,14,85],[5,20,90,2,C]])},
+        {name:'Radar (restricted)',when:'Only to compare 2+ profiles (e.g. before/after).',rule:'Never the sole representation; always paired with a table.',g:ch([[30,10,40,80,'#ECEAF5','50%'],[38,22,24,56,L,'50%']])}
+      ],
+      assumptionRows:[
+        {a:'Free-to-premium conversion',v:'2–5%',t:'ASM',e:'UNVALIDATED',s:'BMC p.8',hl:'#FFFFFF'},
+        {a:'Premium retention',v:'3–6 mo',t:'ASM',e:'UNVALIDATED',s:'BMC p.8',hl:'#FBF8FF'},
+        {a:'US WordPress niche AdSense CPM',v:'€1.08–1.80',t:'EXT',e:'PARTIAL',s:'SOM [12]',hl:'#FFFFFF'},
+        {a:'Organic CAC per visitor',v:'€0.30–0.60',t:'USR',e:'WEAK',s:'SOM [11]',hl:'#FFFFFF'}
+      ],
+      tables:[
+        {name:'Data table',cols:'LABEL · VALUE · UNIT · SOURCE',rule:'Default. Right-aligned numerics; units in header.'},
+        {name:'Comparison table',cols:'ENTITY · ATTR × n · THREAT',rule:'First column sticky on continuation; max 7 attribute columns, then split.'},
+        {name:'Assumption table',cols:'ASSUMPTION · VALUE · TYPE · EVIDENCE · SOURCE',rule:'Every row carries a provenance tag and an evidence badge.'},
+        {name:'Risk table',cols:'# · RISK · CAT · P · I · MITIGATION · EVIDENCE',rule:'Sorted by P×I; # keys to the matrix.'},
+        {name:'Source table',cols:'[n] · SOURCE · PUBLISHER · DATE · TYPE · USED FOR',rule:'Missing fields shown hatched, never blank.'},
+        {name:'Decision table',cols:'CONDITION · STRENGTH · WEIGHT · EXPOSURE · STATUS',rule:'Compact form of MaterialCondition for appendices.'},
+        {name:'Financial table',cols:'LINE · Y1 · Y2 · Y3 · BASIS',rule:'Ranges as "low–high"; totals ruled above; € with k/M suffix.'}
+      ],
+      schema:`{
+  "report": { "id", "tier", "requestedAt", "confidentiality", "geography" },
+  "venture": { "name", "oneLiner" },
+  "decision": {
+    "verdict": "CONDITIONAL_GO",
+    "score": 51.5, "scoreMax": 100,
+    "bands": null,            // optional engine thresholds
+    "evidenceQuality": null,  // optional aggregate
+    "justification", "drivers[]", "constraints[]", "openQuestions[]"
+  },
+  "dimensions[]": { "key", "label", "score", "max": 10,
+                    "finding", "evidence"?, "impact"?, "weight"? },
+  "conditions[]": { "title", "evidence", "importance",
+                    "exposure", "basis", "refs[]" },
+  "metrics[]": { "value", "unit", "label", "provenance", "refs[]" },
+  "modules[]": { "type", "keyFinding", "metrics[]", "analysis",
+                 "implications[]", "assumptions[]", "impact" },
+  "risks[]": { "name", "category"?, "probability", "impact",
+               "trigger"?, "mitigation", "evidence"? },
+  "killSwitches[]": { "if", "after"?, "then", "reason" },
+  "sources[]": { "n", "title", "publisher"?, "date"?, "url"?,
+                 "type": "EXT|USR|EST|ASM|CAL", "usedFor[]" }
+}`,
+      genRules:[
+        'Section and page order is fixed. A section whose data is null still renders a one-page "Not assessed in this report" opener, so numbering stays stable across reports.',
+        'Every numeric value is an object { low, high?, unit, provenance, refs }. The renderer formats ranges and units; the engine never sends preformatted strings.',
+        'Evidence, importance and exposure are enums. If the engine omits one, the badge renders as "— NOT PROVIDED" (hatched). It is never defaulted.',
+        'Charts are picked by data shape: range[] → range bar; series×time → stacked or line; x/y pairs → quadrant; probability×impact → matrix. If there are fewer than 2 points, show a table instead of a chart.',
+        'Source refs [n] are numbered in order of first appearance and link to #src-n. The Sources page is generated from the same registry, so a number can never be orphaned.',
+        'Conflicting values for the same field (detected by key across modules) emit a SOURCE CONFLICT flag that shows both values and the module each came from.',
+        'Text limits are soft caps that trigger overflow behaviour (section L), not truncation. Truncation only happens on cards that carry a "See analysis → p.n" link.',
+        'Dimension keys are open-ended. Cards flow in a 4-column grid (2 rows for 8 dimensions, 3 rows for 9–12), and the radar is suppressed when there are fewer than 5 dimensions.'
+      ],
+      variable:[
+        {c:'DecisionSummary',l:'Justification clamps at 5 lines; full text moves to Exec Summary.',s:'Lists of 1–2 keep their column; empty column shows "None identified".',m:'Top 3 shown; rest linked "+n more → p.7".',x:'Score missing → verdict only, score slot hatched.',n:'Never n/a; required.'},
+        {c:'DimensionScoreCard',l:'Finding clamps at 3 lines + "See analysis →".',s:'Card height fixed per row; whitespace OK.',m:'Grid adds rows; 13+ moves to a table.',x:'No evidence → hatched badge.',n:'Dimension omitted from grid.'},
+        {c:'MaterialCondition',l:'Basis text 2 lines; overflow to appendix.',s:'Min 3 conditions; fewer shows engine notice.',m:'>8 continues on next page with header.',x:'Each missing state hatched.',n:'Section shows "Engine did not return conditions".'},
+        {c:'KeyMetric',l:'Value > 9 chars drops to 28px.',s:'Grid of 2–6; 1 becomes InsightCallout.',m:'Top 6 by decision weight.',x:'Tile omitted (never "N/A" tiles).',n:'Row removed.'},
+        {c:'BMC canvas',l:'3 bullets per block; detail pages follow.',s:'Blocks keep grid area.',m:'Detail pages paginate per block.',x:'Block shows "Not described".',n:'n/a impossible.'},
+        {c:'MarketSizing',l:'Method text moves to the reference column.',s:'SOM single value → single bar.',m:'Multi-year SOM → range bars.',x:'Missing tier hatched; ratios not computed.',n:'Section opener notice.'},
+        {c:'CompetitorMatrix',l:'Name truncates at 22 chars, full name in table.',s:'<3 competitors → table only.',m:'>12 → top 12 by threat; rest in appendix.',x:'No x/y → table only.',n:'Notice.'},
+        {c:'RiskMatrix',l:'Register paginates with repeated header.',s:'Empty cells stay as grid.',m:'Markers stack in cell (max 6, then "+n").',x:'No P or I → listed below matrix as "unplotted".',n:'Notice.'},
+        {c:'ScenarioAnalysis',l:'—',s:'1 scenario → before/after card.',m:'>6 → table.',x:'No engine run → empty state with base inputs shown.',n:'Section shows contingency triggers only.'},
+        {c:'SourceCard',l:'Title clamps 2 lines.',s:'—',m:'2-col cards, 10 per page; continues.',x:'Missing URL/date hatched.',n:'Never; registry always prints.'}
+      ],
+      printRules:[
+        {n:'1',t:'Fixed page box',d:'Each page is one A4 sheet (794×1123). Content stays inside 1040 px of height, so Letter output never clips.'},
+        {n:'2',t:'Flow before render',d:'The generator measures blocks and paginates before printing. Blocks never split, except tables, which split between rows.'},
+        {n:'3',t:'Table continuation',d:'Repeat the header band, add "(continued)" to the title, and keep at least 3 rows per fragment.'},
+        {n:'4',t:'Keep-with-next',d:'Titles, key findings and chart interpretations stay with their following block. No widowed headings.'},
+        {n:'5',t:'Colour in print',d:'All states also use pips, segments, diamonds or text. Tested in greyscale. Hatching marks unknowns.'},
+        {n:'6',t:'Minimum sizes',d:'Body 10pt, tables 8.5pt, footnotes 7pt. Chart labels never below 8pt.'},
+        {n:'7',t:'Links',d:'Contents, "See analysis → p.n" and [n] are internal anchors. URLs print in full in the source card.'},
+        {n:'8',t:'Bookmarks',d:'Each section opener is an H1 with an id. The PDF outline is built from the section registry.'},
+        {n:'9',t:'Running elements',d:'Header: section number, family label, page title, wordmark. Footer: venture, report type, confidentiality, page n / N.'},
+        {n:'10',t:'Bleed',d:'Only the cover and section openers bleed, using brand blue. Every other page keeps a 48 px safe margin.'}
+      ],
+      impl:[
+        {t:'Render pipeline',d:'Engine JSON → schema validation → HTML templates (the components in this file) → headless Chromium (Paged.js or Playwright print) → tagged PDF with outline. One template set for all reports.'},
+        {t:'Engine additions',d:'Add evidence, importance, exposure and decision-impact enums plus the source registry to the engine output. Today these are only implied in prose, so the sample marks them ◇ TEMPLATE-DERIVED.'},
+        {t:'Score bands',d:'Publish the score-to-verdict thresholds and dimension weights. The sample cannot show them because the source gives 51.5/100 without weights (an unweighted mean of the dimensions would be 57.5).'},
+        {t:'Number objects',d:'Return values as {low, high, unit, currency} rather than strings. This enables range charts, consistent € formatting and conflict detection.'},
+        {t:'Conflict detection',d:'Cross-check identical fields across modules before rendering. The sample report has three conflicts: LTV, LTV:CAC and annual price.'},
+        {t:'Financials',d:'When the Financials module returns N/A, assemble a fallback Section 05 from BMC, Market SOM and Roadmap data, and say so on the page.'},
+        {t:'Scenario engine',d:'What-if results need recomputed scores. Until the engine produces them, the Scenario section shows inputs and contingency triggers only, with no invented deltas.'},
+        {t:'Fonts & a11y',d:'Embed Space Grotesk and Montserrat subsets. Tag headings, give charts a figure caption plus alt text from the interpretation line, and set the reading order to match visual order.'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

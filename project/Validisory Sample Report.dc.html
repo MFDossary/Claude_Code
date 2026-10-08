@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0B0A81;text-decoration:none}
+a:hover{color:#0F8B8D;text-decoration:underline}
+</style>
+</helmet>
+
+<doc-page size="a4">
+
+<!-- 01 COVER -->
+<section class="page" id="p01" data-screen-label="01 Cover">
+  <div style="height:100%;display:flex;flex-direction:column;padding:56px 56px 48px;background:#0B0A81;color:#FFFFFF;font-family:Montserrat,sans-serif;position:relative;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <img src="assets/validisory-logo-white.svg" alt="Validisory" style="height:34px;width:auto;display:block">
+      <div style="font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.16em;border:1px solid #DFC6FF;color:#DFC6FF;padding:6px 10px">CONFIDENTIAL</div>
+    </div>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:22px">
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:12px;letter-spacing:0.18em;color:#DFC6FF">VENTURE VALIDATION REPORT</span>
+      <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:64px;line-height:1;letter-spacing:-0.025em">Micro-Tutorials AI</h1>
+      <p style="margin:0;max-width:520px;font-size:16px;line-height:1.55;color:#E9E2FF;text-wrap:pretty">A web and mobile app where users type a problem, such as "WordPress white screen", and get a 1–3 minute interactive tutorial with step-by-step guidance, screenshots and short videos.</p>
+    </div>
+    <div style="margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;border-top:1px solid #4A49A8;padding-top:18px">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#B9B8E6">PLAN</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:14px">Premium</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#B9B8E6">ASSESSED</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:14px">3 Feb 2026, 10:17</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#B9B8E6">MARKET</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:14px">United States · WordPress SMB</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-size:9.5px;letter-spacing:0.14em;color:#B9B8E6">REPORT ID</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:11px;line-height:1.35;word-break:break-all">17c91932-ed1a-40ca-b800-f465768dd44b</span></div>
+    </div>
+    <div style="margin-top:28px;font-size:10px;color:#B9B8E6;line-height:1.5">Validate Smarter. Build Stronger. · Prepared for the venture founder. Contains model estimates and assumptions, each marked where it appears.</div>
+  </div>
+</section>
+
+<!-- 02 CONTENTS -->
+<section class="page" id="p02" data-screen-label="02 Contents">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="font-weight:600">CONTENTS</span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:26px;padding:28px 0 16px">
+      <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:34px;line-height:1.05;letter-spacing:-0.015em">Contents</h1>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ toc }}" as="s" hint-placeholder-count="12">
+          <a href="#{{ s.href }}" style="display:grid;grid-template-columns:44px 4px minmax(0,1fr) minmax(0,1.1fr) 40px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #EFEDF5;color:#12113A;text-decoration:none">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;color:{{ s.ink }}">{{ s.n }}</span>
+            <span style="height:28px;background:{{ s.c }}"></span>
+            <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:15px">{{ s.t }}</span><span style="font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.14em;color:#6E6D88">{{ s.f }} · {{ s.d }}</span></span>
+            <span style="font-size:11px;color:#4A4968;line-height:1.4">{{ s.m }}</span>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;text-align:right">{{ s.p }}</span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+        <div style="background:#0B0A81;color:#FFFFFF;padding:14px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#DFC6FF">LEVEL 1 · 60 SECONDS</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px">Decision</span><span style="font-size:11px;line-height:1.45;color:#E9E2FF">Page 3. Verdict, score, drivers, constraints.</span></div>
+        <div style="background:#F1E8FF;padding:14px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#0B0A81">LEVEL 2 · 10 MINUTES</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px">Why</span><span style="font-size:11px;line-height:1.45;color:#4A4968">Pages 4–8. Conditions, evidence, strengths, risks, actions.</span></div>
+        <div style="background:#FFFFFF;padding:14px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#4A4968">LEVEL 3 · REFERENCE</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px">Depth</span><span style="font-size:11px;line-height:1.45;color:#4A4968">Pages 9–20. Analysis modules, sources, appendix.</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:10px;color:#4A4968">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:9px;letter-spacing:0.14em;color:#6E6D88">READING THE MARKS</span>
+        <span style="display:flex;gap:5px;align-items:center"><span style="display:flex;gap:2px"><span style="width:7px;height:7px;background:#0B0A81"></span><span style="width:7px;height:7px;background:#0B0A81"></span><span style="width:7px;height:7px;border:1px solid #0B0A81"></span></span>Evidence strength</span>
+        <span>◆◆◇ Importance</span>
+        <span style="display:flex;gap:5px;align-items:center"><span style="display:flex;gap:2px"><span style="width:9px;height:5px;background:#B87333"></span><span style="width:9px;height:5px;background:#B87333"></span><span style="width:9px;height:5px;background:#E8D3C0"></span><span style="width:9px;height:5px;background:#E8D3C0"></span></span>Exposure</span>
+        <span style="border:1px dashed #0B0A81;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:9px;color:#0B0A81">ASM</span><span>Assumption</span>
+        <span style="border:1px solid #C9C6DC;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:9px">◇</span><span>Template-derived state</span>
+        <span style="font-family:'Space Grotesk';font-weight:700;color:#0B0A81">[n]</span><span>Source, p.18</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">02</span></div>
+  </div>
+</section>
+
+<!-- 03 EXECUTIVE DECISION -->
+<section class="page" id="p03" data-screen-label="03 Executive Decision">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:70px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">01</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ EXECUTIVE DECISION</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:22px;padding:24px 0 14px">
+      <span style="font-family:'Space Grotesk';font-weight:600;font-size:10px;letter-spacing:0.14em;color:#0B0A81">THE DECISION</span>
+      <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="align-self:flex-start;background:#C9A227;color:#12113A;font-family:'Space Grotesk';font-weight:700;font-size:40px;line-height:1;letter-spacing:-0.01em;padding:14px 18px 12px">CONDITIONAL-GO</span>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3px">
+            <sc-for list="{{ verdictTrack }}" as="v" hint-placeholder-count="5">
+              <div style="display:flex;flex-direction:column;gap:5px"><span style="height:6px;background:{{ v.bg }}"></span><span style="font-family:'Space Grotesk';font-weight:{{ v.fw }};font-size:8.5px;letter-spacing:0.08em;color:{{ v.fg }}">{{ v.label }}</span></div>
+            </sc-for>
+          </div>
+          <p style="margin:0;font-family:'Space Grotesk';font-weight:500;font-size:16px;line-height:1.45;color:#12113A;text-wrap:pretty">Proceed under defined kill-switches rather than reject outright. The market and acquisition economics are viable. Single-founder capacity, SEO-only acquisition and a 12–24 month competitive window constrain the case.</p>
+          <span style="font-size:10px;color:#6E6D88">Basis: Rating justification, source p.4</span>
+        </div>
+        <div style="background:#F5F4FA;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:9.5px;letter-spacing:0.14em;color:#6E6D88">GO / NO-GO SCORE</span>
+          <div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:76px;line-height:0.85;letter-spacing:-0.035em;color:#0B0A81">51.5</span><span style="font-family:'Space Grotesk';font-size:18px;color:#6E6D88">/ 100</span></div>
+          <div style="position:relative;height:30px">
+            <div style="position:absolute;left:0;right:0;top:10px;height:8px;background:#E3E1EE"></div>
+            <div style="position:absolute;left:0;width:51.5%;top:10px;height:8px;background:#0B0A81"></div>
+            <div style="position:absolute;left:51.5%;top:4px;width:2px;height:20px;background:#0B0A81"></div>
+            <div style="position:absolute;left:0;right:0;top:22px;display:flex;justify-content:space-between;font-family:'Space Grotesk';font-size:8.5px;color:#6E6D88"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #E3E1EE;padding-top:12px">
+            <span style="font-family:'Space Grotesk';font-weight:600;font-size:9.5px;letter-spacing:0.14em;color:#6E6D88">EVIDENCE QUALITY ◇</span>
+            <div style="display:flex;gap:6px;align-items:center"><span style="display:flex;gap:2px"><span style="width:9px;height:9px;background:#0B0A81"></span><span style="width:9px;height:9px;border:1px solid #0B0A81"></span><span style="width:9px;height:9px;border:1px solid #0B0A81"></span></span><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;color:#0B0A81;letter-spacing:0.06em">WEAK</span></div>
+            <span style="font-size:11px;line-height:1.45;color:#4A4968">0 of 7 material conditions are strongly evidenced and 3 are unvalidated. <a href="#p05">See p.5 →</a></span>
+          </div>
+          <span style="font-size:9.5px;color:#6E6D88;line-height:1.4">Score-to-verdict thresholds and dimension weights are not provided by the source.</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #0F8B8D;padding-top:12px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#0B6466">▲ DECISION DRIVERS</span>
+          <sc-for list="{{ drivers }}" as="d" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#0B6466">{{ d.n }}</span><div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;line-height:1.25">{{ d.t }}</span><span style="font-size:11px;line-height:1.45;color:#4A4968">{{ d.d }}</span></div></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #B87333;padding-top:12px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#8A4F1C">▼ CONSTRAINTS</span>
+          <sc-for list="{{ constraints }}" as="d" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#8A4F1C">{{ d.n }}</span><div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;line-height:1.25">{{ d.t }}</span><span style="font-size:11px;line-height:1.45;color:#4A4968">{{ d.d }}</span></div></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px dashed #0B0A81;padding-top:12px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#0B0A81">? UNANSWERED QUESTIONS</span>
+          <sc-for list="{{ questions }}" as="d" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#0B0A81">{{ d.n }}</span><div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;line-height:1.25">{{ d.t }}</span><span style="font-size:11px;line-height:1.45;color:#4A4968">{{ d.d }}</span></div></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top:auto;background:#12113A;color:#FFFFFF;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:14px 18px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#DFC6FF">PRIMARY KILL-SWITCH</span>
+        <span style="font-size:12px;line-height:1.45">IF organic traffic stays below <b>5,000/month</b> after <b>6 months</b> and <b>100+</b> tutorials, THEN terminate or pivot.</span>
+        <a href="#p15" style="color:#DFC6FF;font-size:11px;white-space:nowrap">All 8 → p.15</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 1–5</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">03</span></div>
+  </div>
+</section>
+
+<!-- 04 AT A GLANCE -->
+<section class="page" id="p04" data-screen-label="04 Venture at a Glance">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:144px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">02</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ VENTURE AT A GLANCE</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:20px;padding:24px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Venture at a glance</h1>
+        <p style="margin:0;max-width:560px;font-size:13px;line-height:1.55;color:#4A4968">Eight evaluation dimensions. Competition (7) and Regulatory (8) are the strongest scores, though both partly reflect an absence of friction. Financial Viability and Scalability (4) constrain the case most.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+        <sc-for list="{{ dimensions }}" as="d" hint-placeholder-count="8">
+          <div style="border:1px solid #E3E1EE;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:14.5px">{{ d.label }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:24px;color:#0B0A81;line-height:1">{{ d.score }}<span style="font-size:12px;color:#6E6D88">/10</span></span></div>
+            <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:2px"><sc-for list="{{ d.bars }}" as="b"><span style="height:6px;background:{{ b.bg }}"></span></sc-for></div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="border-left:4px solid {{ d.imp.c }};background:#F5F4FA;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.1em">{{ d.imp.g }} {{ d.imp.label }}</span>
+              <span style="display:flex;gap:5px;align-items:center;border:1px solid #C9C6DC;padding:3px 7px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.1em;color:#0B0A81"><span style="display:flex;gap:2px"><sc-for list="{{ d.ev.pips }}" as="p"><span style="width:7px;height:7px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ d.ev.label }} ◇</span>
+            </div>
+            <span style="font-size:11.5px;line-height:1.5;color:#2B2A4A;min-height:34px">{{ d.finding }}</span>
+            <span style="font-size:9.5px;color:#6E6D88;line-height:1.35">Evidence basis: {{ d.basis }} · <a href="#{{ d.see }}">See analysis →</a></span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:auto;font-size:10px;line-height:1.5;color:#4A4968;background:#F5F4FA;padding:12px 14px">
+        <span><b style="color:#12113A">Why no radar:</b> there is only one profile. Bars compare better and print legibly. A radar is used only when comparing two or more profiles, such as a re-validation.</span>
+        <span><b style="color:#12113A">◇ Template-derived:</b> the source scores each dimension but does not rate evidence or decision impact. These marks are derived from the quoted basis. Impact rule: ≥7 supports, 5–6 constrains, ≤4 threatens.</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 1–2</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">04</span></div>
+  </div>
+</section>
+
+<!-- 05 DECISION CASE -->
+<section class="page" id="p05" data-screen-label="05 Decision Case">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:144px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">02</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ THE DECISION CASE</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:16px;padding:13px 0 14px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">What must be true for this venture to work?</h1>
+          <p style="margin:0;font-size:12.5px;line-height:1.55;color:#4A4968">Seven material conditions, taken from the report's kill-switches, critical path and risk register. None is yet strongly evidenced.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:'Space Grotesk';font-weight:600;font-size:9px;letter-spacing:0.14em;color:#6E6D88">EVIDENCE PROFILE ◇</span>
+          <div style="display:flex;height:14px;gap:2px"><span style="flex:2;background:#0B0A81"></span><span style="flex:2;background:#5B5AB8"></span><span style="flex:3;border:1px dashed #0B0A81;background:#FFFFFF"></span></div>
+          <div style="display:flex;justify-content:space-between;font-family:'Space Grotesk';font-size:9px;font-weight:600;color:#4A4968"><span>0 STRONG</span><span>2 PARTIAL</span><span>2 WEAK</span><span>3 UNVAL.</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 106px 102px 116px;gap:0;font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.14em;color:#6E6D88;padding:0 0 2px"><span></span><span style="padding-left:14px">CONDITION · CURRENT ASSESSMENT</span><span style="padding-left:10px">EVIDENCE</span><span style="padding-left:10px">IMPORTANCE</span><span style="padding-left:10px">EXPOSURE IF WRONG</span></div>
+        <sc-for list="{{ conditions }}" as="c" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 106px 102px 116px;border:1px solid #E3E1EE;align-items:stretch">
+            <div style="background:#0B0A81;color:#FFFFFF;font-family:'Space Grotesk';font-weight:700;font-size:18px;display:flex;align-items:flex-start;justify-content:center;padding-top:12px">{{ c.n }}</div>
+            <div style="padding:7px 12px;display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:12.5px;letter-spacing:0.01em;line-height:1.2">{{ c.t }}</span>
+              <span style="font-size:9.5px;line-height:1.4;color:#4A4968">{{ c.a }} <span style="color:#6E6D88">· {{ c.refs }}</span></span>
+            </div>
+            <div style="padding:12px 10px;border-left:1px solid #EFEDF5"><span style="display:flex;gap:5px;align-items:center;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.06em;color:#0B0A81"><span style="display:flex;gap:2px"><sc-for list="{{ c.ev.pips }}" as="p"><span style="width:7px;height:7px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ c.ev.label }}</span></div>
+            <div style="padding:12px 10px;border-left:1px solid #EFEDF5;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.06em;line-height:1.5">{{ c.im }}</div>
+            <div style="padding:10px;border-left:1px solid #EFEDF5"><span style="display:inline-flex;gap:5px;align-items:center;background:{{ c.ex.bg }};padding:3px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.06em;color:{{ c.ex.fg }}"><span style="display:flex;gap:2px"><sc-for list="{{ c.ex.segs }}" as="s"><span style="width:8px;height:5px;background:{{ s.bg }};background-image:{{ s.img }}"></span></sc-for></span>{{ c.ex.label }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:auto;background:#F1E8FF;padding:10px 14px;display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:#0B0A81">READING</span>
+        <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:500;font-size:12px;line-height:1.4">C01 and C04 decide whether there is a business at all, and both depend on Google. C02 and C03 decide whether it is worth more than ad revenue. Neither has been tested. The first 90 days (p.8) collect this evidence.</span><span style="font-size:8.5px;color:#4A4968">◇ States are template-derived. Exposure maps the risk register (probability × impact). "Critical" means the source calls it existential.</span></span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 4–5, 88–98, 107–108</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">05</span></div>
+  </div>
+</section>
+
+<!-- 06 EXECUTIVE SUMMARY -->
+<section class="page" id="p06" data-screen-label="06 Executive Summary">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:144px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">02</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ EXECUTIVE SUMMARY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:18px;padding:24px 0 14px">
+      <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Executive summary</h1>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 196px;gap:28px;flex:1;min-height:0">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ summary }}" as="s" hint-placeholder-count="7">
+            <div style="display:grid;grid-template-columns:118px minmax(0,1fr);gap:16px;padding:11px 0;border-top:1px solid #E3E1EE">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.14em;color:{{ s.c }};padding-top:2px">{{ s.k }}</span>
+              <p style="margin:0;font-size:12px;line-height:1.6;color:#2B2A4A;text-wrap:pretty">{{ s.t }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1px;background:#E3E1EE;align-self:start">
+          <sc-for list="{{ marginStats }}" as="m" hint-placeholder-count="6">
+            <div style="background:#FFFFFF;padding:12px 0 12px 14px;border-left:3px solid {{ m.c }};display:flex;flex-direction:column;gap:3px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:26px;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">{{ m.v }}</span>
+              <span style="font-family:'Space Grotesk';font-weight:600;font-size:9px;letter-spacing:0.12em;color:#4A4968;line-height:1.35">{{ m.l }}</span>
+              <span style="font-size:9px;color:#6E6D88">{{ m.s }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 2–4</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">06</span></div>
+  </div>
+</section>
+
+<!-- 07 STRENGTHS / RISKS -->
+<section class="page" id="p07" data-screen-label="07 Strengths and Risks">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:144px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">02</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ STRENGTHS &amp; RISKS</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:18px;padding:24px 0 14px">
+      <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Key strengths and key risks</h1>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #12113A;padding-bottom:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em">STRENGTHS</span><span style="font-family:'Space Grotesk';font-size:9px;letter-spacing:0.12em;color:#6E6D88">SIGNIFICANCE · EVIDENCE</span></div>
+          <sc-for list="{{ strengths }}" as="s" hint-placeholder-count="5">
+            <div style="background:#F5F4FA;padding:12px 14px;display:flex;flex-direction:column;gap:7px">
+              <div style="display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#0B6466">S{{ s.n }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:13.5px;line-height:1.25">{{ s.t }}</span></div>
+              <span style="font-size:11px;line-height:1.5;color:#4A4968;padding-left:28px">{{ s.d }}</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;padding-left:28px">
+                <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em;background:#FFFFFF;padding:3px 6px">{{ s.im }}</span>
+                <span style="display:flex;gap:4px;align-items:center;background:#FFFFFF;padding:3px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em;color:#0B0A81"><span style="display:flex;gap:2px"><sc-for list="{{ s.ev.pips }}" as="p"><span style="width:6px;height:6px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ s.ev.label }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #12113A;padding-bottom:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em">RISKS</span><span style="font-family:'Space Grotesk';font-size:9px;letter-spacing:0.12em;color:#6E6D88">SEVERITY · EVIDENCE</span></div>
+          <sc-for list="{{ keyRisks }}" as="s" hint-placeholder-count="5">
+            <div style="background:#FFFFFF;border:1px solid #E3E1EE;padding:12px 14px;display:flex;flex-direction:column;gap:7px">
+              <div style="display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#8A4F1C">R{{ s.n }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:13.5px;line-height:1.25">{{ s.t }}</span></div>
+              <span style="font-size:11px;line-height:1.5;color:#4A4968;padding-left:28px">{{ s.d }}</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;padding-left:28px">
+                <span style="display:flex;gap:4px;align-items:center;background:{{ s.ex.bg }};padding:3px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em;color:{{ s.ex.fg }}"><span style="display:flex;gap:2px"><sc-for list="{{ s.ex.segs }}" as="g"><span style="width:7px;height:5px;background:{{ g.bg }}"></span></sc-for></span>{{ s.ex.label }}</span>
+                <span style="display:flex;gap:4px;align-items:center;border:1px solid #E3E1EE;padding:3px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em;color:#0B0A81"><span style="display:flex;gap:2px"><sc-for list="{{ s.ev.pips }}" as="p"><span style="width:6px;height:6px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ s.ev.label }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <span style="margin-top:auto;font-size:9px;color:#6E6D88;line-height:1.45">S1–S3 and R1–R3 are the source's Key Strengths and Key Risks (p.4–5). S4–S5 come from the score breakdown, R4–R5 from the risk register. Severity follows probability × impact; "Critical" is used where the source says "existential". Significance and evidence are ◇ template-derived.</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 1–5, 88–91</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">07</span></div>
+  </div>
+</section>
+
+<!-- 08 ACTION PLAN -->
+<section class="page" id="p08" data-screen-label="08 Immediate Action Plan">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:144px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">02</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ IMMEDIATE ACTION PLAN</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:16px;padding:13px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Immediate action plan</h1>
+        <p style="margin:0;max-width:560px;font-size:12.5px;line-height:1.55;color:#4A4968">Each action exists to produce evidence for a material condition (C01–C07, p.5). Owner is the founder throughout, because the team size is 1 until Month 4.</p>
+      </div>
+      <div style="border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:30px minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.1fr) 46px;gap:10px;padding:8px 12px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em"><span>#</span><span>ACTION · WHY IT MATTERS</span><span>EVIDENCE TO COLLECT</span><span>SUCCESS THRESHOLD</span><span style="text-align:right">COND.</span></div>
+        <sc-for list="{{ actionGroups }}" as="g" hint-placeholder-count="3">
+          <div style="display:flex;gap:10px;align-items:center;padding:7px 12px;background:#F7F0DA;border-bottom:1px solid #EADFB9"><span style="font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.12em;color:#7A6214">{{ g.h }}</span><span style="font-size:10px;color:#7A6214">{{ g.w }}</span></div>
+          <sc-for list="{{ g.items }}" as="a">
+            <div style="display:grid;grid-template-columns:30px minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.1fr) 46px;gap:10px;padding:9px 12px;border-bottom:1px solid #EFEDF5;font-size:10.5px;line-height:1.45;align-items:start">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#0B0A81">{{ a.n }}</span>
+              <span style="display:flex;flex-direction:column;gap:2px"><b style="font-family:'Space Grotesk';font-size:12px;color:#12113A">{{ a.t }}</b><span style="color:#4A4968">{{ a.why }}</span></span>
+              <span style="color:#2B2A4A">{{ a.ev }}</span>
+              <span style="color:#12113A;font-weight:500;background:{{ a.thbg }};padding:{{ a.thpad }}">{{ a.th }}</span>
+              <span style="text-align:right;font-family:'Space Grotesk';font-weight:700;font-size:10px;color:#0B0A81">{{ a.c }}</span>
+            </div>
+          </sc-for>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:9.5px;color:#6E6D88;margin-top:auto">
+        <span style="border:1px dashed #8A4F1C;color:#8A4F1C;padding:2px 6px;font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em">⚠ SOURCE CONFLICT</span>
+        <span>The 12-week tutorial target is 50–60 in Immediate Actions (p.5) and 60–75 in the Roadmap critical path (p.107).</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 5, 98–108</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">08</span></div>
+  </div>
+</section>
+
+<!-- 09 BMC -->
+<section class="page" id="p09" data-screen-label="09 Business Model Canvas">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:292px;width:5px;height:64px;background:#C9A227"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#7A6214">04</b><span style="font-weight:600">ECONOMICS &amp; EXECUTION</span><span>/ BUSINESS MODEL CANVAS</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:20px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Business model canvas</h1>
+        <span style="font-size:10px;color:#6E6D88">Summaries. Full block detail continues in the appendix (source pp. 5–15).</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:auto auto auto;gap:4px">
+        <sc-for list="{{ bmc }}" as="b" hint-placeholder-count="9">
+          <div style="grid-column:{{ b.col }};grid-row:{{ b.row }};background:{{ b.bg }};padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;border-top:2px solid {{ b.bd }}">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.12em;color:#12113A">{{ b.t }}</span>
+            <sc-for list="{{ b.items }}" as="i"><span style="font-size:10px;line-height:1.4;color:#2B2A4A;padding-left:8px;border-left:1px solid #C9C6DC">{{ i }}</span></sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #12113A;padding-bottom:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em">BUSINESS MODEL SIGNALS ◇</span><span style="font-size:9.5px;color:#6E6D88">Analytical read of the canvas</span></div>
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ signals }}" as="s" hint-placeholder-count="5">
+            <div style="display:flex;flex-direction:column;gap:6px;border-top:3px solid {{ s.c }};padding-top:8px">
+              <span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#6E6D88">{{ s.k }}</span>
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:12.5px;line-height:1.25">{{ s.t }}</span>
+              <span style="font-size:10px;line-height:1.45;color:#4A4968">{{ s.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 5–15</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">09</span></div>
+  </div>
+</section>
+
+<!-- 10 MARKET -->
+<section class="page" id="p10" data-screen-label="10 Market Opportunity">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:218px;width:5px;height:64px;background:#0F8B8D"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B6466">03</b><span style="font-weight:600">MARKET &amp; CUSTOMER</span><span>/ MARKET OPPORTUNITY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:16px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Market opportunity</h1>
+        <div style="background:#E2F1F1;padding:10px 14px;font-family:'Space Grotesk';font-weight:500;font-size:13px;line-height:1.45">Market size is not the constraint. Even the Year-3 target captures 0.19–0.25% of the serviceable market. The question is how fast a solo founder can capture it through search.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:11px">TAM → SAM → SOM, area-proportional</span>
+          <div style="width:300px;height:300px;background:#E2F1F1;position:relative">
+            <div style="position:absolute;left:0;bottom:0;width:119px;height:119px;background:#0F8B8D"></div>
+            <div style="position:absolute;left:0;bottom:0;width:6px;height:6px;background:#12113A"></div>
+            <span style="position:absolute;right:12px;top:10px;font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#0B6466;text-align:right">TAM<br><span style="font-size:22px;color:#12113A">€1.8B</span></span>
+            <span style="position:absolute;left:8px;bottom:126px;font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#0B6466">SAM <span style="font-size:16px;color:#12113A">€285M</span></span>
+            <span style="position:absolute;left:12px;bottom:8px;font-family:'Space Grotesk';font-weight:700;font-size:9px;color:#FFFFFF;line-height:1.3">SOM Y3 ≤ €720k<br>(6 px square)</span>
+          </div>
+          <span style="font-size:9.5px;color:#6E6D88;line-height:1.4">Square area ∝ value. SAM is 15.8% of TAM (CAL). The Year-1 SOM (€27k) would be under 1 px and is not drawn.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ marketTiers }}" as="m" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;border-top:1px solid #E3E1EE;padding-top:10px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;color:#0B6466">{{ m.k }}</span>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap"><span style="font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:-0.01em">{{ m.v }}</span><span style="background:#DFC6FF;color:#0B0A81;padding:2px 6px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.1em">{{ m.prov }}</span></div>
+                <span style="font-size:10.5px;line-height:1.45;color:#2B2A4A"><b>Definition</b> {{ m.def }}</span>
+                <span style="font-size:10.5px;line-height:1.45;color:#4A4968"><b style="color:#12113A">Method</b> {{ m.method }}</span>
+                <span style="font-size:10.5px;line-height:1.45;color:#4A4968"><b style="color:#12113A">Cross-check</b> {{ m.cross }}</span>
+                <span style="font-size:9.5px;color:#6E6D88">Sources {{ m.src }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:11px">SOM trajectory by year · €k, range low–high</span>
+        <sc-for list="{{ somBars }}" as="s" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:52px minmax(0,1fr) 110px;gap:10px;align-items:center">
+            <span style="font-family:'Space Grotesk';font-weight:600;font-size:11px">{{ s.y }}</span>
+            <div style="height:14px;background:#F5F4FA;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ s.lo }};background:#0F8B8D"></span><span style="position:absolute;left:{{ s.lo }};top:0;bottom:0;width:{{ s.ext }};background:#9FD0D1"></span></div>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;text-align:right;font-variant-numeric:tabular-nums">{{ s.label }}</span>
+          </div>
+        </sc-for>
+        <span style="font-size:9.5px;color:#6E6D88">Solid = low estimate, tint = range to high estimate. Model estimate based on the founder financial model [11] and SEO velocity benchmarks [13]. 150–180% YoY growth Y1→Y2 per source.</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 15–24</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">10</span></div>
+  </div>
+</section>
+
+<!-- 11 FINANCIAL -->
+<section class="page" id="p11" data-screen-label="11 Financial Feasibility">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:366px;width:5px;height:64px;background:#C9A227"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#7A6214">05</b><span style="font-weight:600">ECONOMICS &amp; EXECUTION</span><span>/ FINANCIAL FEASIBILITY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Financial feasibility</h1>
+        <div style="display:flex;gap:10px;align-items:center;background-image:repeating-linear-gradient(135deg,#F5F4FA 0 6px,#FFFFFF 6px 12px);border:1px solid #E3E1EE;padding:8px 12px;font-size:10.5px;color:#4A4968"><span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.12em;color:#12113A">FALLBACK SECTION</span><span>The Financials module returned "N/A" (source p.53). This page brings together the economics stated in the BMC, Market SOM and Technical modules. No P&amp;L, cash flow or break-even was computed.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+        <div style="background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:24px;line-height:1">€0.30–0.60</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#4A4968">ORGANIC CAC / VISITOR</span><span style="align-self:flex-start;border:1px solid #12113A;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.08em">USR</span></div>
+        <div style="background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:24px;line-height:1">€270–405</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#4A4968">PREMIUM LTV</span><span style="align-self:flex-start;border:1px dashed #8A4F1C;color:#8A4F1C;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.06em">⚠ €270–540 in BMC</span></div>
+        <div style="background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:24px;line-height:1">1.8–3.6 : 1</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#4A4968">LTV : CAC</span><span style="align-self:flex-start;border:1px dashed #8A4F1C;color:#8A4F1C;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.06em">⚠ 2.5–4.5× in SOM</span></div>
+        <div style="background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:24px;line-height:1">€90–180k</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#4A4968">OPTIONAL PRE-SEED</span><span style="align-self:flex-start;background:#DFC6FF;color:#0B0A81;padding:1px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.08em">EST</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Revenue build by stream, Years 1–3 · €k</span>
+          <span style="font-size:10px;color:#4A4968;line-height:1.4">Subscriptions overtake AdSense in Year 2. Year-3 streams add up to more than the stated total.</span>
+          <div style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:6px">
+            <div style="height:200px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Space Grotesk';font-size:8.5px;color:#6E6D88;text-align:right"><span>900</span><span>600</span><span>300</span><span>0</span></div>
+            <div style="height:200px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-bottom:1px solid #12113A;background-image:linear-gradient(#EFEDF5 1px,transparent 1px);background-size:100% 66.66px;padding:0 10px">
+              <sc-for list="{{ revYears }}" as="r" hint-placeholder-count="3">
+                <div style="position:relative;height:200px">
+                  <div style="position:absolute;left:12%;right:12%;bottom:0;height:{{ r.hiH }};border:1px dashed #12113A"></div>
+                  <sc-for list="{{ r.segs }}" as="s"><div style="position:absolute;left:12%;right:12%;bottom:{{ s.b }};height:{{ s.h }};background:{{ s.c }}"></div></sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:6px">
+            <span></span>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 10px">
+              <sc-for list="{{ revYears }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:2px;text-align:center"><span style="font-family:'Space Grotesk';font-weight:700;font-size:10.5px">{{ r.y }}</span><span style="font-family:'Space Grotesk';font-size:10px">{{ r.stated }}</span><span style="font-size:8.5px;color:#8A4F1C;line-height:1.3">{{ r.warn }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:9px;color:#4A4968"><span style="display:flex;gap:4px;align-items:center"><span style="width:9px;height:9px;background:#0B0A81"></span>AdSense</span><span style="display:flex;gap:4px;align-items:center"><span style="width:9px;height:9px;background:#0F8B8D"></span>Subscriptions</span><span style="display:flex;gap:4px;align-items:center"><span style="width:9px;height:9px;background:#C9A227"></span>SaaS partnerships</span><span style="display:flex;gap:4px;align-items:center"><span style="width:9px;height:9px;border:1px dashed #12113A"></span>High estimate</span><span>Solid = low estimates · EST [11][12][13]</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Infrastructure cost by stage · € / month</span>
+            <sc-for list="{{ costTiers }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:3px">
+                <div style="display:flex;justify-content:space-between;font-size:10px"><span><b style="font-family:'Space Grotesk'">{{ c.t }}</b> <span style="color:#6E6D88">{{ c.s }}</span></span><span style="font-family:'Space Grotesk';font-weight:700">{{ c.v }}</span></div>
+                <div style="height:10px;background:#F5F4FA;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ c.lo }};background:#C9A227"></span><span style="position:absolute;left:{{ c.lo }};top:0;bottom:0;width:{{ c.ext }};background:#EADFB9"></span></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:#F7F0DA;padding:10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#7A6214">COMPLIANCE SET-UP</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:17px">€9–18k</span><span style="font-size:9.5px;color:#4A4968">+ €4.5–10.8k / yr</span></div>
+            <div style="background:#F7F0DA;padding:10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#7A6214">FULL-TIME THRESHOLD</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:17px">€900–2,700</span><span style="font-size:9.5px;color:#4A4968">net revenue / mo (p.11)</span></div>
+            <div style="grid-column:1 / -1;background-image:repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px);border:1px solid #C9C6DC;padding:10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em;color:#4A4968">BREAK-EVEN · CASH RUNWAY · MONTHLY P&amp;L</span><span style="font-size:10px;color:#4A4968">Not computed by engine. The component renders here when the Financials module returns data.</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:minmax(0,1.4fr) 104px 44px 112px minmax(0,1.2fr);gap:10px;padding:7px 12px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.12em"><span>ASSUMPTION</span><span style="text-align:right">VALUE</span><span>TYPE</span><span>EVIDENCE</span><span>NOTE</span></div>
+        <sc-for list="{{ finAssumptions }}" as="a" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) 104px 44px 112px minmax(0,1.2fr);gap:10px;padding:7px 12px;border-bottom:1px solid #EFEDF5;font-size:10.5px;align-items:center">
+            <span>{{ a.a }}</span><span style="text-align:right;font-family:'Space Grotesk';font-weight:700;font-variant-numeric:tabular-nums">{{ a.v }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.08em">{{ a.t }}</span>
+            <span style="display:flex;gap:4px;align-items:center;font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.06em;color:#0B0A81"><span style="display:flex;gap:2px"><sc-for list="{{ a.e.pips }}" as="p"><span style="width:6px;height:6px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ a.e.label }}</span>
+            <span style="font-size:9.5px;color:#4A4968">{{ a.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 3–20, 53, 66–67, 80</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">11</span></div>
+  </div>
+</section>
+
+<!-- 12 COMPETITION -->
+<section class="page" id="p12" data-screen-label="12 Competitive Intelligence">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:440px;width:5px;height:64px;background:#0F8B8D"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B6466">06</b><span style="font-weight:600">MARKET &amp; CUSTOMER</span><span>/ COMPETITIVE INTELLIGENCE</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Competitive intelligence</h1>
+        <div style="background:#E2F1F1;padding:10px 14px;font-family:'Space Grotesk';font-weight:500;font-size:13px;line-height:1.45">The white space is real, but it is not defended. Four of five forces score High. The only lasting advantage named is execution speed on validated content during a 12–18 month window.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:318px minmax(0,1fr);gap:22px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Positioning: price × specificity</span>
+          <div style="display:grid;grid-template-columns:16px 300px;gap:2px">
+            <div style="display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-90deg);white-space:nowrap;font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.1em;color:#4A4968">SPECIFICITY →</span></div>
+            <div style="width:300px;height:300px;position:relative;overflow:hidden;background:#F5F4FA;border-left:1px solid #12113A;border-bottom:1px solid #12113A">
+              <div style="position:absolute;left:0;top:0;width:50%;height:50%;background:#E2F1F1"></div>
+              <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:#C9C6DC"></div>
+              <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:#C9C6DC"></div>
+              <span style="position:absolute;left:6px;top:5px;font-family:'Space Grotesk';font-size:8px;font-weight:700;letter-spacing:0.08em;color:#0B6466">HIGH SPEC · LOW PRICE</span>
+              <span style="position:absolute;right:6px;top:5px;font-family:'Space Grotesk';font-size:8px;letter-spacing:0.08em;color:#6E6D88">HIGH SPEC · PREMIUM</span>
+              <span style="position:absolute;left:6px;bottom:5px;font-family:'Space Grotesk';font-size:8px;letter-spacing:0.08em;color:#6E6D88">GENERIC · FREE</span>
+              <span style="position:absolute;right:6px;bottom:5px;font-family:'Space Grotesk';font-size:8px;letter-spacing:0.08em;color:#6E6D88">GENERIC · PREMIUM</span>
+              <sc-for list="{{ positions }}" as="p" hint-placeholder-count="10">
+                <div style="position:absolute;left:{{ p.l }};bottom:{{ p.b }};transform:{{ p.tf }};display:flex;flex-direction:{{ p.dir }};gap:4px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#12113A;flex:none"></span><span style="font-size:8.5px;font-weight:600;white-space:nowrap;background:#FFFFFFCC;padding:0 2px;transform:translateY({{ p.dy }})">{{ p.n }}</span></div>
+              </sc-for>
+              <div style="position:absolute;left:22%;bottom:80.5%;transform:translate(-8px,8px);display:flex;gap:4px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:2px solid #0F8B8D;background:#FFFFFF;flex:none"></span><span style="font-size:8.5px;font-weight:700;color:#0B6466;white-space:nowrap">Recommended (2, 8.5)</span></div>
+            </div>
+            <span></span>
+            <span style="font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.1em;color:#4A4968;text-align:right">PRICE: FREE → PREMIUM (€200+/MO)</span>
+          </div>
+          <span style="font-size:9px;color:#6E6D88;line-height:1.4">Coordinates as given by the engine (0–10) [15]. Forums and freelancers are indirect alternatives.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Direct competitors · 10</span>
+          <div style="border:1px solid #E3E1EE">
+            <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.9fr) minmax(0,1fr) 92px;gap:8px;padding:6px 10px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em"><span>COMPETITOR</span><span>POSITION</span><span style="text-align:right">PRICING</span><span>THREAT</span></div>
+            <sc-for list="{{ competitors }}" as="c" hint-placeholder-count="10">
+              <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.9fr) minmax(0,1fr) 92px;gap:8px;padding:6px 10px;border-bottom:1px solid #EFEDF5;font-size:10px;align-items:center">
+                <span style="font-weight:600">{{ c.n }}</span><span style="color:#4A4968">{{ c.p }}</span><span style="text-align:right;font-variant-numeric:tabular-nums">{{ c.pr }}</span>
+                <span style="justify-self:start;display:flex;gap:4px;align-items:center;background:{{ c.ex.bg }};padding:2px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.06em;color:{{ c.ex.fg }}"><span style="display:flex;gap:1px"><sc-for list="{{ c.ex.segs }}" as="s"><span style="width:6px;height:5px;background:{{ s.bg }}"></span></sc-for></span>{{ c.tl }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Porter's five forces</span>
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px">
+          <sc-for list="{{ forces }}" as="f" hint-placeholder-count="5">
+            <div style="border:1px solid #E3E1EE;padding:10px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:11.5px">{{ f.t }}</span>
+              <span style="align-self:flex-start;display:flex;gap:4px;align-items:center;background:{{ f.ex.bg }};padding:2px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.06em;color:{{ f.ex.fg }}"><span style="display:flex;gap:1px"><sc-for list="{{ f.ex.segs }}" as="s"><span style="width:6px;height:5px;background:{{ s.bg }}"></span></sc-for></span>{{ f.s }}</span>
+              <span style="font-size:9.5px;color:#4A4968;line-height:1.4">{{ f.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top:auto;display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:14px;align-items:center;border-top:2px solid #12113A;padding-top:10px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.12em">DECISION IMPACT</span>
+        <span style="font-size:10.5px;line-height:1.45;color:#4A4968">Supports the case through positioning. It threatens the case through defensibility: GoDaddy, WordPress.com and WPBeginner-type sites are each rated High threat.</span>
+        <span style="border-left:4px solid #B87333;background:#F5F4FA;padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">▼ THREATENS</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 28–53</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">12</span></div>
+  </div>
+</section>
+
+<!-- 13 TECHNICAL -->
+<section class="page" id="p13" data-screen-label="13 Technical Feasibility">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:514px;width:5px;height:64px;background:#C9A227"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#7A6214">07</b><span style="font-weight:600">ECONOMICS &amp; EXECUTION</span><span>/ TECHNICAL FEASIBILITY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Technical feasibility</h1>
+        <div style="background:#F7F0DA;padding:10px 14px;font-family:'Space Grotesk';font-weight:500;font-size:13px;line-height:1.45">Building it is not the hard part. The stack is standard and the MVP needs about 54 days of must-have work. The binding constraint is the manual validation step, which also scales with headcount.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Development timeline · weeks</span>
+        <div style="position:relative;height:40px">
+          <div style="position:absolute;left:0;right:0;top:14px;height:10px;background:#F5F4FA"></div>
+          <div style="position:absolute;left:0;width:41.6%;top:14px;height:10px;background:#C9A227"></div>
+          <div style="position:absolute;left:41.6%;width:25%;top:14px;height:10px;background:#DCC36F"></div>
+          <div style="position:absolute;left:66.6%;width:33.4%;top:14px;height:10px;background:#EADFB9"></div>
+          <span style="position:absolute;left:0;top:0;font-family:'Space Grotesk';font-weight:700;font-size:9.5px">MVP · wk 10 · 15 tutorials</span>
+          <span style="position:absolute;left:41.6%;top:0;padding-left:4px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px">BETA · wk 16 · 50 tutorials, paywall</span>
+          <span style="position:absolute;left:66.6%;top:0;padding-left:4px;font-family:'Space Grotesk';font-weight:700;font-size:9.5px">LAUNCH · wk 24 · 100+ tutorials</span>
+          <span style="position:absolute;left:0;top:28px;font-size:8.5px;color:#6E6D88">0</span><span style="position:absolute;right:0;top:28px;font-size:8.5px;color:#6E6D88">24</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px">
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">MVP build effort · days per feature</span>
+          <span style="font-size:9.5px;color:#4A4968">Must-have 54 d (solid) · nice-to-have 29 d (dashed) · CAL</span>
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="20">
+            <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 26px;gap:6px;align-items:center;font-size:9px">
+              <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ f.t }}</span>
+              <div style="height:7px;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ f.w }};background:{{ f.c }};border:1px {{ f.bs }} {{ f.bd }}"></span></div>
+              <span style="font-family:'Space Grotesk';font-weight:700;text-align:right">{{ f.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Dependencies &amp; external services</span>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="background:#12113A;color:#FFFFFF;padding:8px 10px;font-family:'Space Grotesk';font-weight:700;font-size:11px;text-align:center">Micro-Tutorials platform · Express API + Next.js</div>
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px"><sc-for list="{{ depGroups }}" as="g" hint-placeholder-count="5"><span style="height:10px;border-left:1px solid #12113A;margin-left:50%"></span></sc-for></div>
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px">
+              <sc-for list="{{ depGroups }}" as="g" hint-placeholder-count="5">
+                <div style="border:1px solid #C9C6DC;padding:6px;display:flex;flex-direction:column;gap:3px">
+                  <span style="font-family:'Space Grotesk';font-weight:700;font-size:7.5px;letter-spacing:0.08em;color:#7A6214">{{ g.t }}</span>
+                  <sc-for list="{{ g.items }}" as="i"><span style="font-size:8.5px;line-height:1.3">{{ i }}</span></sc-for>
+                  <span style="font-size:7.5px;color:#6E6D88;margin-top:auto">{{ g.risk }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;margin-top:4px">Scaling triggers · monthly visitors</span>
+          <sc-for list="{{ scaleTriggers }}" as="s" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:baseline;border-top:1px solid #EFEDF5;padding-top:5px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;color:#7A6214">{{ s.v }}</span><span style="font-size:9.5px;line-height:1.4;color:#4A4968">{{ s.d }}</span></div>
+          </sc-for>
+          <div style="background:#F5F4FA;padding:10px;display:flex;flex-direction:column;gap:5px;font-size:9.5px;line-height:1.4;color:#2B2A4A">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.12em;color:#12113A">TECHNICAL UNKNOWNS</span>
+            <span>• No staging environment exists yet (score breakdown)</span>
+            <span>• Can automated Playwright tests cut validation from 2 h to 30 min?</span>
+            <span>• Team: 1 → 4 by Month 9 (QA m4, frontend m6, DevOps m9)</span>
+            <span style="color:#8A4F1C">⚠ The Technical module specifies Next.js + Express. The Roadmap (p.98) says to build the MVP on no-code/low-code tools.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 53–72, 98</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">13</span></div>
+  </div>
+</section>
+
+<!-- 14 REGULATORY -->
+<section class="page" id="p14" data-screen-label="14 Regulatory Exposure">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:588px;width:5px;height:64px;background:#B87333"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#8A4F1C">08</b><span style="font-weight:600">RISK &amp; REGULATORY</span><span>/ REGULATORY EXPOSURE</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Regulatory exposure</h1>
+          <p style="margin:0;max-width:470px;font-size:12px;line-height:1.55;color:#4A4968">Regulatory Compliance scores 8/10. The material exposure is contractual and liability-related (AdSense policy, tutorial accuracy) rather than statutory.</p>
+        </div>
+        <div style="display:flex;gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+          <div style="background:#FFFFFF;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px">€9–18k</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;color:#4A4968">SET-UP</span></div>
+          <div style="background:#FFFFFF;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px">€4.5–10.8k</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;color:#4A4968">ANNUAL</span></div>
+          <div style="background:#FFFFFF;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px">€4.5–9k</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;color:#4A4968">LEGAL FEES</span></div>
+        </div>
+      </div>
+      <div style="border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 128px minmax(0,1.35fr) 66px 56px;gap:8px;padding:7px 10px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em"><span>REGULATION</span><span>APPLICABILITY</span><span>EXPOSURE ◇</span><span>REQUIRED ACTION</span><span>TIMING</span><span>BASIS</span></div>
+        <sc-for list="{{ regs }}" as="r" hint-placeholder-count="11">
+          <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 128px minmax(0,1.35fr) 66px 56px;gap:8px;padding:8px 10px;border-bottom:1px solid #EFEDF5;font-size:9.5px;line-height:1.4;align-items:start">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:10.5px">{{ r.r }}</span>
+            <span style="color:#4A4968">{{ r.a }}</span>
+            <span style="justify-self:start;display:flex;gap:4px;align-items:center;background:{{ r.ex.bg }};border:1px solid #E8D3C0;padding:2px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8px;letter-spacing:0.04em;color:{{ r.ex.fg }}"><span style="display:flex;gap:1px"><sc-for list="{{ r.ex.segs }}" as="s"><span style="width:6px;height:5px;background:{{ s.bg }};background-image:{{ s.img }}"></span></sc-for></span>{{ r.ex.label }}</span>
+            <span>{{ r.act }}</span>
+            <span style="color:#4A4968">{{ r.tm }}</span>
+            <span style="color:#6E6D88;font-size:9px">{{ r.b }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+        <div style="background:#F6EADF;padding:10px 12px;font-size:9.5px;line-height:1.45;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.12em;color:#8A4F1C">HOW EXPOSURE IS SET ◇</b><br>Where a regulation maps to a risk-register entry, exposure follows its probability × impact. Every other row is "Not yet determined". The source lists these obligations but does not rate them.</div>
+        <div style="background:#F5F4FA;padding:10px 12px;font-size:9.5px;line-height:1.45;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.12em">NOT LEGAL ADVICE</b><br>This register reflects an automated scan of a US-only launch. Applicability, especially COPPA, sales-tax nexus and EU AI Act, needs confirmation by counsel before launch.</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 12, 72–80</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">14</span></div>
+  </div>
+</section>
+
+<!-- 15 RISK -->
+<section class="page" id="p15" data-screen-label="15 Risk Matrix">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:662px;width:5px;height:64px;background:#B87333"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#8A4F1C">09</b><span style="font-weight:600">RISK &amp; REGULATORY</span><span>/ RISK SYSTEM</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Risk system</h1>
+        <p style="margin:0;max-width:560px;font-size:12px;line-height:1.55;color:#4A4968">15 risks in the register. Three sit in the high × high cell: accuracy liability, platform AI help and the founder bottleneck. Full register on <a href="#p20">p.20 →</a></p>
+      </div>
+      <div style="display:grid;grid-template-columns:330px minmax(0,1fr);gap:22px">
+        <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:4px">
+          <div style="display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-90deg);white-space:nowrap;font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.12em;color:#4A4968">IMPACT →</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,92px);gap:3px">
+              <sc-for list="{{ matrix }}" as="m" hint-placeholder-count="9">
+                <div style="background:{{ m.bg }};padding:6px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start">
+                  <sc-for list="{{ m.items }}" as="i"><span style="width:22px;height:22px;border-radius:50%;background:{{ i.bg }};color:{{ i.fg }};border:1px solid #12113A;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:10px">{{ i.n }}</span></sc-for>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.1em;color:#4A4968;text-align:center"><span>LOW</span><span>MEDIUM</span><span>HIGH</span></div>
+            <span style="font-family:'Space Grotesk';font-size:8.5px;letter-spacing:0.12em;color:#4A4968;text-align:center">PROBABILITY →</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ riskKeys }}" as="r" hint-placeholder-count="15">
+            <div style="display:grid;grid-template-columns:22px minmax(0,1fr) 70px;gap:6px;font-size:9.5px;line-height:1.3;padding:3px 0;border-bottom:1px solid #F3F1F8;align-items:baseline">
+              <span style="font-family:'Space Grotesk';font-weight:700;color:#8A4F1C">{{ r.n }}</span><span>{{ r.t }}</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.08em;color:#6E6D88;text-align:right">{{ r.cat }} ◇</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #12113A;padding-bottom:5px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em">DECISION TRIGGERS · KILL-SWITCHES</span><span style="font-size:9px;color:#6E6D88">Source p.96</span></div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px">
+          <sc-for list="{{ killSwitches }}" as="k" hint-placeholder-count="8">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) 118px;border:1px solid #E3E1EE">
+              <div style="padding:7px 10px;display:flex;flex-direction:column;gap:2px;font-size:9.5px;line-height:1.35">
+                <span><b style="font-family:'Space Grotesk';color:#8A4F1C;font-size:8.5px;letter-spacing:0.08em;margin-right:4px">IF</b>{{ k.i }}</span>
+                <span style="color:#4A4968"><b style="font-family:'Space Grotesk';color:#8A4F1C;font-size:8.5px;letter-spacing:0.08em;margin-right:4px">WHEN</b>{{ k.a }}</span>
+              </div>
+              <div style="background:#12113A;color:#FFFFFF;padding:7px 8px;display:flex;flex-direction:column;justify-content:center;gap:2px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:0.04em">→ {{ k.t }}</span><span style="font-size:8.5px;color:#C9C6DC;line-height:1.3">{{ k.r }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 88–98</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">15</span></div>
+  </div>
+</section>
+
+<!-- 16 SCENARIO -->
+<section class="page" id="p16" data-screen-label="16 Scenario Analysis">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:736px;width:5px;height:64px;background:#0B0A81"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B0A81">10</b><span style="font-weight:600">DECISION INTELLIGENCE</span><span>/ SCENARIO ANALYSIS</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">What if?</h1>
+        <p style="margin:0;max-width:560px;font-size:12px;line-height:1.55;color:#4A4968">The source states several sensitivities but does not re-score the venture under them. Inputs and changed values are shown. The resulting venture state stays empty until the scenario engine runs.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) 150px;gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+        <sc-for list="{{ baseCase }}" as="b" hint-placeholder-count="6">
+          <div style="background:#FFFFFF;padding:10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em;color:#6E6D88">{{ b.k }}</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:15px">{{ b.v }}</span><span style="font-size:8.5px;color:#4A4968">{{ b.s }}</span></div>
+        </sc-for>
+        <div style="background:#0B0A81;color:#FFFFFF;padding:10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em;color:#DFC6FF">BASE CASE → STATE</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px">51.5</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;background:#C9A227;color:#12113A;padding:2px 5px;align-self:flex-start">CONDITIONAL-GO</span></div>
+      </div>
+      <div style="border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,0.9fr) 20px minmax(0,0.9fr) 40px 150px;gap:8px;padding:7px 10px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em"><span>SCENARIO · STATED BASIS</span><span>BASE</span><span></span><span>SCENARIO</span><span>TYPE</span><span>VENTURE STATE · Δ</span></div>
+        <sc-for list="{{ whatIfs }}" as="w" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,0.9fr) 20px minmax(0,0.9fr) 40px 150px;gap:8px;padding:9px 10px;border-bottom:1px solid #EFEDF5;font-size:10px;line-height:1.4;align-items:center">
+            <span style="display:flex;flex-direction:column;gap:2px"><b style="font-family:'Space Grotesk';font-size:11px">{{ w.q }}</b><span style="color:#4A4968;font-size:9.5px">{{ w.why }}</span></span>
+            <span style="font-family:'Space Grotesk';font-weight:600">{{ w.from }}</span>
+            <span style="color:#6E6D88">→</span>
+            <span style="font-family:'Space Grotesk';font-weight:700;color:#8A4F1C">{{ w.to }}</span>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:8.5px">{{ w.prov }}</span>
+            <span style="background-image:repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px);border:1px solid #C9C6DC;padding:5px 7px;font-family:'Space Grotesk';font-weight:600;font-size:8.5px;letter-spacing:0.04em;color:#4A4968">— Not computed</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #12113A;padding-bottom:5px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:0.14em">CONTINGENCY TRIGGERS · TRIGGER → RESPONSE → PIVOT</span><span style="font-size:9px;color:#6E6D88">Source pp. 94–96</span></div>
+        <sc-for list="{{ contingencies }}" as="c" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) 14px minmax(0,1.5fr) 14px minmax(0,0.9fr);gap:6px;align-items:stretch">
+            <div style="border:1px solid #E8D3C0;background:#F6EADF;padding:7px 9px;font-size:9.5px;line-height:1.35"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#8A4F1C;display:block">TRIGGER {{ c.n }}</b>{{ c.t }}</div>
+            <span style="align-self:center;color:#6E6D88;font-size:11px">→</span>
+            <div style="border:1px solid #E3E1EE;padding:7px 9px;font-size:9.5px;line-height:1.35;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#12113A;display:block">RESPONSE</b>{{ c.a }}</div>
+            <span style="align-self:center;color:#6E6D88;font-size:11px">→</span>
+            <div style="background:#F1E8FF;padding:7px 9px;font-size:9.5px;line-height:1.35"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#0B0A81;display:block">PIVOT OPTION</b>{{ c.p }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 21–28, 94–98</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">16</span></div>
+  </div>
+</section>
+
+<!-- 17 ROADMAP -->
+<section class="page" id="p17" data-screen-label="17 Execution Roadmap">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:810px;width:5px;height:64px;background:#C9A227"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#7A6214">11</b><span style="font-weight:600">ECONOMICS &amp; EXECUTION</span><span>/ EXECUTION ROADMAP</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:22px 0 14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Execution roadmap</h1>
+        <p style="margin:0;max-width:560px;font-size:12px;line-height:1.55;color:#4A4968">Five stages, each ending in a decision gate. The venture moves on only when the gate's evidence arrives. Two gates have no threshold in the source and need one before work starts.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:0;border:1px solid #E3E1EE">
+            <div style="background:#F7F0DA;padding:9px 10px;display:flex;flex-direction:column;gap:2px;border-top:3px solid #C9A227"><span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;letter-spacing:0.08em">{{ s.s }}</span><span style="font-size:9px;color:#7A6214;font-weight:600">{{ s.w }}</span></div>
+            <div style="padding:9px 10px;display:flex;flex-direction:column;gap:6px;flex:1">
+              <span style="font-family:'Space Grotesk';font-weight:600;font-size:10.5px;line-height:1.3">{{ s.o }}</span>
+              <sc-for list="{{ s.a }}" as="a"><span style="font-size:9px;line-height:1.35;color:#4A4968;padding-left:7px;border-left:1px solid #C9C6DC">{{ a }}</span></sc-for>
+            </div>
+            <div style="border-top:1px solid #E3E1EE;padding:9px 10px;display:flex;flex-direction:column;gap:5px;background:#FFFFFF">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:8px;letter-spacing:0.12em;color:#12113A">◆ DECISION GATE</span>
+              <span style="font-size:9.5px;font-weight:600;line-height:1.3">{{ s.gate }}</span>
+              <span style="font-size:8.5px;color:#6E6D88;line-height:1.3">Evidence: {{ s.ev }}</span>
+              <span style="font-size:9px;line-height:1.35;padding:4px 6px;background:#F5F4FA;font-weight:600">{{ s.th }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px">
+        <div style="display:flex;flex-direction:column;gap:1px;background:#E3E1EE;border:1px solid #E3E1EE;align-self:start">
+          <div style="background:#FFFFFF;padding:10px 12px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em;color:#6E6D88;display:block">YEAR-1 REVENUE</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:19px">€18–27k</span><span style="font-size:9px;color:#4A4968;display:block">€13.5–18k ads · €4.5–9k subs</span></div>
+          <div style="background:#FFFFFF;padding:10px 12px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em;color:#6E6D88;display:block">UNIQUE VISITORS</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:19px">150–250k</span><span style="font-size:9px;color:#4A4968;display:block">annual</span></div>
+          <div style="background:#FFFFFF;padding:10px 12px"><span style="font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em;color:#6E6D88;display:block">PREMIUM SUBSCRIBERS</span><span style="font-family:'Space Grotesk';font-weight:700;font-size:19px">100–200</span><span style="font-size:9px;color:#8A4F1C;display:block">⚠ SOM model: 50–75 by December</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:12px">Year-one OKRs</span>
+          <sc-for list="{{ okrs }}" as="o" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.6fr);gap:12px;border-top:1px solid #E3E1EE;padding-top:7px">
+              <span style="font-family:'Space Grotesk';font-weight:700;font-size:11px;line-height:1.3">{{ o.o }}</span>
+              <div style="display:flex;flex-direction:column;gap:3px"><sc-for list="{{ o.kr }}" as="k"><span style="font-size:9.5px;line-height:1.35;color:#2B2A4A">KR · {{ k }}</span></sc-for></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 98–109</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">17</span></div>
+  </div>
+</section>
+
+<!-- 18 SOURCES -->
+<section class="page" id="p18" data-screen-label="18 Sources and Methodology">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:884px;width:5px;height:64px;background:#6E6D88"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#4A4968">12</b><span style="font-weight:600">REFERENCE</span><span>/ SOURCES &amp; METHODOLOGY</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;padding:22px 0 14px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-0.015em">Sources &amp; methodology</h1>
+          <p style="margin:0;font-size:11.5px;line-height:1.5;color:#4A4968">The source report cites references only in the Market module, and none includes a URL. Every other module is an engine estimate [15]. That gap is shown here rather than hidden.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E3E1EE;border:1px solid #E3E1EE;text-align:center">
+          <div style="background:#FFFFFF;padding:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;display:block">11</span><span style="font-family:'Space Grotesk';font-size:7.5px;letter-spacing:0.1em;color:#4A4968">EXTERNAL</span></div>
+          <div style="background:#FFFFFF;padding:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;display:block">2</span><span style="font-family:'Space Grotesk';font-size:7.5px;letter-spacing:0.1em;color:#4A4968">USER</span></div>
+          <div style="background:#FFFFFF;padding:8px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;display:block">0</span><span style="font-family:'Space Grotesk';font-size:7.5px;letter-spacing:0.1em;color:#4A4968">WITH URL</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="15">
+          <div id="{{ s.id }}" style="border:1px solid #E3E1EE;padding:7px 10px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px">
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:13px;color:#0B0A81">[{{ s.n }}]</span>
+            <div style="display:flex;flex-direction:column;gap:3px">
+              <span style="font-size:9.5px;line-height:1.35;font-weight:600">{{ s.t }}</span>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;font-size:8.5px;color:#4A4968">
+                <span style="background:{{ s.tbg }};color:{{ s.tfg }};border:1px solid {{ s.tbd }};padding:0 4px;font-family:'Space Grotesk';font-weight:700;font-size:8px;letter-spacing:0.08em">{{ s.ty }}</span>
+                <span style="background-image:{{ s.pbg }};padding:0 3px">{{ s.p }}</span>
+                <span style="background-image:{{ s.dbg }};padding:0 3px">{{ s.d }}</span>
+                <span style="color:#6E6D88">· Used for {{ s.u }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto">
+        <div style="background:#F5F4FA;padding:10px;font-size:9px;line-height:1.45;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;display:block;margin-bottom:3px">SCORING</b>Eight dimensions are scored 0–10 and combined into a 0–100 score. Weights are not disclosed. The unweighted mean would be 57.5, so weighting lowers the result to 51.5.</div>
+        <div style="background:#F5F4FA;padding:10px;font-size:9px;line-height:1.45;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;display:block;margin-bottom:3px">CURRENCY</b>Values are shown in € as in the source, which converted USD figures (e.g. USD 58.3B → €52.5B). The conversion rate is not stated.</div>
+        <div style="background:#F5F4FA;padding:10px;font-size:9px;line-height:1.45;color:#2B2A4A"><b style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.12em;display:block;margin-bottom:3px">CONFLICTS FLAGGED · 6</b>LTV, LTV:CAC, annual price, competitive window, Y3 SOM total and Y1 subscriber target. Each is marked ⚠ where it appears.</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 15–21</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">18</span></div>
+  </div>
+</section>
+
+<!-- 19 ANALYSIS MODULE: ICP -->
+<section class="page" id="p19" data-screen-label="19 Analysis Module ICP">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:218px;width:5px;height:64px;background:#0F8B8D"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#0B6466">03</b><span style="font-weight:600">MARKET &amp; CUSTOMER</span><span>/ MODULE 03.2 · CUSTOMER &amp; ICP</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;padding:20px 0 14px">
+      <div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:end">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;line-height:0.9;color:#0F8B8D">03.2</span>
+        <div style="display:flex;flex-direction:column;gap:4px"><h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:26px;line-height:1.1;letter-spacing:-0.015em">Customer &amp; ideal customer profile</h1><span style="font-size:11px;color:#4A4968">Purpose: who feels the pain, what triggers a search, and what they will pay.</span></div>
+      </div>
+      <div style="background:#F1E8FF;padding:10px 14px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.14em;color:#0B0A81;padding-top:2px">1 · KEY FINDING</span>
+        <span style="font-family:'Space Grotesk';font-weight:500;font-size:13px;line-height:1.4">The customer and trigger are well defined and visible in search data. Whether they will pay, and keep paying, after the crisis is over has not been tested.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.14em;color:#6E6D88">2 · KEY METRICS</span>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#E3E1EE;border:1px solid #E3E1EE">
+          <div style="background:#FFFFFF;padding:9px 10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;line-height:1">2.2M</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#4A4968">SAM BUSINESSES</span><span style="align-self:flex-start;background:#DFC6FF;color:#0B0A81;padding:0 4px;font-family:'Space Grotesk';font-weight:700;font-size:7.5px">EST</span></div>
+          <div style="background:#FFFFFF;padding:9px 10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;line-height:1">45–55%</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#4A4968">SITES WITH MONTHLY ERRORS</span><span style="align-self:flex-start;background:#DFC6FF;color:#0B0A81;padding:0 4px;font-family:'Space Grotesk';font-weight:700;font-size:7.5px">EST</span></div>
+          <div style="background:#FFFFFF;padding:9px 10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;line-height:1">€90–900</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#4A4968">DOWNTIME COST / DAY</span><span style="align-self:flex-start;background:#DFC6FF;color:#0B0A81;padding:0 4px;font-family:'Space Grotesk';font-weight:700;font-size:7.5px">EST</span></div>
+          <div style="background:#FFFFFF;padding:9px 10px;display:flex;flex-direction:column;gap:3px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;line-height:1">€0–120</span><span style="font-family:'Space Grotesk';font-size:8px;letter-spacing:0.1em;color:#4A4968">DIY TOOL BUDGET / YEAR</span><span style="align-self:flex-start;border:1px solid #12113A;padding:0 4px;font-family:'Space Grotesk';font-weight:700;font-size:7.5px">USR [10]</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.14em;color:#6E6D88">3 · ANALYSIS · ICP PROFILE</span>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px">
+          <sc-for list="{{ icp }}" as="i" hint-placeholder-count="8">
+            <div style="border:1px solid #E3E1EE;padding:7px 10px;display:flex;flex-direction:column;gap:3px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:6px"><span style="font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:0.12em;color:#0B6466">{{ i.k }}</span><span style="display:flex;gap:3px;align-items:center;font-family:'Space Grotesk';font-weight:700;font-size:7.5px;letter-spacing:0.06em;color:#0B0A81"><span style="display:flex;gap:1px"><sc-for list="{{ i.ev.pips }}" as="p"><span style="width:5px;height:5px;background:{{ p.bg }};border:1px {{ p.bs }} #0B0A81"></span></sc-for></span>{{ i.ev.label }}</span></div>
+              <span style="font-size:9.5px;line-height:1.4;color:#2B2A4A">{{ i.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border:1px solid #E3E1EE">
+          <div style="display:grid;grid-template-columns:76px minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,1fr);gap:8px;padding:5px 10px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:7.5px;letter-spacing:0.12em"><span>SEGMENT</span><span>WHO</span><span>ROLE IN MODEL</span><span>SPEND</span></div>
+          <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:76px minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,1fr);gap:8px;padding:5px 10px;border-bottom:1px solid #EFEDF5;font-size:9px;line-height:1.35"><b style="font-family:'Space Grotesk'">{{ s.s }}</b><span>{{ s.w }}</span><span style="color:#4A4968">{{ s.m }}</span><span style="color:#4A4968">{{ s.sp }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.14em;color:#6E6D88">4 · WHAT THIS MEANS</span>
+          <span style="font-size:9.5px;line-height:1.45">• Acquisition fits the customer. They search the exact error text, which is what long-tail SEO targets.</span>
+          <span style="font-size:9.5px;line-height:1.45">• Premium value is crisis-driven. Without ongoing value, retention defaults to the length of one fix.</span>
+          <span style="font-size:9.5px;line-height:1.45">• The budget gap (€0–120 DIY vs €180–6,000 managed) supports €9/month only if trust is earned first.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.14em;color:#6E6D88">5 · EVIDENCE / ASSUMPTIONS</span>
+          <span style="font-size:9.5px;line-height:1.45"><b style="font-family:'Space Grotesk';font-size:8px;border:1px dashed #0B0A81;color:#0B0A81;padding:0 3px">ASM</b> 1.5–4% of visitors will pay €9/month</span>
+          <span style="font-size:9.5px;line-height:1.45"><b style="font-family:'Space Grotesk';font-size:8px;border:1px dashed #0B0A81;color:#0B0A81;padding:0 3px">ASM</b> Recurring need beyond the first crisis</span>
+          <span style="font-size:9.5px;line-height:1.45"><b style="font-family:'Space Grotesk';font-size:8px;background:#12113A;color:#FFFFFF;padding:0 3px">EXT</b> Search demand 1.5–3.5M/month [9]</span>
+        </div>
+      </div>
+      <div style="margin-top:auto;display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:14px;align-items:center;border-top:2px solid #12113A;padding-top:9px">
+        <span style="font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:0.12em">6 · DECISION IMPACT</span>
+        <span style="font-size:10px;line-height:1.45;color:#4A4968">Customer definition supports the case. Untested willingness to pay limits it to Conditional-Go until interviews (action 1) report.</span>
+        <span style="border-left:4px solid #C9A227;background:#F5F4FA;padding:4px 8px;font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:0.1em">◆ CONSTRAINS</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 5–7, 24–28</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">19</span></div>
+  </div>
+</section>
+
+<!-- 20 APPENDIX -->
+<section class="page" id="p20" data-screen-label="20 Appendix Risk Register">
+  <div style="height:100%;display:flex;flex-direction:column;padding:34px 44px 26px 48px;position:relative;background:#FFFFFF;color:#12113A;font-family:Montserrat,sans-serif;overflow:hidden">
+    <span style="position:absolute;right:0;top:884px;width:5px;height:64px;background:#6E6D88"></span>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:9px;letter-spacing:0.14em;color:#6E6D88;border-bottom:1px solid #E3E1EE;padding-bottom:8px"><span style="display:flex;gap:10px"><b style="color:#4A4968">A</b><span style="font-weight:600">APPENDIX</span><span>/ A.1 RISK REGISTER</span></span><img src="assets/validisory-logo-blue.svg" alt="Validisory" style="height:22px;width:auto;display:block"></div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;padding:22px 0 14px">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:20px">
+        <h1 style="margin:0;font-family:'Space Grotesk';font-weight:700;font-size:26px;line-height:1.1;letter-spacing:-0.015em">A.1 Risk register</h1>
+        <span style="font-size:9.5px;color:#6E6D88">Sorted by probability × impact · keyed to the matrix on <a href="#p15">p.15</a> · reference density</span>
+      </div>
+      <div style="border:1px solid #E3E1EE">
+        <div style="display:grid;grid-template-columns:24px minmax(0,1.5fr) 74px 50px 50px 92px minmax(0,1.6fr);gap:8px;padding:7px 10px;background:#12113A;color:#FFFFFF;font-family:'Space Grotesk';font-weight:600;font-size:8px;letter-spacing:0.12em"><span>#</span><span>RISK</span><span>CATEGORY ◇</span><span>PROB.</span><span>IMPACT</span><span>SEVERITY ◇</span><span>MITIGATION</span></div>
+        <sc-for list="{{ riskRegister }}" as="r" hint-placeholder-count="15">
+          <div style="display:grid;grid-template-columns:24px minmax(0,1.5fr) 74px 50px 50px 92px minmax(0,1.6fr);gap:8px;padding:7px 10px;border-bottom:1px solid #EFEDF5;font-size:9.5px;line-height:1.4;align-items:start">
+            <span style="font-family:'Space Grotesk';font-weight:700;color:#8A4F1C">{{ r.n }}</span>
+            <span style="font-weight:600">{{ r.t }}</span>
+            <span style="color:#4A4968">{{ r.cat }}</span>
+            <span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px">{{ r.p }}</span>
+            <span style="font-family:'Space Grotesk';font-weight:600;font-size:8.5px">{{ r.i }}</span>
+            <span style="justify-self:start;display:flex;gap:3px;align-items:center;background:{{ r.ex.bg }};padding:2px 5px;font-family:'Space Grotesk';font-weight:700;font-size:8px;letter-spacing:0.04em;color:{{ r.ex.fg }}"><span style="display:flex;gap:1px"><sc-for list="{{ r.ex.segs }}" as="s"><span style="width:5px;height:5px;background:{{ s.bg }}"></span></sc-for></span>{{ r.ex.label }}</span>
+            <span style="color:#2B2A4A">{{ r.m }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;font-size:9px;line-height:1.45;color:#4A4968">
+        <span><b style="color:#12113A">Not provided by source:</b> trigger, owner and evidence strength per risk. The register component reserves these columns and drops them only when the field is null for every row.</span>
+        <span><b style="color:#12113A">Continuation:</b> registers longer than one page repeat the header band and add "(continued)" to the title, with at least 3 rows per fragment.</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:#6E6D88;border-top:1px solid #E3E1EE;padding-top:8px"><span>Micro-Tutorials AI · Venture Validation Report · Confidential</span><span>Source pp. 88–94</span><span style="font-family:'Space Grotesk';font-weight:700;color:#12113A">20</span></div>
+  </div>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const B='#0B0A81', T='#0F8B8D', G='#C9A227', C='#B87333';
+    const hatch='repeating-linear-gradient(135deg,#C9C6DC 0 2px,#FFFFFF 2px 4px)';
+    const EV={S:['STRONG',3],P:['PARTIAL',2],W:['WEAK',1],U:['UNVALIDATED',0]};
+    const ev=k=>({label:EV[k][0],pips:[0,1,2].map(i=>({bg:(k!=='U'&&i<EV[k][1])?B:'transparent',bs:k==='U'?'dashed':'solid'}))});
+    const EXL={L:['LOW',1],M:['MODERATE',2],H:['HIGH',3],C:['CRITICAL',4],N:['NOT YET DETERMINED',0]};
+    const ex=k=>({label:EXL[k][0],bg:k==='C'?'#7A2E14':(k==='N'?'#FFFFFF':'#F6EADF'),fg:k==='C'?'#FFFFFF':(k==='N'?'#4A4968':'#8A4F1C'),
+      segs:[0,1,2,3].map(i=>({bg:k==='N'?'#FFFFFF':(i<EXL[k][1]?(k==='C'?'#F1DDD3':C):'#E8D3C0'),img:k==='N'?hatch:'none'}))});
+    const IM={M:'◆◆◆ MATERIAL',S:'◆◆◇ SIGNIFICANT',C:'◆◇◇ CONTRIBUTING'};
+    const imp=s=>s>=7?{label:'SUPPORTS',g:'▲',c:T}:s>=5?{label:'CONSTRAINS',g:'◆',c:G}:{label:'THREATENS',g:'▼',c:C};
+    const order=['STOP','NO-GO','REVALIDATE','CONDITIONAL-GO','GO'];
+    const lvl={low:1,medium:2,high:3};
+
+    const dims=[
+      ['Market Demand',6,'WordPress dominates but pain is nice-to-have; no paying customer validation yet','W','"no paying customer validation yet"','p19'],
+      ['Financial Viability',4,'LTV $2.40–$5 at 2–5% conversion requires 3–6 month retention; AdSense-dependent','W','conversion & retention are targets','p11'],
+      ['Competition Analysis',7,'Saturated: GoDaddy, WP Engine, Kinsta, YouTube tutorials; platforms integrating AI support','P','engine competitor scan, no primary data','p12'],
+      ['Founder Market Fit',5,'Has WordPress experience and fixed real errors; solo, no MVP, no team','P','founder-stated experience','p13'],
+      ['Technical Feasibility',6,'Standard tech stack but no staging environment yet; 1–2 hours per tutorial','P','standard stack; staging not built','p13'],
+      ['Regulatory Compliance',8,'Minimal regulatory friction; AdSense compliance and disclaimers manage liability risk easily','P','engine regulation scan, no legal review','p14'],
+      ['Timing Assessment',6,'WordPress still growing but AI integration by platforms is emerging threat now','W','competitive window is an estimate','p12'],
+      ['Scalability Potential',4,'Content creation bottleneck; 10–15 tutorials/week solo; manual validation limits scale','W','founder throughput estimate','p13']
+    ].map(([label,score,finding,e,basis,see])=>({label,score,finding,basis,see,ev:ev(e),imp:imp(score),bars:Array.from({length:10},(_,i)=>({bg:i<score?B:'#ECEAF5'}))}));
+
+    const conditions=[
+      ['01','Long-tail error searches convert into organic traffic','1.5–3.5M monthly US WordPress error searches exist [9]. Kill-switch: under 5,000 visitors/month after 6 months and 100+ tutorials. 100% of acquisition is organic.','Refs [9] [13] · Kill-switch 1 · Critical path','P','M','C'],
+      ['02','SMB owners will pay €9/month for premium','2–5% conversion is a target. Willingness-to-pay interviews are an immediate action and have not been run yet.','Refs [11] · Immediate action 1 · Risk #5','U','M','H'],
+      ['03','Premium subscribers stay 3–6 months','Retention is modelled. The source warns that actual retention "may be 1–2 months" if users cancel once their issue is fixed.','Refs [11] · Market barriers p.22','U','M','H'],
+      ['04','AdSense stays available at US niche CPMs','CPM €1.08–1.80 from benchmarks [12]. AdSense is 60–75% of Year-1 revenue, and suspension is described as existential.','Refs [12] · Risk #3 · Kill-switch 2','P','M','C'],
+      ['05','Founder sustains 10–15 validated tutorials/week','Founder estimate (1–2 h each). No MVP or staging environment exists yet. The QA hire depends on €900/month AdSense.','Founder Market Fit 5/10 · Risk #4, #14','W','S','H'],
+      ['06','Incumbents do not ship in-context AI help inside the window','Window stated as 12–18, 12–24 and 18–24 months in different modules ⚠. Risk register: probability high, impact high.','Engine estimate [15] · Risk #2 · Kill-switch 6','W','M','H'],
+      ['07','Human-verified tutorials avoid site-damaging errors','Staging validation is planned but not yet in place. Risk register: accuracy liability is probability high, impact high.','Risk #1, #8, #15 · Kill-switch 3','U','S','H']
+    ].map(([n,t,a,refs,e,i,x])=>({n,t,a,refs,ev:ev(e),im:IM[i],ex:ex(x)}));
+
+    const S=(n,t,d,i,e)=>({n,t,d,im:IM[i],ev:ev(e)});
+    const R=(n,t,d,x,e)=>({n,t,d,ex:ex(x),ev:ev(e)});
+
+    return {
+      toc:[
+        ['01','Decision','DECISION INTELLIGENCE','EXECUTIVE','Verdict, score, drivers, constraints, open questions','03','p03',B,B],
+        ['02','Venture Case','DECISION INTELLIGENCE','EXECUTIVE','At a glance · material conditions · summary · strengths & risks · actions','04','p04',B,B],
+        ['03','Market & Customer','MARKET & CUSTOMER','ANALYTICAL','TAM/SAM/SOM · ICP analysis module','10','p10',T,'#0B6466'],
+        ['04','Business Model','ECONOMICS & EXECUTION','ANALYTICAL','Canvas and business model signals','09','p09',G,'#7A6214'],
+        ['05','Financial Feasibility','ECONOMICS & EXECUTION','ANALYTICAL','Revenue build, unit economics, costs, assumptions','11','p11',G,'#7A6214'],
+        ['06','Competition','MARKET & CUSTOMER','ANALYTICAL','Positioning matrix, competitor table, five forces','12','p12',T,'#0B6466'],
+        ['07','Technical Feasibility','ECONOMICS & EXECUTION','ANALYTICAL','MVP effort, dependencies, scaling triggers','13','p13',G,'#7A6214'],
+        ['08','Regulatory Exposure','RISK & REGULATORY','REFERENCE','Regulation register and compliance cost','14','p14',C,'#8A4F1C'],
+        ['09','Risk','RISK & REGULATORY','ANALYTICAL','Probability × impact matrix, kill-switches','15','p15',C,'#8A4F1C'],
+        ['10','Scenario Analysis','DECISION INTELLIGENCE','ANALYTICAL','Base case, stated sensitivities, contingency triggers','16','p16',B,B],
+        ['11','Execution Roadmap','ECONOMICS & EXECUTION','ANALYTICAL','Validate → Scale with decision gates','17','p17',G,'#7A6214'],
+        ['12','Sources & Methodology','REFERENCE','REFERENCE','Source cards, methodology, risk register appendix','18','p18','#6E6D88','#4A4968']
+      ].map(([n,t,f,d,m,p,href,c,ink])=>({n,t,f,d,m,p,href,c,ink})),
+      verdictTrack:order.map(o=>({label:o,bg:o==='CONDITIONAL-GO'?G:'#ECEAF5',fg:o==='CONDITIONAL-GO'?'#12113A':'#6E6D88',fw:o==='CONDITIONAL-GO'?700:500})),
+      drivers:[
+        {n:'1',t:'Low acquisition cost',d:'€0.30–0.60 per visitor via long-tail SEO, against 1.5–3.5M monthly US error searches.'},
+        {n:'2',t:'Clear competitive white space',d:'High specificity at low price, a gap that neither free blogs nor managed hosting fill for 2.2M self-managed SMBs.'},
+        {n:'3',t:'Bootstrap-viable economics',d:'€135–225/month MVP cost. Pre-seed of €90–180k is optional.'}
+      ],
+      constraints:[
+        {n:'1',t:'Google concentration',d:'100% organic search acquisition, with AdSense as the primary Year-1 revenue. One policy or algorithm change can hit both.'},
+        {n:'2',t:'Competitive window',d:'12–24 months before GoDaddy, WordPress.com or major hosts embed in-context AI help.'},
+        {n:'3',t:'Solo-founder ceiling',d:'12–15 validated tutorials/week until AdSense reaches €900/month and funds a QA hire.'}
+      ],
+      questions:[
+        {n:'1',t:'Will SMB owners pay €9/month?',d:'No customer has been asked yet. Interviews are action #1.'},
+        {n:'2',t:'Will subscribers stay 3–6 months?',d:'Users with one-off fixes may cancel within 1–2 months.'},
+        {n:'3',t:'Can SEO alone reach 5,000 visitors/month by Month 3?',d:'New domains take 3–6 months to gain traction (source p.19).'}
+      ],
+      dimensions:dims,
+      conditions,
+      summary:[
+        {k:'PROBLEM',c:B,t:'WordPress runs 43.4% of all websites [2], and the average site has 20–30 plugins. When an error hits, non-technical SMB owners face three options: hours with outdated blogs and forums, freelance help at €45–135/hour, or managed hosting at €270–1,350/year.'},
+        {k:'OPPORTUNITY',c:T,t:'There are 1.5–3.5M monthly US searches for specific WordPress errors [9]. Existing answers sit at two extremes: free long-form content that takes time to interpret, or managed hosting that removes user control at premium prices. The serviceable market is 2.2M self-managed US small businesses spending €285M a year.'},
+        {k:'PROPOSED SOLUTION',c:B,t:'AI-assisted, human-verified micro-tutorials that resolve one specific error in 1–3 minutes, with step-by-step guidance, annotated screenshots, short videos and mandatory rollback warnings. Every tutorial is validated in an isolated WordPress staging environment before publishing.'},
+        {k:'COMMERCIAL LOGIC',c:G,t:'Three revenue streams are layered. Year-1 AdSense (€900–2,700/month at 50,000 visitors). Premium at €9/month or €71/year, targeting 2–5% conversion. Year-2 white-label licensing to hosts at €450–900/month per partner. Acquisition is organic only.'},
+        {k:'WHY NOW',c:T,t:'Generative AI lowers tutorial cost (€0.90–2.70 per AI draft versus €45–90 fully manual). Hosting platforms have not yet embedded AI contextual help. Google\'s featured snippets reward structured, problem-specific content.'},
+        {k:'PRIMARY CONSTRAINT',c:C,t:'Acquisition and Year-1 revenue both depend on Google. Founder capacity of 10–15 validated tutorials a week caps velocity during a window the report estimates at 12–24 months.'},
+        {k:'RECOMMENDATION',c:B,t:'Conditional-Go, score 51.5/100. Take a monitored, bootstrap approach with defined kill-switches rather than reject outright. Validate willingness to pay first, publish 50–60 tutorials in 12 weeks, and enforce the traffic and revenue kill-switches.'}
+      ],
+      marginStats:[
+        {v:'43.4%',l:'WEBSITES ON WORDPRESS',s:'EXT · W3Techs, Apr 2025 [2]',c:T},
+        {v:'€285M',l:'SERVICEABLE MARKET (SAM)',s:'EST · bottom-up [7][8][10]',c:T},
+        {v:'1.5–3.5M',l:'MONTHLY US ERROR SEARCHES',s:'EXT · Google Trends, SEMrush [9]',c:T},
+        {v:'12–24 mo',l:'COMPETITIVE WINDOW',s:'EST · engine [15] ⚠ varies',c:C},
+        {v:'€135–225',l:'MVP INFRASTRUCTURE / MONTH',s:'EST · technical module',c:G},
+        {v:'2–5%',l:'TARGET PREMIUM CONVERSION',s:'ASM · unvalidated',c:B}
+      ],
+      strengths:[
+        S('1','Low customer acquisition cost','€0.30–0.60 per visitor via long-tail SEO. 1.5–3.5M monthly US error searches are organic demand with no paid spend.','M','P'),
+        S('2','Clear competitive white space','The high-specificity, low-price quadrant is not served by free blogs or premium managed hosting.','S','P'),
+        S('3','Bootstrap-viable economics','€135–225/month MVP cost and a defined scaling trigger at €900/month AdSense. Pre-seed of €90–180k only if speed is prioritised.','S','W'),
+        S('4','Founder domain fit','Hands-on WordPress admin and PHP/Laravel experience. Has reproduced and fixed real errors.','C','P'),
+        S('5','Low regulatory friction','Regulatory 8/10. AdSense compliance and disclaimers manage liability risk.','C','P')
+      ],
+      keyRisks:[
+        R('1','Existential Google concentration','100% dependence on organic search and on AdSense for Year 1. An algorithm change or policy violation could remove traffic and monetisation at the same time.','C','P'),
+        R('2','Short competitive window','12–24 months before GoDaddy, WordPress.com and major hosts embed in-context AI help, which could commoditise the core value without users leaving their platform.','H','W'),
+        R('3','Solo-founder throughput ceiling','12–15 validated tutorials a week is a hard limit. Scaling depends on reaching €900/month AdSense to fund the first QA contractor.','H','W'),
+        R('4','Tutorial accuracy liability','An incorrect fix damages a user\'s site. Risk register: probability high, impact high.','H','U'),
+        R('5','Zero-click AI answers','ChatGPT, Perplexity and AI Overviews answer in-search. 20–40% traffic reduction in some niches. Register: high / medium.','M','P')
+      ],
+      actionGroups:[
+        {h:'0–30 DAYS',w:'Weeks 1–4 · Validate',items:[
+          {n:'1',t:'Run 15–20 structured interviews',why:'With US SMB WordPress owners, to confirm willingness to pay €9/month and rank error categories.',ev:'WTP statements, top error types, current spend',th:'— Threshold not provided by source',thbg:'repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px)',thpad:'2px 5px',c:'C02'},
+          {n:'2',t:'Build the staging quality gate',why:'5–8 hosting configurations. This is the gate for all content and cannot be outsourced until proven.',ev:'Validated test runs per config',th:'Staging live and validating by Week 4',thbg:'transparent',thpad:'0',c:'C07'},
+          {n:'3',t:'Set kill-switch metrics',why:'Terminate or pivot thresholds are agreed before any spend.',ev:'Analytics, Search Console, AdSense baselines',th:'8 kill-switches instrumented (p.15)',thbg:'transparent',thpad:'0',c:'All'}
+        ]},
+        {h:'30–90 DAYS',w:'Weeks 5–12 · Build & test',items:[
+          {n:'4',t:'Publish 50–60 validated tutorials ⚠',why:'Long-tail, low-difficulty queries, with HowTo schema from day one, to establish baseline SEO authority.',ev:'Indexed pages, rankings, time to page 1',th:'5,000+ monthly organic visitors by Month 3',thbg:'transparent',thpad:'0',c:'C01'},
+          {n:'5',t:'Beta with 10–15 target customers',why:'Measure whether tutorials actually solve the problem.',ev:'Success rate, time-to-resolution, premium intent',th:'— Threshold not provided by source',thbg:'repeating-linear-gradient(135deg,#ECEAF5 0 4px,#FFFFFF 4px 8px)',thpad:'2px 5px',c:'C02 C07'},
+          {n:'6',t:'Ship premium tier (Stripe)',why:'Ad-free and priority content at €9/month or €71/year.',ev:'Trial and paid conversions',th:'€90–270 AdSense and 2–5 premium subscribers at Month 4',thbg:'transparent',thpad:'0',c:'C02 C04'}
+        ]},
+        {h:'90+ DAYS',w:'Months 4–9 · Scale',items:[
+          {n:'7',t:'Hire first QA contractor',why:'Breaks the solo throughput ceiling.',ev:'AdSense monthly revenue',th:'Onboarded by Month 4–5 at €900/month AdSense',thbg:'transparent',thpad:'0',c:'C05'},
+          {n:'8',t:'Prove premium conversion',why:'Below 1.5% means the pricing or value proposition needs redesign.',ev:'Free-to-paid conversion, churn',th:'≥ 2% by Month 6; retention 3+ months by Q3',thbg:'transparent',thpad:'0',c:'C02 C03'},
+          {n:'9',t:'Sign a SaaS partnership pilot',why:'Diversifies revenue away from AdSense policy risk.',ev:'Signed pilot agreement',th:'≥ 1 pilot by Month 9',thbg:'transparent',thpad:'0',c:'C04'}
+        ]}
+      ],
+      bmc:[
+        {t:'KEY PARTNERS',col:'1 / 3',row:'1 / 3',bg:'#F5F4FA',bd:'#C9C6DC',items:['AI vendors (OpenAI, Anthropic): drafts, €90–270/mo','Plugin/theme vendors: doc review, co-marketing','Managed hosts: future white-label','AdSense + Stripe: non-negotiable','Freelance QA testers at €18–36/h']},
+        {t:'KEY ACTIVITIES',col:'3 / 5',row:'1 / 2',bg:'#F5F4FA',bd:'#C9C6DC',items:['Manual staging validation, 1–2 h each','SEO content creation and publishing','Platform ops; support triage']},
+        {t:'KEY RESOURCES',col:'3 / 5',row:'2 / 3',bg:'#F5F4FA',bd:'#C9C6DC',items:['Validated tutorial library (core IP)','Founder WordPress expertise (single point of failure)','Staging environments; SEO authority']},
+        {t:'VALUE PROPOSITIONS',col:'5 / 7',row:'1 / 3',bg:'#F1E8FF',bd:B,items:['Fix the exact error you Googled in 1–3 min','Human-verified on staging, with backup warnings','Zero jargon, built for non-developers','Free tier; premium €9/mo unlocks simulators, ad-free']},
+        {t:'CUSTOMER RELATIONSHIPS',col:'7 / 9',row:'1 / 2',bg:'#F5F4FA',bd:'#C9C6DC',items:['Self-service, no account for free tier','Automated nurture → 7-day trial','Founder email support, 24–48 h SLA']},
+        {t:'CHANNELS',col:'7 / 9',row:'2 / 3',bg:'#F5F4FA',bd:'#C9C6DC',items:['Organic Google search: 100% of acquisition','Website delivery + Stripe checkout','Email digest; future plugin partnerships']},
+        {t:'CUSTOMER SEGMENTS',col:'9 / 11',row:'1 / 3',bg:'#E2F1F1',bd:T,items:['Primary: US SMBs (1–10 staff) self-managing WordPress, 30–55','Secondary: freelancers/agencies with 5–50 sites','Tertiary: hobbyists (high volume, low conversion)','Excludes enterprise, Wix/Squarespace/Shopify']},
+        {t:'COST STRUCTURE',col:'1 / 6',row:'3 / 4',bg:'#F7F0DA',bd:G,items:['Hosting + staging €45–135/mo fixed → €270–450 at 50K visitors','AI API €0.90–2.70/tutorial; Stripe 2.9% + €0.27; AdSense ~32% share','QA contractors €1,350–2,700/mo post-traction · legal €450–900 one-time · marketing €0 Y1']},
+        {t:'REVENUE STREAMS',col:'6 / 11',row:'3 / 4',bg:'#F7F0DA',bd:G,items:['AdSense (primary Y1): €900–2,700/mo at 50K visitors','Premium €9/mo or €90/yr ⚠, 2–5% conversion','White-label (Y2) €450–900/mo per partner + €2,700–4,500 setup · affiliate €9–27/conversion']}
+      ],
+      signals:[
+        {k:'STRONGEST ELEMENT',t:'Cost structure',d:'€0 paid acquisition and €135–225/month MVP make the model bootstrap-viable.',c:T},
+        {k:'WEAKEST ELEMENT',t:'Revenue streams',d:'Year 1 depends on AdSense. The subscription and B2B lines are unproven.',c:C},
+        {k:'MOST UNCERTAIN ASSUMPTION',t:'Subscriber LTV €270–540',d:'The source notes only €22.50–45 is paid during a 3–6 month subscription. The rest assumes renewals.',c:B},
+        {k:'HIGHEST DEPENDENCY',t:'Google organic search',d:'100% of acquisition. Also the source of AdSense monetisation.',c:C},
+        {k:'PRIMARY ECONOMIC RISK',t:'AdSense CPM or suspension',d:'An ad-market contraction could cut CPMs 20–40%. Suspension removes the primary revenue.',c:G}
+      ],
+      marketTiers:[
+        {k:'TAM',v:'€1.8B',prov:'EST · TOP-DOWN',def:'US WordPress maintenance, support and managed hosting for SMBs (1–50 employees).',method:'€1.08B maintenance/support + €360M managed hosting + €350M DIY tools (10% of support spend).',cross:'Median €90/mo × 12M SMB WordPress sites × 8% buying support ≈ €1.03B baseline.',src:'[1] [3] [4] [5] [6]'},
+        {k:'SAM',v:'€285M',prov:'EST · BOTTOM-UP',def:'US small businesses (1–10 staff) self-managing WordPress, searching for fixes, open to free or low-cost tools.',method:'28M SMBs × 18–22% WordPress × 88–92% self-managed × 45–55% with monthly errors ≈ 2.2M × €130/yr = €286M (CAL).',cross:'~16% of TAM; 1.5–3.5M monthly error searches support a 2M+ active base.',src:'[7] [8] [9] [10]'},
+        {k:'SOM',v:'€18k → €720k',prov:'EST · BOTTOM-UP',def:'Year 1–3 capture from organic SEO under solo-founder constraints.',method:'Indexed tutorials × visitors/page × AdSense CPM + premium conversion 1.5–2% → 3–4%.',cross:'Y1 is 0.006–0.009% of SAM; Y3 is 0.19–0.25%.',src:'[11] [12] [13] [14]'}
+      ],
+      somBars:[
+        {y:'Year 1',lo:(18/720*100)+'%',ext:((27-18)/720*100)+'%',label:'€18k–27k'},
+        {y:'Year 2',lo:(135/720*100)+'%',ext:((180-135)/720*100)+'%',label:'€135k–180k'},
+        {y:'Year 3',lo:(540/720*100)+'%',ext:((720-540)/720*100)+'%',label:'€540k–720k'}
+      ],
+      ...this.part2(ev, ex, IM, lvl, hatch, B, T, G, C)
+    };
+  }
+  part2(ev, ex, IM, lvl, hatch, B, T, G, C) {
+    const k=200/900, px=v=>Math.max(1,Math.round(v*k))+'px';
+    const yrs=[
+      {y:'Year 1',segs:[[0,13.5,B],[13.5,4.5,T]],hi:27,stated:'€18k–27k',parts:'€18k–27k',ok:true},
+      {y:'Year 2',segs:[[0,54,B],[54,81,T]],hi:180,stated:'€135k–180k',parts:'€135k–180k',ok:true},
+      {y:'Year 3',segs:[[0,162,B],[162,378,T],[540,72,G]],hi:828,stated:'€540k–720k',parts:'€612k–828k',ok:false}
+    ].map(r=>({...r,segs:r.segs.map(([b,h,c])=>({b:px(b),h:px(h),c})),hiH:px(r.hi),warn:r.ok?'':'⚠ streams sum to '+r.parts}));
+    const risks=[
+      [1,'AI tutorial accuracy liability: an incorrect fix damages a user site','high','high','Regulatory','Manual staging test of every tutorial; prominent disclaimers; backup warnings before risky steps'],
+      [2,'WordPress.com or GoDaddy add in-context AI help within 12 months','high','high','Strategic','Build 200+ validated tutorials fast; dominate long-tail SEO before platforms catch up'],
+      [3,'AdSense policy violation or account suspension kills primary revenue','medium','high','Dependency','Diversify monetisation early; add affiliate income; never rely 100% on AdSense'],
+      [4,'Solo-founder bottleneck: max 12–15 tutorials/week','high','high','Execution','Hire first QA contractor at €900/month AdSense threshold; automate staging tests'],
+      [5,'Premium conversion stays below 2%','high','medium','Financial','A/B test premium value props monthly; focus on AdSense revenue until 50K visitors'],
+      [6,'WordPress share declines or users shift to no-code platforms','medium','high','Market','Monitor WordPress install trends quarterly; prepare a Shopify/Wix expansion plan'],
+      [7,'Google core update tanks organic traffic overnight','medium','high','Dependency','Diversify traffic: YouTube tutorials, Reddit, email list'],
+      [8,'User lawsuit after a tutorial causes data loss or downtime','medium','high','Regulatory','Legal review of disclaimers; general liability insurance; mandatory backup step'],
+      [9,'ChatGPT or Perplexity answer in-search, bypassing site visits','high','medium','Market','Interactive tools and simulators ChatGPT cannot offer; optimise for zero-click queries'],
+      [10,'Runway ends before €900/month AdSense or first paying customers','medium','high','Financial','Bootstrap; operate part-time until traction; no external spend before validation'],
+      [11,'Content accuracy decays as WordPress and plugins update','high','medium','Technical','Quarterly refresh cycle; user feedback loop; version-tag tutorials with dates'],
+      [12,'CCPA or state privacy laws require costly compliance','low','medium','Regulatory','GDPR-compliant tools from day one; avoid unnecessary personal data'],
+      [13,'OpenAI API price hike or outage stops tutorial generation','medium','medium','Dependency','Build the library offline; test Claude/Gemini as backup; cache validated content'],
+      [14,'Founder burnout from manual QA with no co-founder','medium','medium','Execution','Strict 15 tutorials/week limit; automate repetitive tasks; hire part-time help early'],
+      [15,'One viral bad tutorial on Reddit or Hacker News damages the brand','low','high','Customer','Peer-review high-traffic tutorials; community feedback; quick takedown protocol']
+    ].map(([n,t,p,i,cat,m])=>{const s=lvl[p]*lvl[i];return {n,t,p:p.toUpperCase(),i:i.toUpperCase(),cat,m,s,ex:ex(s>=9?'H':s>=4?'M':'L')};});
+    const shade={1:'#FCF8F4',2:'#FBF5EF',3:'#F6EADF',4:'#F6EADF',6:'#EBCBB0',9:'#D9A47A'};
+    const matrix=[];
+    ['high','medium','low'].forEach(im=>['low','medium','high'].forEach(pr=>{
+      const s=lvl[pr]*lvl[im];
+      matrix.push({bg:shade[s],items:risks.filter(r=>r.p===pr.toUpperCase()&&r.i===im.toUpperCase()).map(r=>({n:r.n,fg:s>=9?'#FFFFFF':'#12113A',bg:s>=9?'#7A2E14':'#FFFFFF'}))});
+    }));
+    const pos=[['WP Engine',8,7],['Kinsta',9,7],['GoDaddy',6,4],['WordPress.com',2,4],['Bluehost',3,3],['YouTube',1,6],['WPBeginner / blogs',1,7],['WP Forums',1,2],['Freelancers',10,9],['WalkMe',10,3]]
+      .map(([n,x,y])=>{const L=x>=7;return {n,l:(4+x*9)+'%',b:(4+y*9)+'%',dir:L?'row-reverse':'row',tf:L?'translate(calc(-100% + 4px),4px)':'translate(-4px,4px)',dy:n==='WP Engine'?'9px':n==='Kinsta'?'-9px':'0'};});
+    const thr={Low:'L',Medium:'M',High:'H'};
+    const feats=[['AI tutorial generation engine',5,1],['Docker staging environment',4,1],['Tutorial CRUD API + PostgreSQL',6,1],['SEO Next.js tutorial pages',7,1],['Step-by-step tutorial UI',5,1],['AdSense integration',2,1],['Legal disclaimers & backup warnings',1,1],['User authentication',4,1],['Stripe premium paywall',5,1],['Premium content gating',3,1],['Search Console + GA4',2,1],['Playwright validation tests',6,1],['Mobile-responsive design',4,1],['Interactive error simulator (3)',10,0],['Internal admin dashboard',5,0],['Ahrefs keyword research tool',4,0],['Redis caching layer',3,0],['User feedback mechanism',3,0],['Newsletter signup',2,0],['CCPA cookie banner',2,0]]
+      .map(([t,d,m])=>({t,d:d+' d',w:(d*10)+'%',c:m?B:'#FFFFFF',bd:m?B:B,bs:m?'solid':'dashed'}));
+    return {
+      revYears:yrs,
+      costTiers:[
+        {t:'MVP',s:'15 tutorials · 1K visitors/mo',lo:(135/2250*100)+'%',ext:(90/2250*100)+'%',v:'€135–225'},
+        {t:'Growth',s:'50 tutorials · 10K visitors/mo',lo:(450/2250*100)+'%',ext:(360/2250*100)+'%',v:'€450–810'},
+        {t:'Scale',s:'200+ tutorials · 100K visitors/mo',lo:(1350/2250*100)+'%',ext:(900/2250*100)+'%',v:'€1,350–2,250'}
+      ],
+      finAssumptions:[
+        {a:'Free-to-premium conversion',v:'2–5%',t:'ASM',e:ev('U'),note:'Y1 model uses 1.5–2%'},
+        {a:'Premium retention',v:'3–6 mo',t:'ASM',e:ev('U'),note:'SOM model uses 3–4.5 mo'},
+        {a:'Organic CAC per visitor',v:'€0.30–0.60',t:'USR',e:ev('W'),note:'Founder financial model [11]'},
+        {a:'US WordPress niche AdSense CPM',v:'€1.08–1.80',t:'EXT',e:ev('P'),note:'Benchmarks [12]'},
+        {a:'AdSense revenue at 50K visitors',v:'€900–2,700/mo',t:'USR',e:ev('W'),note:'Founder model; first-hire trigger'},
+        {a:'Premium price, annual',v:'€71 ⚠ €90',t:'USR',e:ev('W'),note:'€71 (summary, roadmap) vs €90 (BMC)'}
+      ],
+      positions:pos,
+      competitors:[['WP Engine','Market leader','€22–450/mo','Medium'],['Kinsta','Challenger','€31–1,350/mo','Medium'],['SiteGround','Challenger','€2.70–13.50/mo','Low'],['GoDaddy','Market leader','€5.85–22.50/mo','High'],['Bluehost','Challenger','€2.70–12.15/mo','Medium'],['WordPress.com','Market leader','€0–40/mo','High'],['Cloudways','Niche player','€9–720/mo','Low'],['YouTube channels','Niche player','Free, ad-supported','Medium'],['WPBeginner & tutorial sites','Niche player','Free / affiliate','High'],['WalkMe / DAPs','Niche player','€9,000–90,000/yr','Low']]
+        .map(([n,p,pr,t])=>({n,p,pr,ex:ex(thr[t]),tl:t.toUpperCase()})),
+      forces:[['New entrants','HIGH','AI tools commoditised; low capital needs'],['Supplier power','MEDIUM','AI APIs, AdSense, WordPress.org'],['Buyer power','HIGH','Near-zero switching costs'],['Substitutes','HIGH','In-platform AI help; AI site builders'],['Rivalry','HIGH','Content farms, hosts, YouTube']]
+        .map(([t,s,d])=>({t,s,d,ex:ex(s==='HIGH'?'H':'M')})),
+      features:feats,
+      depGroups:[
+        {t:'AI GENERATION',items:['OpenAI GPT-4 API (drafts)','Backup: Claude / Gemini'],risk:'Risk #13'},
+        {t:'VALIDATION',items:['Docker staging on EC2','Playwright automated tests'],risk:'Not built yet'},
+        {t:'DELIVERY',items:['Next.js 14 on Vercel','CloudFront CDN'],risk:'SEO-critical SSR'},
+        {t:'DATA',items:['PostgreSQL RDS · S3','Redis (ElastiCache)'],risk:'us-east-1 (CCPA)'},
+        {t:'MONETISATION',items:['Google AdSense','Stripe billing'],risk:'Risk #3'}
+      ],
+      scaleTriggers:[['10K','Upgrade RDS, Redis for top 20 pages, CloudFront for static assets'],['50K','AI generation to FastAPI on Lambda; Redis cluster'],['100K','Read replicas; SSG/ISR for 90% of pages (−60% server cost)'],['500K','Full microservices; auto-scaling API groups']].map(([v,d])=>({v,d})),
+      regs:[
+        ['CCPA/CPRA + VA, CO, CT, UT privacy acts','Applies. AdSense counts as "sharing".','L','Cookie consent, Do Not Sell link, rights portal, DPAs, data minimisation','Pre-launch','Risk #12'],
+        ['Google AdSense Program & IVT policies','Applies. Contractual; primary revenue.','H','Compliant content; no ads on low-value pages; bot detection','Continuous','Risk #3'],
+        ['Content accuracy & professional liability','Applies to every tutorial.','H','"Informational only" disclaimers; backup step; ToS liability cap; E&O €900–2,700/yr','Pre-launch','Risk #1, #8'],
+        ['FTC Act §5 & affiliate disclosure','Applies if affiliate links are used.','N','Accurate policies; conspicuous affiliate disclosure','At affiliate launch','Module'],
+        ['CAN-SPAM Act','Applies. Email nurture planned.','N','Opt-out, physical address, accurate subject lines','At email launch','Module'],
+        ['COPPA','Only if minors use the platform.','N','State "not directed at under-13s"; age-gate if needed','Pre-launch','Module'],
+        ['DMCA','Only if user uploads are enabled.','N','Takedown process; register agent (~€5.40)','With UGC','Module'],
+        ['State sales tax nexus','Depends on sales per state.','N','Register where thresholds are met (typ. $100k or 200 transactions)','At threshold','Module'],
+        ['ADA Title III / WCAG 2.1 AA','Best practice, not strictly required.','N','Follow WCAG 2.1 AA to reduce litigation risk','Build','Module'],
+        ['WordPress trademark','Descriptive use only.','N','Keep "WordPress" out of the brand name; independent positioning','Pre-launch','BMC p.12'],
+        ['EU AI Act / AI transparency laws','Future: EU expansion or licensing.','N','Disclose AI-generated content','Before EU entry','Market p.23']
+      ].map(([r,a,x,act,tm,b])=>({r,a,ex:ex(x),act,tm,b})),
+      matrix,
+      riskKeys:risks.slice().sort((a,b)=>a.n-b.n),
+      riskRegister:risks.slice().sort((a,b)=>b.s-a.s||a.n-b.n),
+      killSwitches:[
+        ['organic traffic < 5,000 visitors/month','after 6 months and 100+ tutorials','TERMINATE / PIVOT','SEO strategy has failed'],
+        ['AdSense < €450/month and premium conversion < 1%','after 12 months','TERMINATE / PIVOT','Monetisation is broken'],
+        ['a lawsuit or viral brand-damaging incident from an inaccurate tutorial','any time','SHUT DOWN / REBRAND','Rebuild under a new brand'],
+        ['WordPress share < 35% of all websites','within 24 months','KILL-SWITCH','Platform dependency is critical'],
+        ['founder cannot commit 20+ hours/week','for 9+ months','KILL-SWITCH','Velocity never reaches viable scale'],
+        ['GoDaddy, WordPress.com or Wix launch in-context AI help and traffic drops 50%+','within 60 days','KILL-SWITCH','The moat is gone'],
+        ['OpenAI API costs > €450/month','before revenue reaches €900/month','KILL-SWITCH','Unit economics are underwater'],
+        ['first QA contractor not hired (cash constraints)','within 6 months','KILL-SWITCH','Scaling path is blocked']
+      ].map(([i,a,t,r],n)=>({n:n+1,i,a,t,r})),
+      baseCase:[['CAC','€0.30–0.60','per visitor · USR'],['Pricing','€9 / mo','€71 or €90 / yr ⚠'],['Conversion','2–5%','ASM · Y1 1.5–2%'],['Retention','3–6 mo','ASM · unvalidated'],['Market','€285M','SAM · US only'],['Regulatory cost','€9–18k','setup + €4.5–10.8k/yr']].map(([k,v,s])=>({k,v,s})),
+      whatIfs:[
+        {q:'WHAT IF AdSense CPMs fall 20–40%?',why:'Recession or ad-market contraction (source p.22).',from:'€1.08–1.80 CPM',to:'€0.65–1.44 CPM',prov:'CAL'},
+        {q:'WHAT IF a Google core update cuts rankings 20–60%?',why:'3–5 core updates a year; 100% of acquisition is organic (p.22).',from:'100% organic traffic',to:'40–80% of baseline',prov:'CAL'},
+        {q:'WHAT IF AI Overviews reduce click-through 20–40%?',why:'Zero-click answers are already observed in some niches (p.97).',from:'Baseline visits',to:'60–80% of baseline',prov:'CAL'},
+        {q:'WHAT IF retention is 1–2 months, not 3–4.5?',why:'Users may cancel after their immediate issue is fixed (p.22).',from:'3–4.5 mo',to:'1–2 mo',prov:'ASM'},
+        {q:'WHAT IF a different market is selected?',why:'Canada, UK and Australia are named as possible in Years 2–3 but not assessed.',from:'US',to:'— not assessed',prov:'—'}
+      ],
+      contingencies:[
+        ['AdSense suspended or CPC < €0.45/click','Shift to affiliate monetisation · Patreon/Ko-fi ad-free tier · B2B white-label for hosts and agencies','Embeddable tutorial widgets for hosts via SaaS licensing'],
+        ['WordPress.com or GoDaddy launch in-context AI help within 12 months','Double down on ultra-long-tail queries · premium simulators and diagnostics · expand to Shopify, WooCommerce, Magento','Browser extension for real-time error detection and fixes'],
+        ['Premium conversion < 1.5% after 6 months and 50K visitors','Paywall only advanced tools · test €71 annual plan · focus on AdSense and affiliates','Affiliate and partnership revenue model'],
+        ['Organic traffic −40% from an algorithm update or AI Overviews','Accelerate YouTube and Reddit · weekly email digest · Chrome extension','Error-monitoring SaaS dashboard with recommendations'],
+        ['Founder cannot sustain 15 tutorials/week for 3+ months','Two part-time QA contractors at €450/mo · pause creation, monetise library · crowdsource with moderation','Marketplace where experts publish and monetise tutorials']
+      ].map(([t,a,p],n)=>({n:n+1,t,a,p})),
+      stages:[
+        {s:'VALIDATE',w:'Weeks 1–2',o:'Confirm the pain and willingness to pay',a:['15–20 discovery interviews','Staging with 5–8 hosting configs','Rank top 10 error queries','Define validation workflow'],gate:'Do SMB owners confirm WTP?',ev:'Interview evidence, error priorities',th:'— not provided by source',na:true},
+        {s:'BUILD',w:'Weeks 3–6',o:'Ship the free tier and first tutorials',a:['MVP platform (low-code ⚠)','10 tutorials, then 20–25 published','AdSense; schema markup; GA + GSC','Launch free tier, no login'],gate:'Is the quality gate working?',ev:'Validated, indexed tutorials',th:'Staging proven by Week 4',na:false},
+        {s:'TEST',w:'Weeks 7–10',o:'Prove tutorials solve real problems',a:['10–15 beta testers','Premium €9/mo or €71/yr (Stripe)','Success rate, time-to-resolution','First interactive feature'],gate:'Do tutorials work, and do users pay?',ev:'Success rate, conversion intent',th:'— not provided by source',na:true},
+        {s:'LAUNCH',w:'Weeks 11–12',o:'Reach baseline SEO coverage',a:['60–75 tutorials total','A/B test ad density','Beta case studies; email capture'],gate:'Month-4 success criteria',ev:'Traffic, AdSense, subscribers',th:'5,000+ visitors/mo · €90–270 AdSense · 2–5 subscribers',na:false},
+        {s:'SCALE',w:'Months 4–6',o:'Break the founder bottleneck',a:['QA hire at €900/mo AdSense','150–200 tutorials','5–10 partner conversations','Optimise conversion funnel'],gate:'Does SEO-only growth sustain?',ev:'Visitors, RPM, conversion, churn',th:'25–50K visitors · €450–1,350/mo AdSense · ≥2% conversion',na:false}
+      ],
+      okrs:[
+        {o:'Dominate long-tail WordPress error SEO (US)',kr:['Top 3 for 50+ target keywords by Q4','150,000+ organic sessions in Year 1','Time on page > 2 min; bounce < 60%']},
+        {o:'Validate and scale multi-channel monetisation',kr:['€13.5–18k AdSense at RPM > €9','100–200 subscribers at 2–5% conversion ⚠','2 SaaS pilots, €900–2,700']},
+        {o:'Build scalable, high-quality content operations',kr:['400–500 validated tutorials by year end','< 5% tutorial error/complaint rate','1–2 QA contractors onboarded by Q3']}
+      ],
+      sources:[
+        [1,'US web hosting market USD 58.3B (2024)','Statista','2024','EXT','TAM'],
+        [2,'WordPress powers 43.4% of all websites','W3Techs','Apr 2025','EXT','TAM · growth drivers'],
+        [3,'Global WordPress maintenance & support market USD 1.2B; NA 7.8% CAGR 2024–30',null,null,'EXT','TAM'],
+        [4,'Managed WordPress hosting USD 400M globally, 20% CAGR',null,null,'EXT','TAM'],
+        [5,'WordPress hosting market €9.8B (2024) → €18.1B (2033)',null,null,'EXT','TAM · growth'],
+        [6,'US accounts for 89% of web hosting services market growth','IMARC Group',null,'EXT','TAM'],
+        [7,'28M US small businesses (1–10 employees)','US Small Business Administration',null,'EXT','SAM'],
+        [8,'WordPress adoption 18–22% in US SMB segment',null,null,'EXT','SAM'],
+        [9,'1.5M–3.5M monthly US WordPress error queries','Google Trends · SEMrush',null,'EXT','SAM · demand'],
+        [10,'Maintenance spend USD 15–500/mo; DIY tools €90–130/yr','Founder research',null,'USR','SAM'],
+        [11,'CAC €0.30–0.60, €9/mo, conversion 1.5–4%, retention 3–4.5 mo','Founder financial model',null,'USR','SOM · unit economics'],
+        [12,'AdSense CPM USD 1.2–2.0, US WordPress niche',null,null,'EXT','SOM · revenue'],
+        [13,'SEO velocity: 10–100 visitors/page over 12–24 months','Ahrefs · SEMrush',null,'EXT','SOM'],
+        [14,'Niche content platforms €18–45k Y1, €90–180k Y2 ARR','Indie Hackers · MicroConf',null,'EXT','SOM cross-check'],
+        [15,'Scores, competitor assessments, risk register, regulatory scan','Validisory engine','3 Feb 2026','EST','All modules']
+      ].map(([n,t,p,d,ty,u])=>({n,id:'src-'+n,t,p:p||'— publisher not provided',pbg:p?'transparent':hatch,d:d||'— date not provided',dbg:d?'transparent':hatch,
+        ty,tbg:ty==='EXT'?'#12113A':ty==='EST'?'#DFC6FF':'#FFFFFF',tfg:ty==='EXT'?'#FFFFFF':ty==='EST'?B:'#12113A',tbd:ty==='USR'?'#12113A':'transparent',u})),
+      icp:[
+        ['PRIMARY CUSTOMER','US small-business owner (1–10 staff) self-managing WordPress with no IT: restaurants, salons, contractors, dental practices, retailers. Age 30–55 (BMC) / 35–55 (demographics).','P'],
+        ['PROBLEM','Cryptic errors, plugin conflicts (20–30 plugins per site), white screen, SSL and database connection failures. Existing content is too long, outdated or written for developers.','P'],
+        ['TRIGGER','Site-down crisis. 45–55% of self-managed sites hit errors monthly; downtime costs €90–900/day for e-commerce and lead-gen sites.','W'],
+        ['CURRENT ALTERNATIVE','Google + long blog posts or 20–40 min YouTube videos; forums; freelancers at €90–450 one-off; managed-host tickets with 4–24 h response.','P'],
+        ['PAIN SEVERITY','Urgent when the site is down. ⚠ The dimension score calls the pain "nice-to-have". The two readings are not yet reconciled.','W'],
+        ['WILLINGNESS TO PAY','€0–120/yr for DIY tools vs €180–6,000/yr managed. 1.5–4% expected to pay €9/month.','U'],
+        ['BUYING BEHAVIOUR','Searches the exact error message; prefers visual steps; trust signals and rollback guidance are critical; low tolerance for trial and error.','W'],
+        ['ACQUISITION CHANNEL','Organic Google search: 100% of acquisition in Year 1. No paid budget.','P']
+      ].map(([k,t,e])=>({k,t,ev:ev(e)})),
+      segments:[
+        {s:'Primary',w:'US SMB owners, self-managed WordPress',m:'Core premium target; urgent site-down scenarios',sp:'€27–450/mo on hosting & maintenance'},
+        {s:'Secondary',w:'Freelance developers & agencies (5–50 sites)',m:'Quick edge-case fixes; value time over cost',sp:'— not provided'},
+        {s:'Tertiary',w:'Hobbyists & DIY site builders',m:'High search volume, low premium conversion',sp:'Prefer free, ad-supported'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
