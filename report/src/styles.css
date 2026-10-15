@@ -1,0 +1,92 @@
+/* A4 page system. Each .page is one full-bleed 210 × 297 mm sheet. */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #f5f5f4;
+}
+
+/* Typographic defaults: balanced headings, no widowed words in body copy.
+   Zero specificity so any text-wrap set on an element wins. */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+:where(p, li, blockquote, figcaption) {
+  text-wrap: pretty;
+}
+p,
+li {
+  orphans: 3;
+  widows: 3;
+}
+
+a {
+  color: #0b0a81;
+  text-decoration: none;
+}
+a:hover {
+  color: #0f8b8d;
+  text-decoration: underline;
+}
+/* Inline source refs [n] link to the source card but keep the text colour. */
+a.ref {
+  color: inherit;
+}
+
+
+/* Screen: pages as cards on a desk. */
+.document {
+  min-width: max-content;
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+.document > .page {
+  position: relative;
+  display: block;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  break-inside: avoid;
+}
+.document > .page + .page {
+  margin-top: 1rem;
+}
+
+@media print {
+  body {
+    background: none;
+  }
+  .document {
+    padding: 0;
+    min-height: 0;
+  }
+  .document > .page {
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 !important;
+    break-after: page;
+  }
+  .document > .page:last-child {
+    break-after: auto;
+  }
+}
