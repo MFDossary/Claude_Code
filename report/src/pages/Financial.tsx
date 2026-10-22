@@ -1,12 +1,12 @@
 import { useReport } from '../report-context';
 import { color, hatch } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { ChartTitle, ConflictTag, EvidenceBadge, PageTitle, ProvTag, Rich, TableHead, sg } from '../components/ui';
+import { ms, ChartTitle, ConflictTag, EvidenceBadge, PageTitle, ProvTag, Rich, TableHead, sg, Strokes } from '../components/ui';
 import type { RevenueStream } from '../model/types';
 import { usePageSource, useSection, type PageProps } from './section';
 
 const STREAM: Record<RevenueStream, { label: string; color: string }> = {
-  ads: { label: 'AdSense', color: color.brand },
+  ads: { label: 'AdSense', color: color.navy },
   subscriptions: { label: 'Subscriptions', color: color.teal },
   partnerships: { label: 'SaaS partnerships', color: color.gold },
 };
@@ -22,10 +22,9 @@ export function Financial({ page }: PageProps) {
   const px = (v: number) => `${Math.max(1, Math.round(v * k))}px`;
   const ticks = [3, 2, 1, 0].map((i) => (rev.axisMax / 3) * i);
   const usedStreams = (Object.keys(STREAM) as RevenueStream[]).filter((s) => rev.years.some((y) => y.streams.some((x) => x.stream === s)));
-  const pct = (v: number) => `${(v / f.costs.axisMax) * 100}%`;
 
   return (
-    <Page page={page} label="Financial Feasibility" {...useSection('financial')} section="FINANCIAL FEASIBILITY" source={usePageSource('financial')} bodyGap={14}>
+    <Page page={page} label="Financial Feasibility" {...useSection('financial')} section="Financial feasibility" source={usePageSource('financial')} bodyGap={14}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <PageTitle>Financial feasibility</PageTitle>
         {f.fallbackNote && (
@@ -35,23 +34,23 @@ export function Financial({ page }: PageProps) {
               gap: 10,
               alignItems: 'center',
               backgroundImage: hatch.wide,
-              border: `1px solid ${color.rule}`,
+              border: `1px solid ${color.hairline}`,
               padding: '8px 12px',
               fontSize: 10.5,
               color: color.muted,
             }}
           >
-            <span style={{ ...sg(9, 700, '0.12em'), color: color.ink }}>FALLBACK SECTION</span>
+            <span style={{ ...ms(9.5, 600), color: color.ink }}>Fallback section</span>
             <span>{f.fallbackNote}</span>
           </div>
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${f.metrics.length},minmax(0,1fr))`, gap: 1, background: color.rule, border: `1px solid ${color.rule}` }}>
+      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${f.metrics.length},minmax(0,1fr))`, gap: 4 }}>
         {f.metrics.map((m) => (
-          <div key={m.label} style={{ background: color.white, padding: 12, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div key={m.label} style={{ background: color.field, padding: 12, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <span style={{ ...sg(24, 700), lineHeight: 1 }}>{m.value}</span>
-            <span style={{ ...sg(8.5, 600, '0.12em'), color: color.muted }}>{m.label}</span>
+            <span style={{ ...ms(9, 600), color: color.muted }}>{m.label}</span>
             {m.conflict ? <ConflictTag>{m.conflict}</ConflictTag> : m.tag && <ProvTag kind={m.tag.kind} text={m.tag.text} />}
           </div>
         ))}
@@ -62,7 +61,7 @@ export function Financial({ page }: PageProps) {
           <ChartTitle>{rev.title}</ChartTitle>
           <span style={{ fontSize: 10, color: color.muted, lineHeight: 1.4 }}>{rev.insight}</span>
           <div style={{ display: 'grid', gridTemplateColumns: '34px minmax(0,1fr)', gap: 6 }}>
-            <div style={{ height: CHART_H, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', ...sg(8.5), color: color.subtle, textAlign: 'right' }}>
+            <div style={{ height: CHART_H, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', ...sg(8.5), color: color.muted, textAlign: 'right' }}>
               {ticks.map((t) => (
                 <span key={t}>{Math.round(t)}</span>
               ))}
@@ -74,7 +73,7 @@ export function Financial({ page }: PageProps) {
                 gridTemplateColumns: `repeat(${rev.years.length},1fr)`,
                 gap: 18,
                 borderBottom: `1px solid ${color.ink}`,
-                backgroundImage: `linear-gradient(${color.ruleSoft} 1px,transparent 1px)`,
+                backgroundImage: `linear-gradient(${color.rowRule} 1px,transparent 1px)`,
                 backgroundSize: `100% ${Math.floor((CHART_H / 3) * 100) / 100}px`,
                 padding: '0 10px',
               }}
@@ -106,7 +105,7 @@ export function Financial({ page }: PageProps) {
                 <div key={y.label} style={{ display: 'flex', flexDirection: 'column', gap: 2, textAlign: 'center' }}>
                   <span style={sg(10.5, 700)}>{y.label}</span>
                   <span style={sg(10)}>{y.stated}</span>
-                  <span style={{ fontSize: 8.5, color: color.copperInk, lineHeight: 1.3 }}>{y.conflict ?? ''}</span>
+                  <span style={{ fontSize: 8.5, color: color.warn, lineHeight: 1.3 }}>{y.conflict ?? ''}</span>
                 </div>
               ))}
             </div>
@@ -135,28 +134,25 @@ export function Financial({ page }: PageProps) {
               <div key={c.stage} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10 }}>
                   <span>
-                    <b style={sg(10, 700)}>{c.stage}</b> <span style={{ color: color.subtle }}>{c.scope}</span>
+                    <b style={sg(10, 700)}>{c.stage}</b> <span style={{ color: color.muted }}>{c.scope}</span>
                   </span>
                   <span style={sg(10, 700)}>{c.display}</span>
                 </div>
-                <div style={{ height: 10, background: color.surface, position: 'relative' }}>
-                  <span style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: pct(c.low), background: color.gold }} />
-                  <span style={{ position: 'absolute', left: pct(c.low), top: 0, bottom: 0, width: pct(c.high - c.low), background: color.goldTint }} />
-                </div>
+                <Strokes value={c.low} high={c.high} of={f.costs.axisMax} n={30} w={4} h={11} gap={3} label={`${c.stage}: ${c.display} per month`} />
               </div>
             ))}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
             {f.callouts.map((c) => (
-              <div key={c.label} style={{ background: color.goldSoft, padding: 10, display: 'flex', flexDirection: 'column', gap: 3 }}>
-                <span style={{ ...sg(8.5, 600, '0.12em'), color: color.goldInk }}>{c.label}</span>
+              <div key={c.label} style={{ background: color.field, padding: 10, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <span style={{ ...ms(9, 600), color: color.ink }}>{c.label}</span>
                 <span style={sg(17, 700)}>{c.value}</span>
                 <span style={{ fontSize: 9.5, color: color.muted }}>{c.note}</span>
               </div>
             ))}
             {f.pnl ? (
-              <div style={{ gridColumn: '1 / -1', background: color.surface, padding: 10, display: 'flex', flexDirection: 'column', gap: 3 }}>
-                <span style={{ ...sg(8.5, 600, '0.12em'), color: color.muted }}>{f.pnl.title}</span>
+              <div style={{ gridColumn: '1 / -1', background: color.field, padding: 10, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <span style={{ ...ms(9, 600), color: color.muted }}>{f.pnl.title}</span>
                 <span style={{ fontSize: 10, color: color.muted }}>{f.pnl.text}</span>
               </div>
             ) : (
@@ -164,14 +160,14 @@ export function Financial({ page }: PageProps) {
                 style={{
                   gridColumn: '1 / -1',
                   backgroundImage: hatch.slot,
-                  border: `1px solid ${color.ruleStrong}`,
+                  border: `1px solid ${color.hairline}`,
                   padding: 10,
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 3,
                 }}
               >
-                <span style={{ ...sg(8.5, 600, '0.12em'), color: color.muted }}>BREAK-EVEN · CASH RUNWAY · MONTHLY P&amp;L</span>
+                <span style={{ ...ms(9, 600), color: color.muted }}>Break-even · cash runway · monthly P&amp;L</span>
                 <span style={{ fontSize: 10, color: color.muted }}>Not computed by engine. The component renders here when the Financials module returns data.</span>
               </div>
             )}
@@ -179,7 +175,7 @@ export function Financial({ page }: PageProps) {
         </div>
       </div>
 
-      <div style={{ border: `1px solid ${color.rule}` }}>
+      <div>
         <TableHead
           columns={ASM_COLS}
           pad="7px 12px"
@@ -193,7 +189,7 @@ export function Financial({ page }: PageProps) {
               gridTemplateColumns: ASM_COLS,
               gap: 10,
               padding: '7px 12px',
-              borderBottom: `1px solid ${color.ruleSoft}`,
+              borderBottom: `1px solid ${color.rowRule}`,
               fontSize: 10.5,
               alignItems: 'center',
             }}

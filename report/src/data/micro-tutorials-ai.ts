@@ -93,21 +93,21 @@ export const microTutorialsAi: ReportData = {
 
   summary: {
     blocks: [
-      { key: 'PROBLEM', accent: 'decision', text: 'WordPress runs 43.4% of all websites [2], and the average site has 20–30 plugins. When an error hits, non-technical SMB owners face three options: hours with outdated blogs and forums, freelance help at €45–135/hour, or managed hosting at €270–1,350/year.' },
-      { key: 'OPPORTUNITY', accent: 'market', text: 'There are 1.5–3.5M monthly US searches for specific WordPress errors [9]. Existing answers sit at two extremes: free long-form content that takes time to interpret, or managed hosting that removes user control at premium prices. The serviceable market is 2.2M self-managed US small businesses spending €285M a year.' },
-      { key: 'PROPOSED SOLUTION', accent: 'decision', text: 'AI-assisted, human-verified micro-tutorials that resolve one specific error in 1–3 minutes, with step-by-step guidance, annotated screenshots, short videos and mandatory rollback warnings. Every tutorial is validated in an isolated WordPress staging environment before publishing.' },
-      { key: 'COMMERCIAL LOGIC', accent: 'economics', text: 'Three revenue streams are layered. Year-1 AdSense (€900–2,700/month at 50,000 visitors). Premium at €9/month or €71/year, targeting 2–5% conversion. Year-2 white-label licensing to hosts at €450–900/month per partner. Acquisition is organic only.' },
-      { key: 'WHY NOW', accent: 'market', text: "Generative AI lowers tutorial cost (€0.90–2.70 per AI draft versus €45–90 fully manual). Hosting platforms have not yet embedded AI contextual help. Google's featured snippets reward structured, problem-specific content." },
-      { key: 'PRIMARY CONSTRAINT', accent: 'risk', text: 'Acquisition and Year-1 revenue both depend on Google. Founder capacity of 10–15 validated tutorials a week caps velocity during a window the report estimates at 12–24 months.' },
-      { key: 'RECOMMENDATION', accent: 'decision', text: 'Conditional-Go, score 51.5/100. Take a monitored, bootstrap approach with defined kill-switches rather than reject outright. Validate willingness to pay first, publish 50–60 tutorials in 12 weeks, and enforce the traffic and revenue kill-switches.' },
+      { key: 'Problem', accent: 'decision', text: 'WordPress runs 43.4% of all websites [2], and the average site has 20–30 plugins. When an error hits, non-technical SMB owners face three options: hours with outdated blogs and forums, freelance help at €45–135/hour, or managed hosting at €270–1,350/year.' },
+      { key: 'Opportunity', accent: 'market', text: 'There are 1.5–3.5M monthly US searches for specific WordPress errors [9]. Existing answers sit at two extremes: free long-form content that takes time to interpret, or managed hosting that removes user control at premium prices. The serviceable market is 2.2M self-managed US small businesses spending €285M a year.' },
+      { key: 'Proposed solution', accent: 'decision', text: 'AI-assisted, human-verified micro-tutorials that resolve one specific error in 1–3 minutes, with step-by-step guidance, annotated screenshots, short videos and mandatory rollback warnings. Every tutorial is validated in an isolated WordPress staging environment before publishing.' },
+      { key: 'Commercial logic', accent: 'economics', text: 'Three revenue streams are layered. Year-1 AdSense (€900–2,700/month at 50,000 visitors). Premium at €9/month or €71/year, targeting 2–5% conversion. Year-2 white-label licensing to hosts at €450–900/month per partner. Acquisition is organic only.' },
+      { key: 'Why now', accent: 'market', text: "Generative AI lowers tutorial cost (€0.90–2.70 per AI draft versus €45–90 fully manual). Hosting platforms have not yet embedded AI contextual help. Google's featured snippets reward structured, problem-specific content." },
+      { key: 'Primary constraint', accent: 'risk', text: 'Acquisition and Year-1 revenue both depend on Google. Founder capacity of 10–15 validated tutorials a week caps velocity during a window the report estimates at 12–24 months.' },
+      { key: 'Recommendation', accent: 'decision', text: 'Conditional-Go, score 51.5/100. Take a monitored, bootstrap approach with defined kill-switches rather than reject outright. Validate willingness to pay first, publish 50–60 tutorials in 12 weeks, and enforce the traffic and revenue kill-switches.' },
     ],
     marginStats: [
-      { value: '43.4%', label: 'WEBSITES ON WORDPRESS', source: 'EXT · W3Techs, Apr 2025 [2]', accent: 'market' },
-      { value: '€285M', label: 'SERVICEABLE MARKET (SAM)', source: 'EST · bottom-up [7][8][10]', accent: 'market' },
-      { value: '1.5–3.5M', label: 'MONTHLY US ERROR SEARCHES', source: 'EXT · Google Trends, SEMrush [9]', accent: 'market' },
-      { value: '12–24 mo', label: 'COMPETITIVE WINDOW', source: 'EST · engine [15] ⚠ varies', accent: 'risk' },
-      { value: '€135–225', label: 'MVP INFRASTRUCTURE / MONTH', source: 'EST · technical module', accent: 'economics' },
-      { value: '2–5%', label: 'TARGET PREMIUM CONVERSION', source: 'ASM · unvalidated', accent: 'decision' },
+      { value: '43.4%', label: 'Websites on WordPress', source: 'EXT · W3Techs, Apr 2025 [2]', accent: 'market' },
+      { value: '€285M', label: 'Serviceable market (SAM)', source: 'EST · bottom-up [7][8][10]', accent: 'market' },
+      { value: '1.5–3.5M', label: 'Monthly US error searches', source: 'EXT · Google Trends, SEMrush [9]', accent: 'market' },
+      { value: '12–24 mo', label: 'Competitive window', source: 'EST · engine [15] ⚠ varies', accent: 'risk' },
+      { value: '€135–225', label: 'MVP infrastructure / month', source: 'EST · technical module', accent: 'economics' },
+      { value: '2–5%', label: 'Target premium conversion', source: 'ASM · unvalidated', accent: 'decision' },
     ],
   },
 
@@ -135,7 +135,7 @@ export const microTutorialsAi: ReportData = {
       'Each action exists to produce evidence for a material condition (C01–C07, p.5). Owner is the founder throughout, because the team size is 1 until Month 4.',
     groups: [
       {
-        horizon: '0–30 DAYS',
+        horizon: '0–30 days',
         window: 'Weeks 1–4 · Validate',
         items: [
           { title: 'Run 15–20 structured interviews', why: 'With US SMB WordPress owners, to confirm willingness to pay €9/month and rank error categories.', evidence: 'WTP statements, top error types, current spend', threshold: null, conditions: 'C02' },
@@ -144,7 +144,7 @@ export const microTutorialsAi: ReportData = {
         ],
       },
       {
-        horizon: '30–90 DAYS',
+        horizon: '30–90 days',
         window: 'Weeks 5–12 · Build & test',
         items: [
           { title: 'Publish 50–60 validated tutorials ⚠', why: 'Long-tail, low-difficulty queries, with HowTo schema from day one, to establish baseline SEO authority.', evidence: 'Indexed pages, rankings, time to page 1', threshold: '5,000+ monthly organic visitors by Month 3', conditions: 'C01' },
@@ -153,7 +153,7 @@ export const microTutorialsAi: ReportData = {
         ],
       },
       {
-        horizon: '90+ DAYS',
+        horizon: '90+ days',
         window: 'Months 4–9 · Scale',
         items: [
           { title: 'Hire first QA contractor', why: 'Breaks the solo throughput ceiling.', evidence: 'AdSense monthly revenue', threshold: 'Onboarded by Month 4–5 at €900/month AdSense', conditions: 'C05' },
@@ -177,11 +177,11 @@ export const microTutorialsAi: ReportData = {
     costStructure: ['Hosting + staging €45–135/mo fixed → €270–450 at 50K visitors', 'AI API €0.90–2.70/tutorial; Stripe 2.9% + €0.27; AdSense ~32% share', 'QA contractors €1,350–2,700/mo post-traction · legal €450–900 one-time · marketing €0 Y1'],
     revenueStreams: ['AdSense (primary Y1): €900–2,700/mo at 50K visitors', 'Premium €9/mo or €90/yr ⚠, 2–5% conversion', 'White-label (Y2) €450–900/mo per partner + €2,700–4,500 setup · affiliate €9–27/conversion'],
     signals: [
-      { key: 'STRONGEST ELEMENT', title: 'Cost structure', detail: '€0 paid acquisition and €135–225/month MVP make the model bootstrap-viable.', accent: 'market' },
-      { key: 'WEAKEST ELEMENT', title: 'Revenue streams', detail: 'Year 1 depends on AdSense. The subscription and B2B lines are unproven.', accent: 'risk' },
-      { key: 'MOST UNCERTAIN ASSUMPTION', title: 'Subscriber LTV €270–540', detail: 'The source notes only €22.50–45 is paid during a 3–6 month subscription. The rest assumes renewals.', accent: 'decision' },
-      { key: 'HIGHEST DEPENDENCY', title: 'Google organic search', detail: '100% of acquisition. Also the source of AdSense monetisation.', accent: 'risk' },
-      { key: 'PRIMARY ECONOMIC RISK', title: 'AdSense CPM or suspension', detail: 'An ad-market contraction could cut CPMs 20–40%. Suspension removes the primary revenue.', accent: 'economics' },
+      { key: 'Strongest element', title: 'Cost structure', detail: '€0 paid acquisition and €135–225/month MVP make the model bootstrap-viable.', accent: 'market' },
+      { key: 'Weakest element', title: 'Revenue streams', detail: 'Year 1 depends on AdSense. The subscription and B2B lines are unproven.', accent: 'risk' },
+      { key: 'Most uncertain assumption', title: 'Subscriber LTV €270–540', detail: 'The source notes only €22.50–45 is paid during a 3–6 month subscription. The rest assumes renewals.', accent: 'decision' },
+      { key: 'Highest dependency', title: 'Google organic search', detail: '100% of acquisition. Also the source of AdSense monetisation.', accent: 'risk' },
+      { key: 'Primary economic risk', title: 'AdSense CPM or suspension', detail: 'An ad-market contraction could cut CPMs 20–40%. Suspension removes the primary revenue.', accent: 'economics' },
     ],
   },
 
@@ -213,10 +213,10 @@ export const microTutorialsAi: ReportData = {
     fallbackNote:
       'The Financials module returned "N/A" (source p.53). This page brings together the economics stated in the BMC, Market SOM and Technical modules. No P&L, cash flow or break-even was computed.',
     metrics: [
-      { value: '€0.30–0.60', label: 'ORGANIC CAC / VISITOR', tag: { kind: 'USR' } },
-      { value: '€270–405', label: 'PREMIUM LTV', conflict: '⚠ €270–540 in BMC' },
+      { value: '€0.30–0.60', label: 'Organic CAC / visitor', tag: { kind: 'USR' } },
+      { value: '€270–405', label: 'Premium LTV', conflict: '⚠ €270–540 in BMC' },
       { value: '1.8–3.6 : 1', label: 'LTV : CAC', conflict: '⚠ 2.5–4.5× in SOM' },
-      { value: '€90–180k', label: 'OPTIONAL PRE-SEED', tag: { kind: 'EST' } },
+      { value: '€90–180k', label: 'Optional pre-seed', tag: { kind: 'EST' } },
     ],
     revenue: {
       title: 'Revenue build by stream, Years 1–3 · €k',
@@ -239,8 +239,8 @@ export const microTutorialsAi: ReportData = {
       ],
     },
     callouts: [
-      { label: 'COMPLIANCE SET-UP', value: '€9–18k', note: '+ €4.5–10.8k / yr' },
-      { label: 'FULL-TIME THRESHOLD', value: '€900–2,700', note: 'net revenue / mo (p.11)' },
+      { label: 'Compliance set-up', value: '€9–18k', note: '+ €4.5–10.8k / yr' },
+      { label: 'Full-time threshold', value: '€900–2,700', note: 'net revenue / mo (p.11)' },
     ],
     pnl: null,
     assumptions: [
@@ -337,11 +337,11 @@ export const microTutorialsAi: ReportData = {
     ],
     platform: 'Micro-Tutorials platform · Express API + Next.js',
     dependencies: [
-      { group: 'AI GENERATION', items: ['OpenAI GPT-4 API (drafts)', 'Backup: Claude / Gemini'], risk: 'Risk #13' },
-      { group: 'VALIDATION', items: ['Docker staging on EC2', 'Playwright automated tests'], risk: 'Not built yet' },
-      { group: 'DELIVERY', items: ['Next.js 14 on Vercel', 'CloudFront CDN'], risk: 'SEO-critical SSR' },
-      { group: 'DATA', items: ['PostgreSQL RDS · S3', 'Redis (ElastiCache)'], risk: 'us-east-1 (CCPA)' },
-      { group: 'MONETISATION', items: ['Google AdSense', 'Stripe billing'], risk: 'Risk #3' },
+      { group: 'AI generation', items: ['OpenAI GPT-4 API (drafts)', 'Backup: Claude / Gemini'], risk: 'Risk #13' },
+      { group: 'Validation', items: ['Docker staging on EC2', 'Playwright automated tests'], risk: 'Not built yet' },
+      { group: 'Delivery', items: ['Next.js 14 on Vercel', 'CloudFront CDN'], risk: 'SEO-critical SSR' },
+      { group: 'Data', items: ['PostgreSQL RDS · S3', 'Redis (ElastiCache)'], risk: 'us-east-1 (CCPA)' },
+      { group: 'Monetisation', items: ['Google AdSense', 'Stripe billing'], risk: 'Risk #3' },
     ],
     scaleTriggers: [
       { visitors: '10K', action: 'Upgrade RDS, Redis for top 20 pages, CloudFront for static assets' },
@@ -361,9 +361,9 @@ export const microTutorialsAi: ReportData = {
     intro:
       'Regulatory Compliance scores 8/10. The material exposure is contractual and liability-related (AdSense policy, tutorial accuracy) rather than statutory.',
     costs: [
-      { value: '€9–18k', label: 'SET-UP' },
-      { value: '€4.5–10.8k', label: 'ANNUAL' },
-      { value: '€4.5–9k', label: 'LEGAL FEES' },
+      { value: '€9–18k', label: 'Set-up' },
+      { value: '€4.5–10.8k', label: 'Annual' },
+      { value: '€4.5–9k', label: 'Legal fees' },
     ],
     regulations: [
       { name: 'CCPA/CPRA + VA, CO, CT, UT privacy acts', applicability: 'Applies. AdSense counts as "sharing".', exposure: 'low', action: 'Cookie consent, Do Not Sell link, rights portal, DPAs, data minimisation', timing: 'Pre-launch', basis: 'Risk #12' },
@@ -447,16 +447,16 @@ export const microTutorialsAi: ReportData = {
     intro:
       "Five stages, each ending in a decision gate. The venture moves on only when the gate's evidence arrives. Two gates have no threshold in the source and need one before work starts.",
     stages: [
-      { stage: 'VALIDATE', window: 'Weeks 1–2', objective: 'Confirm the pain and willingness to pay', actions: ['15–20 discovery interviews', 'Staging with 5–8 hosting configs', 'Rank top 10 error queries', 'Define validation workflow'], gate: 'Do SMB owners confirm WTP?', evidence: 'Interview evidence, error priorities', threshold: null },
-      { stage: 'BUILD', window: 'Weeks 3–6', objective: 'Ship the free tier and first tutorials', actions: ['MVP platform (low-code ⚠)', '10 tutorials, then 20–25 published', 'AdSense; schema markup; GA + GSC', 'Launch free tier, no login'], gate: 'Is the quality gate working?', evidence: 'Validated, indexed tutorials', threshold: 'Staging proven by Week 4' },
-      { stage: 'TEST', window: 'Weeks 7–10', objective: 'Prove tutorials solve real problems', actions: ['10–15 beta testers', 'Premium €9/mo or €71/yr (Stripe)', 'Success rate, time-to-resolution', 'First interactive feature'], gate: 'Do tutorials work, and do users pay?', evidence: 'Success rate, conversion intent', threshold: null },
-      { stage: 'LAUNCH', window: 'Weeks 11–12', objective: 'Reach baseline SEO coverage', actions: ['60–75 tutorials total', 'A/B test ad density', 'Beta case studies; email capture'], gate: 'Month-4 success criteria', evidence: 'Traffic, AdSense, subscribers', threshold: '5,000+ visitors/mo · €90–270 AdSense · 2–5 subscribers' },
-      { stage: 'SCALE', window: 'Months 4–6', objective: 'Break the founder bottleneck', actions: ['QA hire at €900/mo AdSense', '150–200 tutorials', '5–10 partner conversations', 'Optimise conversion funnel'], gate: 'Does SEO-only growth sustain?', evidence: 'Visitors, RPM, conversion, churn', threshold: '25–50K visitors · €450–1,350/mo AdSense · ≥2% conversion' },
+      { stage: 'Validate', window: 'Weeks 1–2', objective: 'Confirm the pain and willingness to pay', actions: ['15–20 discovery interviews', 'Staging with 5–8 hosting configs', 'Rank top 10 error queries', 'Define validation workflow'], gate: 'Do SMB owners confirm WTP?', evidence: 'Interview evidence, error priorities', threshold: null },
+      { stage: 'Build', window: 'Weeks 3–6', objective: 'Ship the free tier and first tutorials', actions: ['MVP platform (low-code ⚠)', '10 tutorials, then 20–25 published', 'AdSense; schema markup; GA + GSC', 'Launch free tier, no login'], gate: 'Is the quality gate working?', evidence: 'Validated, indexed tutorials', threshold: 'Staging proven by Week 4' },
+      { stage: 'Test', window: 'Weeks 7–10', objective: 'Prove tutorials solve real problems', actions: ['10–15 beta testers', 'Premium €9/mo or €71/yr (Stripe)', 'Success rate, time-to-resolution', 'First interactive feature'], gate: 'Do tutorials work, and do users pay?', evidence: 'Success rate, conversion intent', threshold: null },
+      { stage: 'Launch', window: 'Weeks 11–12', objective: 'Reach baseline SEO coverage', actions: ['60–75 tutorials total', 'A/B test ad density', 'Beta case studies; email capture'], gate: 'Month-4 success criteria', evidence: 'Traffic, AdSense, subscribers', threshold: '5,000+ visitors/mo · €90–270 AdSense · 2–5 subscribers' },
+      { stage: 'Scale', window: 'Months 4–6', objective: 'Break the founder bottleneck', actions: ['QA hire at €900/mo AdSense', '150–200 tutorials', '5–10 partner conversations', 'Optimise conversion funnel'], gate: 'Does SEO-only growth sustain?', evidence: 'Visitors, RPM, conversion, churn', threshold: '25–50K visitors · €450–1,350/mo AdSense · ≥2% conversion' },
     ],
     yearOne: [
-      { label: 'YEAR-1 REVENUE', value: '€18–27k', note: '€13.5–18k ads · €4.5–9k subs' },
-      { label: 'UNIQUE VISITORS', value: '150–250k', note: 'annual' },
-      { label: 'PREMIUM SUBSCRIBERS', value: '100–200', note: '⚠ SOM model: 50–75 by December', conflict: true },
+      { label: 'Year-1 revenue', value: '€18–27k', note: '€13.5–18k ads · €4.5–9k subs' },
+      { label: 'Unique visitors', value: '150–250k', note: 'annual' },
+      { label: 'Premium subscribers', value: '100–200', note: '⚠ SOM model: 50–75 by December', conflict: true },
     ],
     okrs: [
       { objective: 'Dominate long-tail WordPress error SEO (US)', keyResults: ['Top 3 for 50+ target keywords by Q4', '150,000+ organic sessions in Year 1', 'Time on page > 2 min; bounce < 60%'] },
@@ -486,34 +486,34 @@ export const microTutorialsAi: ReportData = {
       { id: 15, title: 'Scores, competitor assessments, risk register, regulatory scan', publisher: 'Validisory engine', date: '3 Feb 2026', url: null, type: 'EST', usedFor: 'All modules' },
     ],
     methodology: [
-      { title: 'SCORING', text: 'Eight dimensions are scored 0–10 and combined into a 0–100 score. Weights are not disclosed. The unweighted mean would be 57.5, so weighting lowers the result to 51.5.' },
-      { title: 'CURRENCY', text: 'Values are shown in € as in the source, which converted USD figures (e.g. USD 58.3B → €52.5B). The conversion rate is not stated.' },
-      { title: 'CONFLICTS FLAGGED · 6', text: 'LTV, LTV:CAC, annual price, competitive window, Y3 SOM total and Y1 subscriber target. Each is marked ⚠ where it appears.' },
+      { title: 'Scoring', text: 'Eight dimensions are scored 0–10 and combined into a 0–100 score. Weights are not disclosed. The unweighted mean would be 57.5, so weighting lowers the result to 51.5.' },
+      { title: 'Currency', text: 'Values are shown in € as in the source, which converted USD figures (e.g. USD 58.3B → €52.5B). The conversion rate is not stated.' },
+      { title: 'Conflicts flagged · 6', text: 'LTV, LTV:CAC, annual price, competitive window, Y3 SOM total and Y1 subscriber target. Each is marked ⚠ where it appears.' },
     ],
   },
 
   icp: {
     number: '03.2',
     title: 'Customer & ideal customer profile',
-    shortTitle: 'CUSTOMER & ICP',
+    shortTitle: 'Customer & ICP',
     purpose: 'Purpose: who feels the pain, what triggers a search, and what they will pay.',
     keyFinding:
       'The customer and trigger are well defined and visible in search data. Whether they will pay, and keep paying, after the crisis is over has not been tested.',
     metrics: [
-      { value: '2.2M', label: 'SAM BUSINESSES', tag: { kind: 'EST' } },
-      { value: '45–55%', label: 'SITES WITH MONTHLY ERRORS', tag: { kind: 'EST' } },
-      { value: '€90–900', label: 'DOWNTIME COST / DAY', tag: { kind: 'EST' } },
-      { value: '€0–120', label: 'DIY TOOL BUDGET / YEAR', tag: { kind: 'USR', text: 'USR [10]' } },
+      { value: '2.2M', label: 'SAM businesses', tag: { kind: 'EST' } },
+      { value: '45–55%', label: 'Sites with monthly errors', tag: { kind: 'EST' } },
+      { value: '€90–900', label: 'Downtime cost / day', tag: { kind: 'EST' } },
+      { value: '€0–120', label: 'DIY tool budget / year', tag: { kind: 'USR', text: 'USR [10]' } },
     ],
     profile: [
-      { key: 'PRIMARY CUSTOMER', text: 'US small-business owner (1–10 staff) self-managing WordPress with no IT: restaurants, salons, contractors, dental practices, retailers. Age 30–55 (BMC) / 35–55 (demographics).', evidence: 'partial' },
-      { key: 'PROBLEM', text: 'Cryptic errors, plugin conflicts (20–30 plugins per site), white screen, SSL and database connection failures. Existing content is too long, outdated or written for developers.', evidence: 'partial' },
-      { key: 'TRIGGER', text: 'Site-down crisis. 45–55% of self-managed sites hit errors monthly; downtime costs €90–900/day for e-commerce and lead-gen sites.', evidence: 'weak' },
-      { key: 'CURRENT ALTERNATIVE', text: 'Google + long blog posts or 20–40 min YouTube videos; forums; freelancers at €90–450 one-off; managed-host tickets with 4–24 h response.', evidence: 'partial' },
-      { key: 'PAIN SEVERITY', text: 'Urgent when the site is down. ⚠ The dimension score calls the pain "nice-to-have". The two readings are not yet reconciled.', evidence: 'weak' },
-      { key: 'WILLINGNESS TO PAY', text: '€0–120/yr for DIY tools vs €180–6,000/yr managed. 1.5–4% expected to pay €9/month.', evidence: 'unvalidated' },
-      { key: 'BUYING BEHAVIOUR', text: 'Searches the exact error message; prefers visual steps; trust signals and rollback guidance are critical; low tolerance for trial and error.', evidence: 'weak' },
-      { key: 'ACQUISITION CHANNEL', text: 'Organic Google search: 100% of acquisition in Year 1. No paid budget.', evidence: 'partial' },
+      { key: 'Primary customer', text: 'US small-business owner (1–10 staff) self-managing WordPress with no IT: restaurants, salons, contractors, dental practices, retailers. Age 30–55 (BMC) / 35–55 (demographics).', evidence: 'partial' },
+      { key: 'Problem', text: 'Cryptic errors, plugin conflicts (20–30 plugins per site), white screen, SSL and database connection failures. Existing content is too long, outdated or written for developers.', evidence: 'partial' },
+      { key: 'Trigger', text: 'Site-down crisis. 45–55% of self-managed sites hit errors monthly; downtime costs €90–900/day for e-commerce and lead-gen sites.', evidence: 'weak' },
+      { key: 'Current alternative', text: 'Google + long blog posts or 20–40 min YouTube videos; forums; freelancers at €90–450 one-off; managed-host tickets with 4–24 h response.', evidence: 'partial' },
+      { key: 'Pain severity', text: 'Urgent when the site is down. ⚠ The dimension score calls the pain "nice-to-have". The two readings are not yet reconciled.', evidence: 'weak' },
+      { key: 'Willingness to pay', text: '€0–120/yr for DIY tools vs €180–6,000/yr managed. 1.5–4% expected to pay €9/month.', evidence: 'unvalidated' },
+      { key: 'Buying behaviour', text: 'Searches the exact error message; prefers visual steps; trust signals and rollback guidance are critical; low tolerance for trial and error.', evidence: 'weak' },
+      { key: 'Acquisition channel', text: 'Organic Google search: 100% of acquisition in Year 1. No paid budget.', evidence: 'partial' },
     ],
     segments: [
       { segment: 'Primary', who: 'US SMB owners, self-managed WordPress', role: 'Core premium target; urgent site-down scenarios', spend: '€27–450/mo on hosting & maintenance' },

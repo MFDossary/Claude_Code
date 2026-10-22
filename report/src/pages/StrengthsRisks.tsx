@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import { useReport } from '../report-context';
 import { color } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { EvidenceBadge, ExposureChip, PageTitle, sg } from '../components/ui';
+import { EvidenceBadge, ExposureChip, ms, PageTitle, sg, StrokeMark } from '../components/ui';
 import { importanceLabel } from '../model/states';
 import { usePageSource, useSection, type PageProps } from './section';
 
@@ -10,44 +10,47 @@ import { usePageSource, useSection, type PageProps } from './section';
 export function StrengthsRisks({ page }: PageProps) {
   const { strengthsRisks: sr } = useReport();
   return (
-    <Page page={page} label="Strengths and Risks" {...useSection('case')} section="STRENGTHS & RISKS" source={usePageSource('strengths-risks')} bodyGap={18} bodyPad="24px 0 14px">
+    <Page page={page} label="Strengths and Risks" {...useSection('case')} section="Strengths & risks" source={usePageSource('strengths-risks')} bodyGap={18} bodyPad="24px 0 14px">
       <PageTitle>Key strengths and key risks</PageTitle>
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 20 }}>
-        <Column title="STRENGTHS" meta="SIGNIFICANCE · EVIDENCE">
+        <Column title="Strengths" meta="Significance · evidence" accent={color.navy}>
           {sr.strengths.map((s, i) => (
-            <Card key={i} tag={`S${i + 1}`} tagColor={color.tealInk} title={s.title} detail={s.detail} style={{ background: color.surface }}>
-              <span style={{ ...sg(9, 700, '0.08em'), background: color.white, padding: '3px 6px' }}>{importanceLabel[s.importance]}</span>
-              <EvidenceBadge evidence={s.evidence} pip={6} gap={4} size={9} tracking="0.08em" style={{ background: color.white, padding: '3px 6px' }} />
+            <Card key={i} tag={`S${i + 1}`} tagColor={color.ink} title={s.title} detail={s.detail} style={{ background: color.field }}>
+              <span style={{ ...ms(9, 600), background: color.white, borderRadius: 999, padding: '3px 10px' }}>{importanceLabel[s.importance]}</span>
+              <EvidenceBadge evidence={s.evidence} pip={6} gap={4} size={9} style={{ background: color.white, borderRadius: 999, padding: '3px 10px' }} />
             </Card>
           ))}
         </Column>
-        <Column title="RISKS" meta="SEVERITY · EVIDENCE">
+        <Column title="Risks" meta="Severity · evidence" accent={color.copper}>
           {sr.risks.map((r, i) => (
             <Card
               key={i}
               tag={`R${i + 1}`}
-              tagColor={color.copperInk}
+              tagColor={color.ink}
               title={r.title}
               detail={r.detail}
-              style={{ background: color.white, border: `1px solid ${color.rule}` }}
+              style={{ background: color.field }}
             >
-              <ExposureChip exposure={r.exposure} seg={[7, 5]} gap={4} size={9} tracking="0.08em" hatched={false} />
-              <EvidenceBadge evidence={r.evidence} pip={6} gap={4} size={9} tracking="0.08em" style={{ border: `1px solid ${color.rule}`, padding: '3px 6px' }} />
+              <ExposureChip exposure={r.exposure} seg={[7, 5]} gap={4} size={9} hatched={false} style={{ background: r.exposure === 'critical' ? undefined : color.white, borderRadius: 999, padding: '3px 10px' }} />
+              <EvidenceBadge evidence={r.evidence} pip={6} gap={4} size={9} style={{ background: color.white, borderRadius: 999, padding: '3px 10px' }} />
             </Card>
           ))}
         </Column>
       </div>
-      <span style={{ marginTop: 'auto', fontSize: 9, color: color.subtle, lineHeight: 1.45 }}>{sr.note}</span>
+      <span style={{ marginTop: 'auto', fontSize: 9, color: color.muted, lineHeight: 1.45 }}>{sr.note}</span>
     </Page>
   );
 }
 
-function Column({ title, meta, children }: { title: string; meta: string; children: ReactNode }) {
+function Column({ title, meta, accent, children }: { title: string; meta: string; accent: string; children: ReactNode }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: `2px solid ${color.ink}`, paddingBottom: 6 }}>
-        <span style={sg(12, 700, '0.14em')}>{title}</span>
-        <span style={{ ...sg(9, 400, '0.12em'), color: color.subtle }}>{meta}</span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: `1px solid ${color.navy}`, paddingBottom: 6 }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 8, ...sg(16, 700) }}>
+          <StrokeMark color={accent} w={6} h={14} />
+          {title}
+        </span>
+        <span style={{ ...ms(9.5, 500), color: color.muted }}>{meta}</span>
       </div>
       {children}
     </div>

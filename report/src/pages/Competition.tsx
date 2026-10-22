@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import { useReport } from '../report-context';
 import { color } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { ChartTitle, DecisionImpact, ExposureChip, Insight, PageTitle, Rich, TableHead, sg } from '../components/ui';
+import { ms, ChartTitle, DecisionImpact, ExposureChip, Insight, PageTitle, Rich, TableHead, sg } from '../components/ui';
 import { levelToExposure } from '../model/states';
 import type { CompetitionData } from '../model/types';
 import { usePageSource, useSection, type PageProps } from './section';
@@ -37,17 +37,17 @@ export function Competition({ page }: PageProps) {
   const { competition: c } = useReport();
   const mx = c.matrix;
   return (
-    <Page page={page} label="Competitive Intelligence" {...useSection('competition')} section="COMPETITIVE INTELLIGENCE" source={usePageSource('competition')} bodyGap={14}>
+    <Page page={page} label="Competitive Intelligence" {...useSection('competition')} section="Competitive intelligence" source={usePageSource('competition')} bodyGap={14}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <PageTitle>Competitive intelligence</PageTitle>
-        <Insight tone={color.tealSoft}>{c.insight}</Insight>
+        <Insight tone={color.field}>{c.insight}</Insight>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '318px minmax(0,1fr)', gap: 22 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <ChartTitle>{mx.title}</ChartTitle>
           <div style={{ display: 'grid', gridTemplateColumns: `16px ${PLOT}px`, gap: 2 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap', ...sg(8.5, 400, '0.1em'), color: color.muted }}>{mx.yAxis}</span>
+              <span style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap', ...ms(9, 600), color: color.muted }}>{mx.yAxis}</span>
             </div>
             <div
               style={{
@@ -55,18 +55,18 @@ export function Competition({ page }: PageProps) {
                 height: PLOT,
                 position: 'relative',
                 overflow: 'hidden',
-                background: color.surface,
+                background: color.white,
                 borderLeft: `1px solid ${color.ink}`,
                 borderBottom: `1px solid ${color.ink}`,
               }}
             >
-              <div style={{ position: 'absolute', left: 0, top: 0, width: '50%', height: '50%', background: color.tealSoft }} />
-              <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 1, background: color.ruleStrong }} />
-              <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: 1, background: color.ruleStrong }} />
-              <span style={{ position: 'absolute', left: 6, top: 5, ...sg(8, 700, '0.08em'), color: color.tealInk }}>{mx.quadrants.tl}</span>
-              <span style={{ position: 'absolute', right: 6, top: 5, ...sg(8, 400, '0.08em'), color: color.subtle }}>{mx.quadrants.tr}</span>
-              <span style={{ position: 'absolute', left: 6, bottom: 5, ...sg(8, 400, '0.08em'), color: color.subtle }}>{mx.quadrants.bl}</span>
-              <span style={{ position: 'absolute', right: 6, bottom: 5, ...sg(8, 400, '0.08em'), color: color.subtle }}>{mx.quadrants.br}</span>
+              <div style={{ position: 'absolute', left: 0, top: 0, width: '50%', height: '50%', background: color.field }} />
+              <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 1, background: color.hairline }} />
+              <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: 1, background: color.hairline }} />
+              <span style={{ position: 'absolute', left: 6, top: 5, ...ms(8.5, 600), color: color.ink }}>{mx.quadrants.tl}</span>
+              <span style={{ position: 'absolute', right: 6, top: 5, ...ms(8.5, 600), color: color.muted }}>{mx.quadrants.tr}</span>
+              <span style={{ position: 'absolute', left: 6, bottom: 5, ...ms(8.5, 600), color: color.muted }}>{mx.quadrants.bl}</span>
+              <span style={{ position: 'absolute', right: 6, bottom: 5, ...ms(8.5, 600), color: color.muted }}>{mx.quadrants.br}</span>
               {placeLabels(mx.positions).map((p) => (
                 <div
                   key={p.name}
@@ -81,7 +81,7 @@ export function Competition({ page }: PageProps) {
                     alignItems: 'center',
                   }}
                 >
-                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: color.ink, flex: 'none' }} />
+                  <span style={{ width: 5, height: 11, transform: 'skewX(-45deg)', background: color.navy, flex: 'none' }} />
                   <span
                     style={{
                       fontSize: 8.5,
@@ -107,22 +107,22 @@ export function Competition({ page }: PageProps) {
                   alignItems: 'center',
                 }}
               >
-                <span style={{ width: 16, height: 16, borderRadius: '50%', border: `2px solid ${color.teal}`, background: color.white, flex: 'none' }} />
-                <span style={{ fontSize: 8.5, fontWeight: 700, color: color.tealInk, whiteSpace: 'nowrap' }}>
+                <span style={{ width: 8, height: 18, transform: 'skewX(-45deg)', background: color.gold, flex: 'none', margin: '0 4px' }} />
+                <span style={{ fontSize: 9, fontWeight: 700, color: color.navy, whiteSpace: 'nowrap', background: '#FFFFFFCC', padding: '0 2px' }}>
                   {mx.recommended.label} ({mx.recommended.x}, {mx.recommended.y})
                 </span>
               </div>
             </div>
             <span />
-            <span style={{ ...sg(8.5, 400, '0.1em'), color: color.muted, textAlign: 'right' }}>{mx.xAxis}</span>
+            <span style={{ ...ms(9, 600), color: color.muted, textAlign: 'right' }}>{mx.xAxis}</span>
           </div>
-          <span style={{ fontSize: 9, color: color.subtle, lineHeight: 1.4 }}>
+          <span style={{ fontSize: 9, color: color.muted, lineHeight: 1.4 }}>
             <Rich text={mx.note} />
           </span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <ChartTitle>Direct competitors · {c.competitors.length}</ChartTitle>
-          <div style={{ border: `1px solid ${color.rule}` }}>
+          <div>
             <TableHead
               columns={COMP_COLS}
               gap={8}
@@ -138,7 +138,7 @@ export function Competition({ page }: PageProps) {
                   gridTemplateColumns: COMP_COLS,
                   gap: 8,
                   padding: '6px 10px',
-                  borderBottom: `1px solid ${color.ruleSoft}`,
+                  borderBottom: `1px solid ${color.rowRule}`,
                   fontSize: 10,
                   alignItems: 'center',
                 }}
@@ -156,7 +156,7 @@ export function Competition({ page }: PageProps) {
         <ChartTitle>Porter's five forces</ChartTitle>
         <div style={{ display: 'grid', gridTemplateColumns: `repeat(${c.forces.length},minmax(0,1fr))`, gap: 6 }}>
           {c.forces.map((f) => (
-            <div key={f.force} style={{ border: `1px solid ${color.rule}`, padding: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div key={f.force} style={{ background: color.field, padding: 10, display: 'flex', flexDirection: 'column', gap: 6 }}>
               <span style={sg(11.5, 700)}>{f.force}</span>
               <ThreatChip level={f.level} style={{ alignSelf: 'flex-start' }} />
               <span style={{ fontSize: 9.5, color: color.muted, lineHeight: 1.4 }}>{f.detail}</span>
@@ -164,7 +164,7 @@ export function Competition({ page }: PageProps) {
           ))}
         </div>
       </div>
-      <DecisionImpact label="DECISION IMPACT" impact={c.impact} note={c.impactNote} />
+      <DecisionImpact label="Decision impact" impact={c.impact} note={c.impactNote} />
     </Page>
   );
 }

@@ -1,13 +1,13 @@
 import { useReport } from '../report-context';
-import { color } from '../theme/tokens';
+import { color, heatRamp } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { Lede, PageTitle, RuledHead, sg } from '../components/ui';
+import { ms, Lede, PageTitle, RuledHead, sg } from '../components/ui';
 import { riskScore } from '../model/states';
 import type { Level } from '../model/types';
 import { pageHref, pageNo, usePageSource, useSection, type PageProps } from './section';
 
 /** Cell tint by probability × impact score (1–9). */
-const SHADE: Record<number, string> = { 1: '#FCF8F4', 2: '#FBF5EF', 3: color.copperSoft, 4: color.copperSoft, 6: '#EBCBB0', 9: '#D9A47A' };
+const SHADE: Record<number, string> = { 1: heatRamp[0], 2: heatRamp[0], 3: heatRamp[1], 4: heatRamp[2], 6: heatRamp[3], 9: heatRamp[4] };
 const IMPACT_ROWS: Level[] = ['high', 'medium', 'low'];
 const PROB_COLS: Level[] = ['low', 'medium', 'high'];
 
@@ -16,7 +16,7 @@ export function RiskSystem({ page }: PageProps) {
   const { risk } = useReport();
   const keyed = [...risk.register].sort((a, b) => a.id - b.id);
   return (
-    <Page page={page} label="Risk Matrix" {...useSection('risk')} section="RISK SYSTEM" source={usePageSource('risk')} bodyGap={14}>
+    <Page page={page} label="Risk Matrix" {...useSection('risk')} section="Risk system" source={usePageSource('risk')} bodyGap={14}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <PageTitle>Risk system</PageTitle>
         <Lede>
@@ -26,7 +26,7 @@ export function RiskSystem({ page }: PageProps) {
       <div style={{ display: 'grid', gridTemplateColumns: '330px minmax(0,1fr)', gap: 22 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '18px minmax(0,1fr)', gap: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap', ...sg(8.5, 400, '0.12em'), color: color.muted }}>IMPACT →</span>
+            <span style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap', ...ms(9, 600), color: color.muted }}>IMPACT →</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gridTemplateRows: 'repeat(3,92px)', gap: 3 }}>
@@ -46,8 +46,8 @@ export function RiskSystem({ page }: PageProps) {
                             width: 22,
                             height: 22,
                             borderRadius: '50%',
-                            background: s >= 9 ? color.critical : color.white,
-                            color: s >= 9 ? color.white : color.ink,
+                            background: s >= 9 ? color.gold : color.white,
+                            color: color.navy,
                             border: `1px solid ${color.ink}`,
                             display: 'flex',
                             alignItems: 'center',
@@ -63,12 +63,12 @@ export function RiskSystem({ page }: PageProps) {
                 }),
               )}
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', ...sg(8.5, 400, '0.1em'), color: color.muted, textAlign: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', ...ms(9, 600), color: color.muted, textAlign: 'center' }}>
               <span>LOW</span>
               <span>MEDIUM</span>
               <span>HIGH</span>
             </div>
-            <span style={{ ...sg(8.5, 400, '0.12em'), color: color.muted, textAlign: 'center' }}>PROBABILITY →</span>
+            <span style={{ ...ms(9, 600), color: color.muted, textAlign: 'center' }}>PROBABILITY →</span>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -82,22 +82,22 @@ export function RiskSystem({ page }: PageProps) {
                 fontSize: 9.5,
                 lineHeight: 1.3,
                 padding: '3px 0',
-                borderBottom: `1px solid ${color.ruleFaint}`,
+                borderBottom: `1px solid ${color.rowRule}`,
                 alignItems: 'baseline',
               }}
             >
-              <span style={{ ...sg(9.5, 700), color: color.copperInk }}>{r.id}</span>
+              <span style={{ ...sg(9.5, 700), color: color.ink }}>{r.id}</span>
               <span>{r.title}</span>
-              <span style={{ ...sg(8, 400, '0.08em'), color: color.subtle, textAlign: 'right' }}>{r.category} ◇</span>
+              <span style={{ ...ms(8.5, 600), color: color.muted, textAlign: 'right' }}>{r.category} ◇</span>
             </div>
           ))}
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <RuledHead title="DECISION TRIGGERS · KILL-SWITCHES" meta={risk.killSwitchSource} pad={5} />
+        <RuledHead title="Decision triggers · kill-switches" meta={risk.killSwitchSource} pad={5} />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,minmax(0,1fr))', gap: 5 }}>
           {risk.killSwitches.map((k, i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 118px', border: `1px solid ${color.rule}` }}>
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 118px', background: color.field }}>
               <div style={{ padding: '7px 10px', display: 'flex', flexDirection: 'column', gap: 2, fontSize: 9.5, lineHeight: 1.35 }}>
                 <span>
                   <b style={kw}>IF</b>
@@ -110,7 +110,7 @@ export function RiskSystem({ page }: PageProps) {
               </div>
               <div style={{ background: color.ink, color: color.white, padding: '7px 8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2 }}>
                 <span style={sg(9.5, 700, '0.04em')}>→ {k.outcome}</span>
-                <span style={{ fontSize: 8.5, color: color.ruleStrong, lineHeight: 1.3 }}>{k.reason}</span>
+                <span style={{ fontSize: 8.5, color: color.hairline, lineHeight: 1.3 }}>{k.reason}</span>
               </div>
             </div>
           ))}
@@ -120,4 +120,4 @@ export function RiskSystem({ page }: PageProps) {
   );
 }
 
-const kw = { ...sg(8.5, 700, '0.08em'), color: color.copperInk, marginRight: 4 };
+const kw = { ...ms(9, 600), color: color.ink, marginRight: 4 };

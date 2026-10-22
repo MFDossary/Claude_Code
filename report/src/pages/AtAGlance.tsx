@@ -1,49 +1,42 @@
 import { useReport } from '../report-context';
 import { color } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { EvidenceBadge, Lede, PageTitle, sg } from '../components/ui';
-import { impactFromScore, impactState } from '../model/states';
+import { EvidenceBadge, ImpactTag, Lede, ms, PageTitle, sg, Strokes } from '../components/ui';
+import { impactFromScore } from '../model/states';
 import { pageHref, usePageSource, useSection, type PageProps } from './section';
 
 /** Venture at a glance: one DimensionScoreCard per evaluation dimension. */
 export function AtAGlance({ page }: PageProps) {
   const { glance } = useReport();
   return (
-    <Page page={page} label="Venture at a Glance" {...useSection('case')} section="VENTURE AT A GLANCE" source={usePageSource('glance')} bodyGap={20} bodyPad="24px 0 14px">
+    <Page page={page} label="Venture at a Glance" {...useSection('case')} section="Venture at a glance" source={usePageSource('glance')} bodyGap={20} bodyPad="24px 0 14px">
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <PageTitle>Venture at a glance</PageTitle>
         <Lede size={13}>{glance.intro}</Lede>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,minmax(0,1fr))', gap: 12 }}>
         {glance.dimensions.map((d) => {
-          const imp = impactState[impactFromScore(d.score)];
           return (
-            <div key={d.label} style={{ border: `1px solid ${color.rule}`, padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 9 }}>
+            <div key={d.label} style={{ background: color.field, padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 7 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
                 <span style={sg(14.5, 700)}>{d.label}</span>
-                <span style={{ ...sg(24, 700), color: color.brand, lineHeight: 1 }}>
+                <span style={{ ...sg(26, 700, '-0.02em'), color: color.navy, lineHeight: 1 }}>
                   {d.score}
-                  <span style={{ fontSize: 12, color: color.subtle }}>/10</span>
+                  <span style={{ ...ms(11, 500), color: color.muted }}> / 10</span>
                 </span>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10,1fr)', gap: 2 }}>
-                {Array.from({ length: 10 }, (_, i) => (
-                  <span key={i} style={{ height: 6, background: i < d.score ? color.brand : color.track }} />
-                ))}
-              </div>
+              <Strokes value={d.score} of={10} n={10} w={6} h={12} gap={5} label={`${d.label} ${d.score} of 10`} />
               <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-                <span style={{ borderLeft: `4px solid ${imp.accent}`, background: color.surface, padding: '3px 7px', ...sg(9.5, 700, '0.1em') }}>
-                  {imp.glyph} {imp.label}
-                </span>
+                <ImpactTag impact={impactFromScore(d.score)} size={9.5} />
                 <EvidenceBadge
                   evidence={d.evidence}
                   tracking="0.1em"
                   suffix=" ◇"
-                  style={{ border: `1px solid ${color.ruleStrong}`, padding: '3px 7px' }}
+                  style={{ background: color.white, border: `1px solid ${color.hairline}`, borderRadius: 999, padding: '3px 10px' }}
                 />
               </div>
-              <span style={{ fontSize: 11.5, lineHeight: 1.5, color: color.text, minHeight: 34 }}>{d.finding}</span>
-              <span style={{ fontSize: 9.5, color: color.subtle, lineHeight: 1.35 }}>
+              <span style={{ fontSize: 11, lineHeight: 1.45, color: color.ink, minHeight: 32 }}>{d.finding}</span>
+              <span style={{ fontSize: 9.5, color: color.muted, lineHeight: 1.35 }}>
                 Evidence basis: {d.basis} · <a href={pageHref(d.see)}>See analysis →</a>
               </span>
             </div>
@@ -59,8 +52,9 @@ export function AtAGlance({ page }: PageProps) {
           fontSize: 10,
           lineHeight: 1.5,
           color: color.muted,
-          background: color.surface,
-          padding: '12px 14px',
+          background: color.white,
+          borderTop: `1px solid ${color.hairline}`,
+          padding: '12px 0 0',
         }}
       >
         <span>

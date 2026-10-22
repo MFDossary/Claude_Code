@@ -3,10 +3,10 @@ import type { Evidence, Exposure, Impact, Importance, Level, Provenance, Verdict
 
 /* Evidence strength: 3 pips, filled by strength; UNVALIDATED is all dashed. */
 const EVIDENCE: Record<Evidence, [label: string, filled: number]> = {
-  strong: ['STRONG', 3],
-  partial: ['PARTIAL', 2],
-  weak: ['WEAK', 1],
-  unvalidated: ['UNVALIDATED', 0],
+  strong: ['Strong', 3],
+  partial: ['Partial', 2],
+  weak: ['Weak', 1],
+  unvalidated: ['Unvalidated', 0],
 };
 
 export interface Pip {
@@ -22,13 +22,13 @@ export function evidenceState(e: Evidence): { label: string; pips: Pip[] } {
   };
 }
 
-/* Exposure / severity: 4 segments plus a tinted chip; CRITICAL inverts. */
+/* Exposure / severity: 4 copper strokes on white; CRITICAL inverts to a navy chip. */
 const EXPOSURE: Record<Exposure, [label: string, filled: number]> = {
-  low: ['LOW', 1],
-  moderate: ['MODERATE', 2],
-  high: ['HIGH', 3],
-  critical: ['CRITICAL', 4],
-  undetermined: ['NOT YET DETERMINED', 0],
+  low: ['Low', 1],
+  moderate: ['Moderate', 2],
+  high: ['High', 3],
+  critical: ['Critical', 4],
+  undetermined: ['Not yet determined', 0],
 };
 
 export interface Segment {
@@ -42,10 +42,10 @@ export function exposureState(x: Exposure): { label: string; bg: string; fg: str
   const none = x === 'undetermined';
   return {
     label,
-    bg: crit ? color.critical : none ? color.white : color.copperSoft,
-    fg: crit ? color.white : none ? color.muted : color.copperInk,
+    bg: crit ? color.navy : 'transparent',
+    fg: crit ? color.white : none ? color.muted : color.ink,
     segs: [0, 1, 2, 3].map((i) => ({
-      bg: none ? color.white : i < n ? (crit ? color.criticalTint : color.copper) : color.copperTint,
+      bg: none ? color.white : i < n ? color.copper : crit ? color.navyRule : color.strokeOff,
       image: none ? hatch.fine : 'none',
     })),
   };
@@ -63,16 +63,16 @@ export function severity(score: number): Exposure {
 }
 
 export const importanceLabel: Record<Importance, string> = {
-  material: '◆◆◆ MATERIAL',
-  significant: '◆◆◇ SIGNIFICANT',
-  contributing: '◆◇◇ CONTRIBUTING',
+  material: '◆◆◆ Material',
+  significant: '◆◆◇ Significant',
+  contributing: '◆◇◇ Contributing',
 };
 
 export const impactState: Record<Impact, { label: string; glyph: string; accent: string }> = {
-  supports: { label: 'SUPPORTS', glyph: '▲', accent: color.teal },
-  constrains: { label: 'CONSTRAINS', glyph: '◆', accent: color.gold },
-  threatens: { label: 'THREATENS', glyph: '▼', accent: color.copper },
-  neutral: { label: 'NEUTRAL', glyph: '○', accent: color.ruleStrong },
+  supports: { label: 'Supports', glyph: '▲', accent: color.teal },
+  constrains: { label: 'Constrains', glyph: '◆', accent: color.gold },
+  threatens: { label: 'Threatens', glyph: '▼', accent: color.copper },
+  neutral: { label: 'Neutral', glyph: '○', accent: color.strokeOff },
 };
 
 /** Dimension impact rule: ≥7 supports, 5–6 constrains, ≤4 threatens. */
@@ -82,19 +82,47 @@ export function impactFromScore(score: number): Impact {
 
 export const verdictOrder: Verdict[] = ['STOP', 'NO-GO', 'REVALIDATE', 'CONDITIONAL-GO', 'GO'];
 
-export const verdictStyle: Record<Verdict, { bg: string; fg: string }> = {
-  STOP: { bg: color.ink, fg: color.white },
-  'NO-GO': { bg: color.copperInk, fg: color.white },
-  REVALIDATE: { bg: color.lilac, fg: color.brand },
-  'CONDITIONAL-GO': { bg: color.gold, fg: color.ink },
-  GO: { bg: color.tealInk, fg: color.white },
+/**
+ * Verdict marks: the cut-corner shape is the only one that carries a decision.
+ * Fill strength follows confidence: solid (GO), tone (conditional or
+ * revalidate), outline (NO-GO, STOP). `navy` is the same mark on a navy field.
+ */
+export type VerdictFill = 'solid' | 'tone' | 'outline';
+export const verdictFill: Record<Verdict, VerdictFill> = {
+  GO: 'solid',
+  'CONDITIONAL-GO': 'tone',
+  REVALIDATE: 'tone',
+  'NO-GO': 'outline',
+  STOP: 'outline',
 };
+export const verdictNote: Record<Verdict, string> = {
+  GO: 'Build the next step',
+  'CONDITIONAL-GO': 'Proceed through the gates',
+  REVALIDATE: 'Collect the evidence first',
+  'NO-GO': 'Park it or pivot',
+  STOP: 'A kill-switch has fired',
+};
+export function verdictStyle(v: Verdict, onNavy = false): { bg: string; fg: string; note: string; border: string } {
+  const f = verdictFill[v];
+  if (onNavy) {
+    return f === 'solid'
+      ? { bg: color.white, fg: color.navy, note: color.muted, border: 'none' }
+      : f === 'tone'
+        ? { bg: color.navyRule, fg: color.white, note: color.onNavyMuted, border: 'none' }
+        : { bg: 'transparent', fg: color.white, note: color.onNavyMuted, border: `2px solid ${color.white}` };
+  }
+  return f === 'solid'
+    ? { bg: color.navy, fg: color.white, note: color.onNavyMuted, border: 'none' }
+    : f === 'tone'
+      ? { bg: color.field, fg: color.navy, note: color.muted, border: 'none' }
+      : { bg: color.white, fg: color.navy, note: color.muted, border: `2px solid ${color.navy}` };
+}
 
-/** Provenance tag styles (design system: EXT / USR / EST / ASM / CAL). */
+/** Provenance tags follow the same fill logic: solid, tone, outline, dashed. */
 export const provenanceStyle: Record<Provenance, { bg: string; fg: string; border: string }> = {
-  EXT: { bg: color.ink, fg: color.white, border: 'none' },
-  USR: { bg: color.white, fg: color.ink, border: `1px solid ${color.ink}` },
-  EST: { bg: color.lilac, fg: color.brand, border: 'none' },
-  ASM: { bg: color.white, fg: color.brand, border: `1px dashed ${color.brand}` },
-  CAL: { bg: color.track, fg: color.ink, border: `1px solid ${color.ruleStrong}` },
+  EXT: { bg: color.navy, fg: color.white, border: 'none' },
+  USR: { bg: color.white, fg: color.navy, border: `1px solid ${color.navy}` },
+  EST: { bg: '#E7E7F3', fg: color.navy, border: 'none' },
+  ASM: { bg: color.white, fg: color.navy, border: `1px dashed ${color.navy}` },
+  CAL: { bg: color.rowRule, fg: color.navy, border: 'none' },
 };

@@ -5,21 +5,28 @@ import {
   exposureState,
   impactState,
   provenanceStyle,
+  verdictNote,
+  verdictStyle,
 } from '../model/states';
-import type { Evidence, Exposure, Impact, Provenance } from '../model/types';
+import type { Evidence, Exposure, Impact, Provenance, Verdict } from '../model/types';
 
 /** Space Grotesk text style: the display/label face. */
 export function sg(size: number, weight = 400, letterSpacing?: string, extra?: CSSProperties): CSSProperties {
   return { fontFamily: font.display, fontWeight: weight, fontSize: size, letterSpacing, ...extra };
 }
 
-/** Uppercase tracked label (section labels, column heads). */
+/** Montserrat text style: the reading face (labels, chips, body). */
+export function ms(size: number, weight = 400, extra?: CSSProperties): CSSProperties {
+  return { fontFamily: font.body, fontWeight: weight, fontSize: size, ...extra };
+}
+
+/** Tracked label (column heads and small markers). */
 export function Label({
   children,
   size = 9,
   weight = 700,
   tracking = '0.14em',
-  tone = color.subtle,
+  tone = color.muted,
   style,
 }: {
   children: ReactNode;
@@ -55,20 +62,66 @@ export function Rich({ text }: { text: string }) {
   return <>{out.map((n, i) => <Fragment key={i}>{n}</Fragment>)}</>;
 }
 
-/* ───────── Evidence strength ───────── */
+/* ───────── Signal strokes ───────── */
 
-export function EvidencePips({ evidence, size = 7, gap = 2 }: { evidence: Evidence; size?: number; gap?: number }) {
-  const { pips } = evidenceState(evidence);
+/** Space a skewed stroke needs on each side so a row of them never clips. */
+const lean = (h: number) => Math.ceil(h / 2);
+
+/**
+ * The stroke meter: the three 45° strokes of the Validisory mark as an
+ * instrument. Filled strokes are navy (white on a navy field), the last
+ * filled stroke, the signal tip, is gold, empty strokes are grey. With
+ * `high`, strokes between the value and `high` show the range in a tint.
+ */
+export function Strokes({
+  value,
+  of = 100,
+  n = 20,
+  high,
+  w = 6,
+  h = 16,
+  gap = 3,
+  onNavy = false,
+  tip = true,
+  label,
+  style,
+}: {
+  value: number;
+  of?: number;
+  n?: number;
+  /** Upper end of a range, in the same unit as `value`. */
+  high?: number;
+  w?: number;
+  h?: number;
+  gap?: number;
+  onNavy?: boolean;
+  /** Mark the last filled stroke gold. */
+  tip?: boolean;
+  /** Accessible description; omit for decorative meters. */
+  label?: string;
+  style?: CSSProperties;
+}) {
+  const filled = Math.max(value > 0 ? 1 : 0, Math.round((value / of) * n));
+  const upto = high === undefined ? filled : Math.max(filled, Math.round((high / of) * n));
+  const on = onNavy ? color.white : color.navy;
+  const off = onNavy ? color.navyRule : color.strokeOff;
+  const range = onNavy ? color.border : color.tint;
   return (
-    <span style={{ display: 'flex', gap }}>
-      {pips.map((p, i) => (
+    <span
+      role={label ? 'img' : undefined}
+      aria-label={label}
+      aria-hidden={label ? undefined : true}
+      style={{ display: 'flex', gap, padding: `0 ${lean(h)}px`, ...style }}
+    >
+      {Array.from({ length: n }, (_, i) => (
         <span
           key={i}
           style={{
-            width: size,
-            height: size,
-            background: p.filled ? color.brand : 'transparent',
-            border: `1px ${p.dashed ? 'dashed' : 'solid'} ${color.brand}`,
+            flex: 'none',
+            width: w,
+            height: h,
+            transform: 'skewX(-45deg)',
+            background: i < filled ? (tip && i === filled - 1 && high === undefined ? color.gold : on) : i < upto ? range : off,
           }}
         />
       ))}
@@ -76,14 +129,106 @@ export function EvidencePips({ evidence, size = 7, gap = 2 }: { evidence: Eviden
   );
 }
 
-/** EvidenceBadge: pips + label. Sizing varies by density; chrome via `style`. */
+/** One skewed stroke: bullets, status dots and legend keys. */
+export function StrokeMark({ color: c, w = 5, h = 10, dashed = false, style }: { color: string; w?: number; h?: number; dashed?: boolean; style?: CSSProperties }) {
+  return (
+    <span
+      aria-hidden="true"
+      style={{
+        flex: 'none',
+        display: 'inline-block',
+        width: w,
+        height: h,
+        margin: `0 ${lean(h) / 2}px`,
+        transform: 'skewX(-45deg)',
+        background: dashed ? 'transparent' : c,
+        border: dashed ? `1px dashed ${c}` : undefined,
+        ...style,
+      }}
+    />
+  );
+}
+
+/** The brand motif: two white strokes and a gold tip (navy grounds). */
+export function SignalMotif({ w = 14, h = 42, gap = 7, light = color.white }: { w?: number; h?: number; gap?: number; light?: string }) {
+  return (
+    <span aria-hidden="true" style={{ display: 'flex', gap, padding: `0 ${lean(h)}px` }}>
+      {[light, light, color.gold].map((c, i) => (
+        <span key={i} style={{ width: w, height: h, background: c, transform: 'skewX(-45deg)' }} />
+      ))}
+    </span>
+  );
+}
+
+/** Verdict mark: the cut corner is the only shape that carries a decision. */
+export function VerdictMark({
+  verdict,
+  size = 40,
+  onNavy = false,
+  note = true,
+  style,
+}: {
+  verdict: Verdict;
+  size?: number;
+  onNavy?: boolean;
+  note?: boolean;
+  style?: CSSProperties;
+}) {
+  const v = verdictStyle(verdict, onNavy);
+  const cut = Math.round(size * 0.4);
+  return (
+    <span
+      style={{
+        alignSelf: 'flex-start',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        background: v.bg,
+        color: v.fg,
+        border: v.border,
+        padding: `${Math.round(size * 0.3)}px ${Math.round(size * 0.5)}px ${Math.round(size * 0.26)}px`,
+        clipPath: `polygon(0 0, calc(100% - ${cut}px) 0, 100% ${cut}px, 100% 100%, 0 100%)`,
+        ...style,
+      }}
+    >
+      <span style={{ ...sg(size, 700, '-0.01em'), lineHeight: 1 }}>{verdict}</span>
+      {note && <span style={{ ...ms(Math.max(9, size * 0.28), 500), color: v.note }}>{verdictNote[verdict]}</span>}
+    </span>
+  );
+}
+
+/* ───────── Evidence strength ───────── */
+
+/** Three skewed strokes: filled by strength; UNVALIDATED is all dashed. */
+export function EvidencePips({ evidence, size = 7, gap = 2 }: { evidence: Evidence; size?: number; gap?: number }) {
+  const { pips } = evidenceState(evidence);
+  const h = Math.round(size * 1.6);
+  const w = Math.max(3, Math.round(size * 0.7));
+  return (
+    <span aria-hidden="true" style={{ display: 'flex', gap: gap + 1, padding: `0 ${lean(h)}px` }}>
+      {pips.map((p, i) => (
+        <span
+          key={i}
+          style={{
+            width: w,
+            height: h,
+            transform: 'skewX(-45deg)',
+            background: p.filled ? color.navy : p.dashed ? 'transparent' : color.strokeOff,
+            border: p.dashed ? `1px dashed ${color.navy}` : undefined,
+          }}
+        />
+      ))}
+    </span>
+  );
+}
+
+/** EvidenceBadge: strokes + label. Sizing varies by density; chrome via `style`. */
 export function EvidenceBadge({
   evidence,
   pip = 7,
   pipGap = 2,
   gap = 5,
   size = 9.5,
-  tracking = '0.06em',
   suffix,
   style,
 }: {
@@ -92,13 +237,14 @@ export function EvidenceBadge({
   pipGap?: number;
   gap?: number;
   size?: number;
+  /** Kept for call-site compatibility; badges are set in Montserrat untracked. */
   tracking?: string;
   suffix?: string;
   style?: CSSProperties;
 }) {
   const { label } = evidenceState(evidence);
   return (
-    <span style={{ display: 'flex', gap, alignItems: 'center', ...sg(size, 700, tracking), color: color.brand, ...style }}>
+    <span style={{ display: 'flex', gap, alignItems: 'center', ...ms(size, 600), color: color.navy, ...style }}>
       <EvidencePips evidence={evidence} size={pip} gap={pipGap} />
       {label}
       {suffix}
@@ -115,8 +261,7 @@ export function ExposureChip({
   segGap = 2,
   gap = 5,
   size = 9.5,
-  tracking = '0.06em',
-  pad = '3px 6px',
+  pad,
   hatched = true,
   style,
 }: {
@@ -129,11 +274,14 @@ export function ExposureChip({
   size?: number;
   tracking?: string;
   pad?: string;
-  /** Draw the hatch for NOT YET DETERMINED segments. */
+  /** Draw the hatch for NOT YET DETERMINED strokes. */
   hatched?: boolean;
   style?: CSSProperties;
 }) {
   const x = exposureState(exposure);
+  // Strokes read better taller than the old flat segments.
+  const w = Math.max(3, seg[0] - 2);
+  const h = Math.max(9, seg[1] * 2);
   return (
     <span
       style={{
@@ -141,17 +289,17 @@ export function ExposureChip({
         gap,
         alignItems: 'center',
         background: x.bg,
-        padding: pad,
-        ...sg(size, 700, tracking),
+        padding: x.bg === 'transparent' ? '2px 0' : pad ?? '2px 6px',
+        ...ms(size, 600),
         color: x.fg,
         ...style,
       }}
     >
-      <span style={{ display: 'flex', gap: segGap }}>
+      <span style={{ display: 'flex', gap: segGap + 1, padding: `0 ${lean(h)}px` }}>
         {x.segs.map((s, i) => (
           <span
             key={i}
-            style={{ width: seg[0], height: seg[1], background: s.bg, backgroundImage: hatched ? s.image : undefined }}
+            style={{ width: w, height: h, transform: 'skewX(-45deg)', background: s.bg, backgroundImage: hatched ? s.image : undefined, outline: s.image !== 'none' && hatched ? `1px solid ${color.hairline}` : undefined }}
           />
         ))}
       </span>
@@ -162,24 +310,40 @@ export function ExposureChip({
 
 /* ───────── Decision impact ───────── */
 
-export function ImpactTag({ impact, style }: { impact: Impact; style?: CSSProperties }) {
-  const s = impactState[impact];
+/** Status pill with an accent stroke (the concept's Verified / Partly chips). */
+export function StatusPill({ accent, children, size = 10, style }: { accent: string; children: ReactNode; size?: number; style?: CSSProperties }) {
   return (
     <span
       style={{
-        borderLeft: `4px solid ${s.accent}`,
-        background: color.surface,
-        padding: '4px 8px',
-        ...sg(10, 700, '0.1em'),
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 7,
+        padding: '3px 11px 3px 8px',
+        border: `1px solid ${color.hairline}`,
+        borderRadius: 999,
+        background: color.white,
+        ...ms(size, 600),
+        color: color.navy,
+        whiteSpace: 'nowrap',
         ...style,
       }}
     >
-      {s.glyph} {s.label}
+      <StrokeMark color={accent} w={5} h={11} />
+      {children}
     </span>
   );
 }
 
-/** Module footer band: "DECISION IMPACT · note · tag". */
+export function ImpactTag({ impact, size = 10, style }: { impact: Impact; size?: number; style?: CSSProperties }) {
+  const s = impactState[impact];
+  return (
+    <StatusPill accent={s.accent} size={size} style={style}>
+      {s.label}
+    </StatusPill>
+  );
+}
+
+/** Module footer band: "Decision impact · note · pill" on a grey field. */
 export function DecisionImpact({
   label,
   impact,
@@ -203,16 +367,19 @@ export function DecisionImpact({
         gridTemplateColumns: '120px minmax(0,1fr) auto',
         gap: 14,
         alignItems: 'center',
-        borderTop: `2px solid ${color.ink}`,
-        paddingTop: padTop,
+        background: color.field,
+        padding: `${padTop}px 14px`,
       }}
     >
-      <span style={sg(labelSize, 700, '0.12em')}>{label}</span>
+      <span style={{ ...ms(labelSize + 1, 600), color: color.navy }}>{label}</span>
       <span style={{ fontSize: noteSize, lineHeight: 1.45, color: color.muted }}>{note}</span>
       <ImpactTag impact={impact} />
     </div>
   );
 }
+
+/** "6 · DECISION IMPACT" → "6 · Decision impact". */
+export const sentence = (t: string) => t.charAt(0) + t.slice(1).toLowerCase();
 
 /* ───────── Provenance ───────── */
 
@@ -221,7 +388,7 @@ export function ProvTag({
   text,
   size = 8.5,
   pad = '1px 5px',
-  tracking = '0.08em',
+  tracking = '0.06em',
   boxed = false,
   style,
 }: {
@@ -253,16 +420,16 @@ export function ProvTag({
   );
 }
 
-/** Source-conflict marker (⚠): dashed copper outline. */
+/** Source-conflict marker (⚠): dashed copper-ink outline. */
 export function ConflictTag({ children, style }: { children: ReactNode; style?: CSSProperties }) {
   return (
     <span
       style={{
         alignSelf: 'flex-start',
-        border: `1px dashed ${color.copperInk}`,
-        color: color.copperInk,
+        border: `1px dashed ${color.warn}`,
+        color: color.warn,
         padding: '1px 5px',
-        ...sg(8.5, 700, '0.06em'),
+        ...ms(8.5, 600),
         ...style,
       }}
     >
@@ -274,7 +441,7 @@ export function ConflictTag({ children, style }: { children: ReactNode; style?: 
 /** Empty-state slot for data the source does not provide. */
 export function EmptySlot({ children, style }: { children: ReactNode; style?: CSSProperties }) {
   return (
-    <span style={{ backgroundImage: hatch.slot, border: `1px solid ${color.ruleStrong}`, ...style }}>{children}</span>
+    <span style={{ backgroundImage: hatch.slot, border: `1px solid ${color.hairline}`, ...style }}>{children}</span>
   );
 }
 
@@ -294,11 +461,19 @@ export function Lede({ children, size = 12, maxWidth = 560, style }: { children:
   );
 }
 
-/** Tinted insight callout under a page title. */
-export function Insight({ children, tone }: { children: ReactNode; tone: string }) {
+/** Insight callout: the page's one-line signal on a grey field. */
+export function Insight({ children }: { children: ReactNode; tone?: string }) {
   return (
-    <div style={{ background: tone, padding: '10px 14px', ...sg(13, 500), lineHeight: 1.45 }}>{children}</div>
+    <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', background: color.field, padding: '10px 14px', ...ms(12.5, 500), lineHeight: 1.5 }}>
+      <StrokeMark color={color.gold} w={5} h={13} style={{ marginTop: 3 }} />
+      <span>{children}</span>
+    </div>
   );
+}
+
+/** Eyebrow above a title: "Chapter · Section", muted sentence case. */
+export function Eyebrow({ children, onNavy = false }: { children: ReactNode; onNavy?: boolean }) {
+  return <span style={{ ...ms(11, 500), color: onNavy ? color.onNavyMuted : color.muted }}>{children}</span>;
 }
 
 /** Ruled section heading: bold tracked title left, meta right. */
@@ -309,12 +484,12 @@ export function RuledHead({ title, meta, metaStyle, pad = 6 }: { title: ReactNod
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-        borderBottom: `2px solid ${color.ink}`,
+        borderBottom: `1px solid ${color.navy}`,
         paddingBottom: pad,
       }}
     >
-      <span style={sg(12, 700, '0.14em')}>{title}</span>
-      {meta && <span style={{ fontSize: 9, color: color.subtle, ...metaStyle }}>{meta}</span>}
+      <span style={sg(13, 700)}>{typeof title === 'string' ? sentence(title) : title}</span>
+      {meta && <span style={{ fontSize: 9, color: color.muted, ...metaStyle }}>{meta}</span>}
     </div>
   );
 }
@@ -330,7 +505,7 @@ export function Stack({ gap, children, style }: { gap: number; children: ReactNo
   return <div style={{ ...col, gap, ...style }}>{children}</div>;
 }
 
-/** Table header band (dark ink row). */
+/** Table header band: grey-2 field, navy text, navy rule beneath. */
 export function TableHead({
   columns,
   cells,
@@ -351,9 +526,10 @@ export function TableHead({
         gridTemplateColumns: columns,
         gap,
         padding: pad,
-        background: color.ink,
-        color: color.white,
-        ...sg(size, 600, '0.12em'),
+        background: color.field,
+        color: color.navy,
+        borderBottom: `1px solid ${color.navy}`,
+        ...sg(size, 700, '0.1em'),
       }}
     >
       {cells.map((c, i) => (

@@ -13,6 +13,24 @@ npm run pdf        # build, then export validisory-report.pdf (A4, bookmarks, in
 
 `npm run pdf` uses the playwright-core managed Chromium; set `CHROMIUM_PATH` to use another binary.
 
+## Visual system: Signal Strokes
+
+The print template follows the approved **Signal Strokes** report concept
+(Validisory Admin Panel, approved 22 Oct 2026) on the Validisory design system:
+
+- **The stroke meter**: the three 45° strokes of the logo as the instrument.
+  Filled strokes are navy (white on navy), the last filled stroke is gold,
+  and empty strokes are grey (`Strokes`). The running header carries a
+  chapter rail with one stroke per TOC section.
+- **Verdict marks**: the cut corner is the only shape that carries a decision.
+  Fill follows confidence: solid (GO), tone (Conditional-Go, Revalidate),
+  outline (No-Go, Stop) (`VerdictMark`).
+- **Fields, not boxes**: navy field for the signal (cover, decision hero, key
+  findings), white for detail, grey-2 for the workbench. Hairlines only for tables.
+- **Two sizes**: numbers in Space Grotesk Bold, text in Montserrat.
+- Teal, gold and copper are accents only (stroke tips, chart series, status
+  strokes). Lilac is not a Validisory colour and is not used.
+
 ## Layout
 
 | Path | Role |

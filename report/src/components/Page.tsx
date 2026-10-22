@@ -2,23 +2,29 @@ import type { CSSProperties, ReactNode } from 'react';
 import { color, family as families, font } from '../theme/tokens';
 import { useReport } from '../report-context';
 import type { Family } from '../model/types';
-import { sg } from './ui';
+import { ms, sg, Strokes } from './ui';
 import { pageId } from '../pages/section';
 
 const LOGO_BLUE = 'assets/validisory-logo-blue.svg';
 
-/** Running header: section number · family · page section, logo right. */
+/**
+ * Running header: the chapter rail (one stroke per TOC section, filled up to
+ * this page's section, gold tip on it), the section breadcrumb, logo right.
+ */
 export function PageHeader({
   number,
   family,
   familyLabel,
   section,
+  sectionIndex,
 }: {
   number?: string;
   family?: Family;
   familyLabel?: string;
   section: string;
+  sectionIndex?: number;
 }) {
+  const { toc } = useReport();
   const f = family ? families[family] : undefined;
   return (
     <div
@@ -26,21 +32,26 @@ export function PageHeader({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        ...sg(9, 400, '0.14em'),
-        color: color.subtle,
-        borderBottom: `1px solid ${color.rule}`,
-        paddingBottom: 8,
+        gap: 16,
+        ...ms(10, 500),
+        color: color.muted,
+        borderBottom: `1px solid ${color.hairline}`,
+        paddingBottom: 9,
       }}
     >
-      {f && number ? (
-        <span style={{ display: 'flex', gap: 10 }}>
-          <b style={{ color: f.ink }}>{number}</b>
-          <span style={{ fontWeight: 600 }}>{familyLabel ?? f.label}</span>
-          <span>/ {section}</span>
-        </span>
-      ) : (
-        <span style={{ fontWeight: 600 }}>{section}</span>
-      )}
+      <span style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        {sectionIndex && <Strokes value={sectionIndex} of={toc.length} n={toc.length} w={3} h={11} gap={2} />}
+        {f && number ? (
+          <span style={{ display: 'flex', gap: 6 }}>
+            <b style={{ ...sg(10, 700), color: color.navy }}>{number}</b>
+            <span>{familyLabel ?? f.label}</span>
+            <span aria-hidden="true">·</span>
+            <span style={{ color: color.navy, fontWeight: 600 }}>{section}</span>
+          </span>
+        ) : (
+          <span style={{ color: color.navy, fontWeight: 600 }}>{section}</span>
+        )}
+      </span>
       <img src={LOGO_BLUE} alt="Validisory" style={{ height: 22, width: 'auto', display: 'block' }} />
     </div>
   );
@@ -54,15 +65,15 @@ export function PageFooter({ page, source }: { page: number; source?: string }) 
       style={{
         display: 'flex',
         justifyContent: 'space-between',
-        fontSize: 9,
-        color: color.subtle,
-        borderTop: `1px solid ${color.rule}`,
+        ...ms(9, 400),
+        color: color.muted,
+        borderTop: `1px solid ${color.hairline}`,
         paddingTop: 8,
       }}
     >
       <span>{meta.ventureName} · Venture Validation Report · Confidential</span>
       {source && <span>{source}</span>}
-      <span style={{ ...sg(9, 700), color: color.ink }}>{String(page).padStart(2, '0')}</span>
+      <span style={{ ...sg(10, 700), color: color.navy }}>{String(page).padStart(2, '0')}</span>
     </div>
   );
 }
@@ -100,7 +111,7 @@ export function Page({
   bodyPad?: string;
   children: ReactNode;
 }) {
-  const edge = family ? families[family].accent : undefined;
+  const edge = family ? color.navy : undefined;
   return (
     <section className="page" id={pageId(page)} data-screen-label={`${String(page).padStart(2, '0')} ${label}`}>
       <div style={frame}>
@@ -109,7 +120,7 @@ export function Page({
             style={{ position: 'absolute', right: 0, top: 70 + 74 * (sectionIndex - 1), width: 5, height: 64, background: edge }}
           />
         )}
-        <PageHeader number={number} family={family} familyLabel={familyLabel} section={section} />
+        <PageHeader number={number} family={family} familyLabel={familyLabel} section={section} sectionIndex={sectionIndex} />
         <div
           style={{
             flex: 1,

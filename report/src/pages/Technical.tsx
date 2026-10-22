@@ -1,11 +1,11 @@
 import { useReport } from '../report-context';
 import { color } from '../theme/tokens';
 import { Page } from '../components/Page';
-import { ChartTitle, Insight, PageTitle, sg } from '../components/ui';
+import { ms, ChartTitle, Insight, PageTitle, sg } from '../components/ui';
 import { usePageSource, useSection, type PageProps } from './section';
 
 /** Timeline segments step from strong to light gold. */
-const SEG = [color.gold, color.goldMid, color.goldTint];
+const SEG = [color.navy, color.border, color.tint];
 /** Percent of the timeline, floored to 0.1 so labels sit on segment starts. */
 const pctOf = (week: number, total: number) => Math.floor((week / total) * 1000) / 10;
 
@@ -24,15 +24,15 @@ export function Technical({ page }: PageProps) {
   const n = t.dependencies.length;
 
   return (
-    <Page page={page} label="Technical Feasibility" {...useSection('technical')} section="TECHNICAL FEASIBILITY" source={usePageSource('technical')} bodyGap={14}>
+    <Page page={page} label="Technical Feasibility" {...useSection('technical')} section="Technical feasibility" source={usePageSource('technical')} bodyGap={14}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <PageTitle>Technical feasibility</PageTitle>
-        <Insight tone={color.goldSoft}>{t.insight}</Insight>
+        <Insight tone={color.field}>{t.insight}</Insight>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
         <ChartTitle>{tl.title}</ChartTitle>
         <div style={{ position: 'relative', height: 40 }}>
-          <div style={{ position: 'absolute', left: 0, right: 0, top: 14, height: 10, background: color.surface }} />
+          <div style={{ position: 'absolute', left: 0, right: 0, top: 14, height: 10, background: color.field }} />
           {segs.map((s) => (
             <div key={s.label} style={{ position: 'absolute', left: `${s.start}%`, width: `${s.width}%`, top: 14, height: 10, background: s.color }} />
           ))}
@@ -41,8 +41,8 @@ export function Technical({ page }: PageProps) {
               {s.label}
             </span>
           ))}
-          <span style={{ position: 'absolute', left: 0, top: 28, fontSize: 8.5, color: color.subtle }}>0</span>
-          <span style={{ position: 'absolute', right: 0, top: 28, fontSize: 8.5, color: color.subtle }}>{tl.totalWeeks}</span>
+          <span style={{ position: 'absolute', left: 0, top: 28, fontSize: 8.5, color: color.muted }}>0</span>
+          <span style={{ position: 'absolute', right: 0, top: 28, fontSize: 8.5, color: color.muted }}>{tl.totalWeeks}</span>
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 22 }}>
@@ -62,8 +62,8 @@ export function Technical({ page }: PageProps) {
                     top: 0,
                     bottom: 0,
                     width: `${(f.days / maxDays) * 100}%`,
-                    background: f.mustHave ? color.brand : color.white,
-                    border: `1px ${f.mustHave ? 'solid' : 'dashed'} ${color.brand}`,
+                    background: f.mustHave ? color.navy : color.white,
+                    border: `1px ${f.mustHave ? 'solid' : 'dashed'} ${color.navy}`,
                   }}
                 />
               </div>
@@ -82,31 +82,31 @@ export function Technical({ page }: PageProps) {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: `repeat(${n},1fr)`, gap: 4 }}>
               {t.dependencies.map((g) => (
-                <div key={g.group} style={{ border: `1px solid ${color.ruleStrong}`, padding: 6, display: 'flex', flexDirection: 'column', gap: 3 }}>
-                  <span style={{ ...sg(7.5, 700, '0.08em'), color: color.goldInk }}>{g.group}</span>
+                <div key={g.group} style={{ background: color.field, padding: 6, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <span style={{ ...ms(8, 600), color: color.ink }}>{g.group}</span>
                   {g.items.map((i) => (
                     <span key={i} style={{ fontSize: 8.5, lineHeight: 1.3 }}>
                       {i}
                     </span>
                   ))}
-                  <span style={{ fontSize: 7.5, color: color.subtle, marginTop: 'auto' }}>{g.risk}</span>
+                  <span style={{ fontSize: 7.5, color: color.muted, marginTop: 'auto' }}>{g.risk}</span>
                 </div>
               ))}
             </div>
           </div>
           <ChartTitle style={{ marginTop: 4 }}>Scaling triggers · monthly visitors</ChartTitle>
           {t.scaleTriggers.map((s) => (
-            <div key={s.visitors} style={{ display: 'grid', gridTemplateColumns: '42px minmax(0,1fr)', gap: 8, alignItems: 'baseline', borderTop: `1px solid ${color.ruleSoft}`, paddingTop: 5 }}>
-              <span style={{ ...sg(13, 700), color: color.goldInk }}>{s.visitors}</span>
+            <div key={s.visitors} style={{ display: 'grid', gridTemplateColumns: '42px minmax(0,1fr)', gap: 8, alignItems: 'baseline', borderTop: `1px solid ${color.rowRule}`, paddingTop: 5 }}>
+              <span style={{ ...sg(13, 700), color: color.ink }}>{s.visitors}</span>
               <span style={{ fontSize: 9.5, lineHeight: 1.4, color: color.muted }}>{s.action}</span>
             </div>
           ))}
-          <div style={{ background: color.surface, padding: 10, display: 'flex', flexDirection: 'column', gap: 5, fontSize: 9.5, lineHeight: 1.4, color: color.text }}>
-            <span style={{ ...sg(8.5, 700, '0.12em'), color: color.ink }}>TECHNICAL UNKNOWNS</span>
+          <div style={{ background: color.field, padding: 10, display: 'flex', flexDirection: 'column', gap: 5, fontSize: 9.5, lineHeight: 1.4, color: color.ink }}>
+            <span style={{ ...ms(9, 600), color: color.ink }}>Technical unknowns</span>
             {t.unknowns.map((u) => (
               <span key={u}>• {u}</span>
             ))}
-            {t.conflict && <span style={{ color: color.copperInk }}>{t.conflict}</span>}
+            {t.conflict && <span style={{ color: color.warn }}>{t.conflict}</span>}
           </div>
         </div>
       </div>

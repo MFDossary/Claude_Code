@@ -20,19 +20,19 @@ export function RiskRegister({ page }: PageProps) {
       label="Appendix Risk Register"
       number="A"
       family="reference"
-      familyLabel="APPENDIX"
+      familyLabel="Appendix"
       sectionIndex={sectionIndex}
-      section="A.1 RISK REGISTER"
+      section="A.1 Risk register"
       source={usePageSource('risk-register')}
       bodyGap={12}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 20 }}>
         <PageTitle size={26}>A.1 Risk register</PageTitle>
-        <span style={{ fontSize: 9.5, color: color.subtle }}>
+        <span style={{ fontSize: 9.5, color: color.muted }}>
           Sorted by probability × impact · keyed to the matrix on <a href={pageHref('risk')}>p.{pageNo('risk')}</a> · reference density
         </span>
       </div>
-      <div style={{ border: `1px solid ${color.rule}` }}>
+      <div>
         <TableHead
           columns={COLS}
           gap={8}
@@ -48,13 +48,13 @@ export function RiskRegister({ page }: PageProps) {
               gridTemplateColumns: COLS,
               gap: 8,
               padding: '7px 10px',
-              borderBottom: `1px solid ${color.ruleSoft}`,
+              borderBottom: `1px solid ${color.rowRule}`,
               fontSize: 9.5,
               lineHeight: 1.4,
               alignItems: 'start',
             }}
           >
-            <span style={{ ...sg(9.5, 700), color: color.copperInk }}>{r.id}</span>
+            <span style={{ ...sg(9.5, 700), color: color.ink }}>{r.id}</span>
             <span style={{ fontWeight: 600 }}>{r.title}</span>
             <span style={{ color: color.muted }}>{r.category}</span>
             <span style={sg(8.5, 600)}>{r.probability.toUpperCase()}</span>
@@ -70,7 +70,7 @@ export function RiskRegister({ page }: PageProps) {
               hatched={false}
               style={{ justifySelf: 'start' }}
             />
-            <span style={{ color: color.text }}>{r.mitigation}</span>
+            <span style={{ color: color.ink }}>{r.mitigation}</span>
           </div>
         ))}
       </div>

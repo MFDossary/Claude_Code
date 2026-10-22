@@ -1,48 +1,45 @@
 import type { Family } from '../model/types';
 
 /**
- * Validisory report design tokens.
- * Brand colours come from the Validisory brand guideline; neutrals and tints
- * are the report system's semantic surfaces.
+ * Validisory report design tokens: the approved "Signal Strokes" concept
+ * (Validisory Admin Panel, approved 22 Oct 2026) on the Validisory design
+ * system (Brand Book v2).
+ *
+ * - Grounds, not boxes: navy field (the signal), white (the detail),
+ *   grey-2 (the workbench). Hairlines only for tables and rules.
+ * - Navy is the ink. Teal, gold and copper are accents only: stroke tips,
+ *   chart series and status strokes, never grounds or running text.
+ * - Gold marks the signal tip, the last filled stroke of a meter.
+ * - Lilac is not a Validisory colour (Brand Book v2) and is not used.
  */
 export const color = {
   // Brand
-  brand: '#0B0A81', // deep ink blue: primary, decision intelligence
-  lilac: '#DFC6FF', // brand accent
-  lilacSoft: '#F1E8FF',
-  teal: '#0F8B8D', // market & customer
-  tealInk: '#0B6466',
-  tealSoft: '#E2F1F1',
-  tealTint: '#9FD0D1',
-  gold: '#C9A227', // economics & execution
-  goldInk: '#7A6214',
-  goldSoft: '#F7F0DA',
-  goldTint: '#EADFB9',
-  goldMid: '#DCC36F',
-  copper: '#B87333', // risk & regulatory
-  copperInk: '#8A4F1C',
-  copperSoft: '#F6EADF',
-  copperTint: '#E8D3C0',
-  critical: '#7A2E14',
-  criticalTint: '#F1DDD3',
-  periwinkle: '#5B5AB8',
-
-  // Ink + neutrals
-  ink: '#12113A',
-  text: '#2B2A4A',
-  muted: '#4A4968',
-  subtle: '#6E6D88',
-  faint: '#B9B8E6',
-  rule: '#E3E1EE',
-  ruleSoft: '#EFEDF5',
-  ruleFaint: '#F3F1F8',
-  ruleStrong: '#C9C6DC',
-  surface: '#F5F4FA',
-  track: '#ECEAF5',
+  navy: '#0B0A81',
+  navyRaised: '#121197', // raised surface on a navy field (navy-3)
+  navyRule: '#1919AE', // rules and empty strokes on a navy field (navy-5)
+  onNavyMuted: '#BBBADC', // secondary text on navy (8.1:1)
   white: '#FFFFFF',
-  coverRule: '#4A49A8',
-  coverText: '#E9E2FF',
+
+  // Accents (strokes, series, status only)
+  teal: '#0F8B8D',
+  gold: '#C9A227',
+  copper: '#B87333',
+  /** Warning text for source conflicts (⚠) only. */
+  warn: '#8A4F1C',
+
+  // Ink and neutrals on white
+  ink: '#0B0A81', // primary text = navy
+  muted: '#4F4FA4', // secondary text (7.0:1 on white)
+  hairline: '#CECEE6', // 1px rules, table borders
+  rowRule: '#EDEDED', // row separators (grey-3)
+  field: '#F6F6F6', // the workbench ground (grey-2)
+  strokeOff: '#DADADA', // empty strokes on white (grey-5)
+  border: '#6D6CB3', // control and outline borders (≥3:1)
+  tint: '#9D9DCE', // light navy: second series, range extensions
 } as const;
+
+/** Navy ramp for heatmaps (light → dark); white text from step 4. */
+export const heatRamp = ['#E7E7F3', '#CECEE6', '#9D9DCE', '#6D6CB3', '#3C3B9A'] as const;
 
 export const font = {
   display: "'Space Grotesk'",
@@ -51,16 +48,19 @@ export const font = {
 
 /** Diagonal hatch: the "data not provided" empty-state pattern. */
 export const hatch = {
-  fine: `repeating-linear-gradient(135deg,${color.ruleStrong} 0 2px,${color.white} 2px 4px)`,
-  slot: `repeating-linear-gradient(135deg,${color.track} 0 4px,${color.white} 4px 8px)`,
-  wide: `repeating-linear-gradient(135deg,${color.surface} 0 6px,${color.white} 6px 12px)`,
+  fine: `repeating-linear-gradient(135deg,${color.hairline} 0 2px,${color.white} 2px 4px)`,
+  slot: `repeating-linear-gradient(135deg,${color.rowRule} 0 4px,${color.white} 4px 8px)`,
+  wide: `repeating-linear-gradient(135deg,${color.field} 0 6px,${color.white} 6px 12px)`,
 } as const;
 
-/** Section families. Each analytical family owns one accent. */
-export const family: Record<Family, { label: string; accent: string; ink: string }> = {
-  decision: { label: 'DECISION INTELLIGENCE', accent: color.brand, ink: color.brand },
-  market: { label: 'MARKET & CUSTOMER', accent: color.teal, ink: color.tealInk },
-  economics: { label: 'ECONOMICS & EXECUTION', accent: color.gold, ink: color.goldInk },
-  risk: { label: 'RISK & REGULATORY', accent: color.copper, ink: color.copperInk },
-  reference: { label: 'REFERENCE', accent: color.subtle, ink: color.muted },
+/**
+ * Section families. `label` is the sentence-case chapter name; `accent` is
+ * the colour of the family's marker stroke (never text or a ground).
+ */
+export const family: Record<Family, { label: string; accent: string }> = {
+  decision: { label: 'Decision intelligence', accent: color.navy },
+  market: { label: 'Market & customer', accent: color.teal },
+  economics: { label: 'Economics & execution', accent: color.gold },
+  risk: { label: 'Risk & regulatory', accent: color.copper },
+  reference: { label: 'Reference', accent: color.muted },
 };
