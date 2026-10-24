@@ -77,7 +77,7 @@ export const microTutorialsAi: ReportData = {
 
   decisionCase: {
     intro:
-      "Seven material conditions, taken from the report's kill-switches, critical path and risk register. None is yet strongly evidenced.",
+      "Seven conditions, taken from the report's kill-switches, priority path and risk register. None is yet strongly evidenced.",
     conditions: [
       { title: 'Long-tail error searches convert into organic traffic', assessment: '1.5–3.5M monthly US WordPress error searches exist [9]. Kill-switch: under 5,000 visitors/month after 6 months and 100+ tutorials. 100% of acquisition is organic.', refs: 'Refs [9] [13] · Kill-switch 1 · Critical path', evidence: 'partial', importance: 'material', exposure: 'critical' },
       { title: 'SMB owners will pay €9/month for premium', assessment: '2–5% conversion is a target. Willingness-to-pay interviews are an immediate action and have not been run yet.', refs: 'Refs [11] · Immediate action 1 · Risk #5', evidence: 'unvalidated', importance: 'material', exposure: 'high' },

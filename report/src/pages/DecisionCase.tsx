@@ -2,11 +2,19 @@ import { useReport } from '../report-context';
 import { color } from '../theme/tokens';
 import { Page } from '../components/Page';
 import { EvidenceBadge, ExposureChip, Lede, PageTitle, Rich, sg, ms } from '../components/ui';
-import { importanceLabel } from '../model/states';
-import type { Evidence } from '../model/types';
+import type { Evidence, Exposure } from '../model/types';
 import { usePageSource, useSection, type PageProps } from './section';
 
-const COLS = '44px minmax(0,1fr) 112px 100px 112px';
+const COLS = '44px minmax(0,1fr) 112px 140px';
+
+/** Weight shown for a Condition, from the risk register's exposure if it is wrong. */
+const WEIGHT: Record<Exposure, string> = {
+  critical: 'Material',
+  high: 'Contributing',
+  moderate: 'Contributing',
+  low: 'Minor',
+  undetermined: 'Not yet determined',
+};
 
 /** The decision case: MaterialCondition rows (signature component). */
 export function DecisionCase({ page }: PageProps) {
@@ -25,11 +33,11 @@ export function DecisionCase({ page }: PageProps) {
     <Page page={page} label="Decision Case" {...useSection('case')} section="The decision case" source={usePageSource('decision-case')} bodyGap={16} bodyPad="13px 0 14px">
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 230px', gap: 24, alignItems: 'end' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <PageTitle>What must be true for this venture to work?</PageTitle>
+          <PageTitle>Conditions your venture depends on</PageTitle>
           <Lede size={12.5} maxWidth="none">{decisionCase.intro}</Lede>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span style={{ ...ms(11, 600) }}>Evidence profile ◇</span>
+          <span style={{ ...ms(11, 600) }}>Strength profile ◇</span>
           <div role="img" aria-label={profile.map((p) => `${p.n} ${p.e}`).join(', ')} style={{ display: 'flex', gap: 5, padding: '0 9px' }}>
             {profile.flatMap((p) =>
               Array.from({ length: p.n }, (_, k) => (
@@ -49,9 +57,8 @@ export function DecisionCase({ page }: PageProps) {
         <div style={{ display: 'grid', gridTemplateColumns: COLS, gap: 0, ...ms(9, 600), color: color.muted, padding: '0 0 2px' }}>
           <span />
           <span style={{ paddingLeft: 14 }}>CONDITION · CURRENT ASSESSMENT</span>
-          <span style={{ paddingLeft: 10 }}>EVIDENCE</span>
-          <span style={{ paddingLeft: 10 }}>IMPORTANCE</span>
-          <span style={{ paddingLeft: 10 }}>EXPOSURE IF WRONG</span>
+          <span style={{ paddingLeft: 10 }}>STRENGTH</span>
+          <span style={{ paddingLeft: 10 }}>WEIGHT</span>
         </div>
         {conds.map((c, i) => (
           <div key={i} style={{ display: 'grid', gridTemplateColumns: COLS, background: color.field, alignItems: 'stretch' }}>
@@ -77,9 +84,8 @@ export function DecisionCase({ page }: PageProps) {
             <div style={cell}>
               <EvidenceBadge evidence={c.evidence} pip={6} gap={4} size={9} />
             </div>
-            <div style={{ ...cell, ...ms(9.5, 600), lineHeight: 1.5 }}>{importanceLabel[c.importance]}</div>
             <div style={{ padding: 10, borderLeft: `2px solid ${color.white}` }}>
-              <ExposureChip exposure={c.exposure} style={{ display: 'inline-flex' }} />
+              <ExposureChip exposure={c.exposure} label={WEIGHT[c.exposure]} style={{ display: 'inline-flex' }} />
             </div>
           </div>
         ))}
@@ -89,7 +95,7 @@ export function DecisionCase({ page }: PageProps) {
         <span style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <span style={{ ...ms(12, 500), lineHeight: 1.45 }}>{decisionCase.reading}</span>
           <span style={{ fontSize: 8.5, color: color.onNavyMuted }}>
-            ◇ States are template-derived. Exposure maps the risk register (probability × impact). "Critical" means the source calls it existential.
+            ◇ States are template-derived. Weight maps the risk register (probability × impact). Material means the source calls the risk existential.
           </span>
         </span>
       </div>
